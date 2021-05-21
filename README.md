@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/badge/django-3.2.2-green)
 ![](https://img.shields.io/badge/HTML-pink)
 ![](https://img.shields.io/badge/CSS-blue)
