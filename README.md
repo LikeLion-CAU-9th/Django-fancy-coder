@@ -17,7 +17,7 @@
 |    인세훈     | dlstpgns0406@gmail.com |
 |    민정호     |alswjdgh5095@gmail.com |
 |    박채연     | 
-|    이성민     | 
+|    이성민     | seongmin221@naver.com |
  
 ## Service
 ### How to
