@@ -69,27 +69,4 @@ git commit -m "text"
 |    [style]    | 코드에 대한 스타일을 바꿀 때                       |
 | [docs(guide)] | 문서 작업을 할 때                                  |
 
-## Convention
-#### 1. test.py 작성
-- 기능에 대한 validation을 할 수 있는 test code를 작성
-- 기능에 대한 문제가 날만한 test code를 작성
-
-#### 2. method
-- CRUD 순서로 함수 작성
-
-#### 3. import
-- module을 import 해야될 때는 무조건 알파벳 순서로 정리
-
-#### 4. python
-- class, function 간의 간격은 무조건 2줄
-- class내의 def (method)의 경우에 간격은 무조건 1줄
-
-#### 5. comments
-- 로직, class, function에 대한 설명의 주석 작성
-- 단 가장 중요한 것은 naming을 잘 지을 것.
-- 사용이 안되는 코드의 주석은 무조건 삭제하고 pull request
-
-## Merge Rule
-- merge는 확실하게 된 pull request만 할 것
-- 에러나 convention이 잘 지켜지지 않았을 경우 코드리뷰를 하거나 보고 수정을 할 것 
 
