@@ -81,7 +81,7 @@ a {
         font-size: 1.5rem;
     }
     .et-hero-tabs h3, .et-slide h3 {
-        font-size: 0.8rem;
+        font-size: 1.0rem;
    }
     .et-hero-tab {
         font-size: 1rem;
@@ -136,3 +136,7 @@ a {
     color : brown;
   }
 
+hr {
+    border: solid 2px gray;
+    width: 35%;
+  }
