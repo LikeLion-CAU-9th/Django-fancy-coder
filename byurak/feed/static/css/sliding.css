@@ -58,8 +58,8 @@ a {
     font-size: 0.8rem;
 }
 .et-hero-tab:hover {
-    color: white;
-    background: #DAA520;
+    color: #1C9FD7;
+    background: #FFFFFF;
     transition: all 0.5s ease;
 }
 .et-hero-tab-slider {
@@ -67,7 +67,7 @@ a {
     bottom: 0;
     width: 0;
     height: 6px;
-    background: #DAA520;
+    background: #FFDC61;
     transition: left 0.3s ease;
 }
 @media (min-width: 800px) {
@@ -76,8 +76,12 @@ a {
         font-weight: 800;
 
    }
+
+    .et-hero-tabs h2, .et-slide h2 {
+        font-size: 1.5rem;
+    }
     .et-hero-tabs h3, .et-slide h3 {
-        font-size: 1rem;
+        font-size: 0.8rem;
    }
     .et-hero-tab {
         font-size: 1rem;
@@ -86,8 +90,8 @@ a {
 
 .button:hover {
 	background-color: #fff;
-	border-color: #4a281e;
-	color: #4a281e;
+	border-color: #1C9FD7;
+	color: #1C9FD7;
 }
 
 .button {
@@ -98,8 +102,8 @@ a {
 	text-decoration: none;
 	line-height: 54px;
     outline: none;
-    background-color: #4a281e;
-	border: 2px solid #4a281e;
+    background-color: #1C9FD7;
+	border: 2px solid #1C9FD7;
 	color: #fff;
     line-height: 50px;
     border-radius: 14px;
