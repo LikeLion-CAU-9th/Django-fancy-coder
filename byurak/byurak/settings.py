@@ -38,6 +38,7 @@ DEFAULT_APPS = [
 
 PROJECT_APPS = [
     'accounts',
+    'feed'
 ]
 
 COMMON_APPS = [
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'byurak.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'byurak/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
