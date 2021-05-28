@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/JS-yellow)
 ![](https://img.shields.io/badge/Pillow-8.2.0-red)
 
-# Fancy coder
+# Philo coder
 **Fancy coder**`s cool Project
 
 ## Contributor
