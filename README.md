@@ -20,6 +20,10 @@
 |    이성민     | seongmin221@naver.com |
  
 ## Service
+   
+### Idea Description
+- Matching service to prepare for interviews, studies, and certifications in a short time
+
 ### How to
 ```console
 $ git clone https://github.com/LikeLion-CAU-9th/Django-project-Daman.git
@@ -39,10 +43,14 @@ $ pip install -r requirements.txt
 ```console
 $ pip freeze > requirements.txt 
 ```
-
-   
-### Idea Description
-- Matching service to prepare for interviews, studies, and certifications in a short time
+#### Docker
+- if there is no `Redis` container
+```bash
+$ docker ps
+```
+```bash
+$ docker run -p 6379:6379 -d redis:5
+```
 
 ## Branch structure
 
@@ -68,5 +76,3 @@ git commit -m "text"
 |  [refactor]   | 올바르지 않은 로직을 고친 경우에 사용              |
 |    [style]    | 코드에 대한 스타일을 바꿀 때                       |
 | [docs(guide)] | 문서 작업을 할 때                                  |
-
-
