@@ -8,8 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', service_landing, name="landing"),
     path('feed/', include('feed.urls')),
-    path('chat/', include('chat.urls')),
-    path('account/', include('account.urls'))
+    path('chat/', include('chat.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
