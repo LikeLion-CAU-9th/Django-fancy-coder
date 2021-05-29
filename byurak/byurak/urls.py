@@ -7,7 +7,9 @@ from feed.views import service_landing
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', service_landing, name="landing"),
-    path('', include('feed.urls'))
+    path('feed/', include('feed.urls')),
+    path('chat/', include('chat.urls')),
+    path('account/', include('account.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
