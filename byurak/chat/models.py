@@ -1,7 +1,10 @@
+import uuid
+
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.auth.models import User
 from channels.db import database_sync_to_async
+
 from chat.managers import MessageManager
 
 
