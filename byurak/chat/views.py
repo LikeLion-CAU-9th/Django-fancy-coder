@@ -16,8 +16,8 @@ def index(request):
         except:
             chat_room_index[chat_room_no] = 1
 
-    return render(request, 'chat/index.html', {'chat_room': chat_room_index, 'chat_member': chat_room_member})
+    return render(request, 'index.html', {'chat_room': chat_room_index, 'chat_member': chat_room_member})
 
 
 def room(request, room_name):
-    return render(request, 'chat/room.html', {'room_name': room_name})
+    return render(request, 'room.html', {'room_name': room_name})

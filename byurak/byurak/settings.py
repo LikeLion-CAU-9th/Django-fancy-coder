@@ -77,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'byurak.wsgi.application'
-ASGI_APPLICATION = "chat_server.asgi.application"
+ASGI_APPLICATION = "byurak.asgi.application"
 
 CHANNEL_LAYERS = {
     'default': {
