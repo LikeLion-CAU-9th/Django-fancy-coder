@@ -58,12 +58,17 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         user = self.scope["user"].username
         username = await sync_to_async(self.get_user)(user)
+        # user_test = self.get_user(user)
+        print(user)
         print(username.id)
-
+        print(username)
+        user_info=await sync_to_async(User.objects.get, thread_sensitive=True)(username=username)
+        # print(user_info)
         await Message.objects.async_create(
             object_id=chatroom_id,
             user_id=username.id,
-            content=message
+            content=message,
+            user_info=user_info
         )
 
         # Send message to room group
