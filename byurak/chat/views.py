@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from chat.models import ChattingRoom
-
+from chat.models import Message
 
 def index(request):
     chat_room = ChattingRoom.objects.all()
@@ -16,8 +16,15 @@ def index(request):
         except:
             chat_room_index[chat_room_no] = 1
 
-    return render(request, 'index.html', {'chat_room': chat_room_index, 'chat_member': chat_room_member})
+    return render(request, 'index.html', {
+        'chat_room': chat_room_index, 
+        'chat_member': chat_room_member,
+        'chat_room_all': chat_room
+        }
+        )
 
 
 def room(request, room_name):
-    return render(request, 'room.html', {'room_name': room_name})
+    messages = Message.objects.filter(object_id=int(room_name))
+
+    return render(request, 'room.html', {'room_name': room_name,  'messages':messages})

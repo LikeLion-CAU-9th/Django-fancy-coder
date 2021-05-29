@@ -39,6 +39,7 @@ class ChattingModel(BaseChatModel):
 
 class Message(ChattingModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user_info = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user', null=True, blank=True)
     object_id = models.PositiveIntegerField(verbose_name='채팅방 아이디')
     user_id = models.PositiveIntegerField(db_index=True, verbose_name='유저 아이디')
     content = models.TextField(verbose_name='내용')
