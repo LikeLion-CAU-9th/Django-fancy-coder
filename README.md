@@ -4,6 +4,9 @@
 ![](https://img.shields.io/badge/CSS-blue)
 ![](https://img.shields.io/badge/JS-yellow)
 ![](https://img.shields.io/badge/Pillow-8.2.0-red)
+![](https://img.shields.io/badge/Channels-3.0.3-pink)
+![](https://img.shields.io/badge/ChannelsRedis-3.0.3-pink)
+
 
 # Philo coder
 **Fancy coder**`s cool Project
@@ -31,11 +34,11 @@
 - Coummity : Can freely communicate by posting and commenting
 ### How to
 ```console
-$ git clone https://github.com/LikeLion-CAU-9th/Django-project-Daman.git
+$ git clone https://github.com/LikeLion-CAU-9th/Philo-coders.git
 $ git pull origin develop
 $ python -m venv myvenv
 $ source myvenv/scripts/activate  mac) source myvenv/bin/activate
-$ cd Webeing
+$ cd Byurak
 $ ./manage.py makemigrations
 $ ./manage.py migrate
 $ ./manage.py runserver
@@ -48,6 +51,7 @@ $ pip install -r requirements.txt
 ```console
 $ pip freeze > requirements.txt 
 ```
+
 #### Docker
 - if there is no `Redis` container
 ```bash
@@ -67,7 +71,6 @@ $ docker run -p 6379:6379 -d redis:5
 
 * Feature branch : Branch to develop the function ex)feature/profile
 * Fix branch : Branch to fix the function ex)fix/profile
-
 
 
 ## Commit rule
