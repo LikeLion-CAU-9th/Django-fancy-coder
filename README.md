@@ -16,14 +16,19 @@
 |    최윤한(Leader)     |unusualc@likelion.org | 
 |    인세훈     | dlstpgns0406@gmail.com |
 |    민정호     |alswjdgh5095@gmail.com |
-|    박채연     | 
+|    박채연     | pcy9472@gmail.com|
 |    이성민     | seongmin221@naver.com |
  
 ## Service
    
 ### Idea Description
 - Matching service to prepare for interviews, studies, and certifications in a short time
-
+### Service Function
+- Account : Supports `social login`
+- feed : Provides relecant information
+- Gruop : `Mentors` and `Mentees` can share information through groups
+- Chatting : Can communicate with people in your group.
+- Coummity : Can freely communicate by posting and commenting
 ### How to
 ```console
 $ git clone https://github.com/LikeLion-CAU-9th/Django-project-Daman.git
