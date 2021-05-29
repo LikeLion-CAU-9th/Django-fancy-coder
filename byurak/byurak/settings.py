@@ -38,11 +38,12 @@ DEFAULT_APPS = [
 
 PROJECT_APPS = [
     'accounts',
-    'feed'
+    'feed',
+    'chat'
 ]
 
 COMMON_APPS = [
-
+    'channels'
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + PROJECT_APPS + COMMON_APPS
@@ -76,7 +77,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'byurak.wsgi.application'
+ASGI_APPLICATION = "byurak.asgi.application"
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 DATABASES = {
     'default': {
