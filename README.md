@@ -31,7 +31,7 @@
 - Coummity : Can freely communicate by posting and commenting
 ### How to
 ```console
-$ git clone https://github.com/LikeLion-CAU-9th/Django-project-Daman.git
+$ git clone https://github.com/LikeLion-CAU-9th/Philo-coders.git
 $ git pull origin develop
 $ python -m venv myvenv
 $ source myvenv/scripts/activate  mac) source myvenv/bin/activate
