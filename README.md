@@ -16,10 +16,19 @@
 |    최윤한(Leader)     |unusualc@likelion.org | 
 |    인세훈     | dlstpgns0406@gmail.com |
 |    민정호     |alswjdgh5095@gmail.com |
-|    박채연     | 
+|    박채연     | pcy9472@gmail.com|
 |    이성민     | seongmin221@naver.com |
  
 ## Service
+   
+### Idea Description
+- Matching service to prepare for interviews, studies, and certifications in a short time
+### Service Function
+- Account : Supports `social login`
+- feed : Provides relecant information
+- Gruop : `Mentors` and `Mentees` can share information through groups
+- Chatting : Can communicate with people in your group.
+- Coummity : Can freely communicate by posting and commenting
 ### How to
 ```console
 $ git clone https://github.com/LikeLion-CAU-9th/Django-project-Daman.git
@@ -39,10 +48,14 @@ $ pip install -r requirements.txt
 ```console
 $ pip freeze > requirements.txt 
 ```
-
-   
-### Idea Description
-- Matching service to prepare for interviews, studies, and certifications in a short time
+#### Docker
+- if there is no `Redis` container
+```bash
+$ docker ps
+```
+```bash
+$ docker run -p 6379:6379 -d redis:5
+```
 
 ## Branch structure
 
@@ -68,5 +81,3 @@ git commit -m "text"
 |  [refactor]   | 올바르지 않은 로직을 고친 경우에 사용              |
 |    [style]    | 코드에 대한 스타일을 바꿀 때                       |
 | [docs(guide)] | 문서 작업을 할 때                                  |
-
-
