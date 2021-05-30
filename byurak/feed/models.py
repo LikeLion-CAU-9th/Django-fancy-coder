@@ -19,5 +19,5 @@ class Post(models.Model):
     title=models.CharField(max_length=100)
     image=models.ImageField(upload_to=uuid_name_upload_to, blank=True, null=True)
     body=models.TextField(help_text="본문을 입력하세요")
-    datetime=models.DateTimeField(default=timezone)
+    date_time=models.DateTimeField(default=timezone.now)
     created_at=models.DateField(auto_now_add=True)
