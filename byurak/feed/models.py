@@ -1,6 +1,7 @@
 from django.db import models
 from uuid import uuid4
 from datetime import datetime
+from django.utils import timezone
 import os
 
 def uuid_name_upload_to(instance, filename):
@@ -14,10 +15,9 @@ def uuid_name_upload_to(instance, filename):
     ])
 
 # Create your models here.
-class Board(models.Model):
-    host=models.ForeignKey(User,related_name="host", on_delete=models.CASCADE, blank=True, null=True)
+class Post(models.Model):
     title=models.CharField(max_length=100)
     image=models.ImageField(upload_to=uuid_name_upload_to, blank=True, null=True)
     body=models.TextField(help_text="본문을 입력하세요")
+    datetime=models.DateTimeField(default=timezone)
     created_at=models.DateField(auto_now_add=True)
-
