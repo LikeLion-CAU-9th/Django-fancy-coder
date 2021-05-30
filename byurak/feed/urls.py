@@ -6,11 +6,11 @@ app_name = 'feed'
 
 urlpatterns = [
     path('', service_landing, name="landing"),
-    path('home', board_home, name="board_home"),
-    path('create/', board_create, name="board_create"),
-    path('update/<int:pk>', board_update, name="board_update"),
-    path('delete/<int:pk>', board_delete, name="board_delete"),
-    path('list/', board_list, name="board_list"),
-    path('detail/<int:pk>', board_detail, name="board_detail"),
+    path('home/', post_home, name="post_home"),
+    path('create/', post_create, name="post_create"),
+    path('update/<int:pk>', post_update, name="post_update"),
+    path('delete/<int:pk>', post_delete, name="post_delete"),
+    path('list/', post_list, name="post_list"),
+    path('detail/<int:pk>', post_detail, name="post_detail"),
 ]
 
