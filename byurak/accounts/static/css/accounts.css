@@ -1,0 +1,47 @@
+body{
+    background-color: rgba(247, 249, 251, 1);
+    font-size: 50px;
+}
+
+.col-content{
+    margin:auto;
+    width:1500px;
+}
+
+.col-content-id{
+    font-size: 50px;
+    text-align: center;
+    
+}
+
+.setting-button{
+    background-size:cover;
+    background-position: center;
+    background-image:url('settings.png');
+    background-repeat:no-repeat;
+    background-color:transparent;
+    border:none;
+    vertical-align: center;
+}
+
+.btn-set{
+    display:block;
+}
+
+.chatting-btn{
+    background-color: rgba(28, 159, 215, 1);
+    font-size:20px;
+    border: none;
+    border-radius:15px;
+    color: white;
+    padding: 15px 32px;
+}
+
+.popularity-btn{
+    background-color: rgba(28, 159, 215, 1);
+    font-size:20px;
+    border: none;
+    border-radius:15px;
+    color: white;
+    padding: 15px 32px;
+}
