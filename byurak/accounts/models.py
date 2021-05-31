@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from accounts.managers import UserManager
 
 
-class AddressInformation:
+class AddressCategory:
     FIRST_REGION = 'first_region'
     SECOND_REGION = 'second_region'
     THIRD_REGION =  'third_region'
@@ -23,6 +23,29 @@ class AddressInformation:
         (SEVENTH_REGION, '서대문구, 은평구'),
         (EIGHTH_REGION, '관악구, 금천구, 동장구'),
     ]
+
+
+class InterestCategory:
+    COMPUTER = 'Computer'
+    ENGLISH = 'English'
+    UNIVERSITY_ENTRANCE = 'University_entrance'
+    CERTIFICATE = 'Certificate'
+    FOREIGN_LANGUAGE = 'Foreign_language'
+    DESIGN = 'Design'
+    INTERVIEW = 'Interview'
+    ETC = 'Etc'
+
+    INTEREST_TYPES = [
+        (COMPUTER, '컴퓨터'),
+        (ENGLISH, '영어'),
+        (UNIVERSITY_ENTRANCE, '대입'),
+        (CERTIFICATE, '자격증'),
+        (FOREIGN_LANGUAGE, '외국어'),
+        (DESIGN, '디자인'),
+        (INTERVIEW, '면접'),
+        (ETC, '기타'),
+    ]
+
 
 
 class User(AbstractBaseUser):
