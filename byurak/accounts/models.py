@@ -34,6 +34,7 @@ class InterestCategory:
     DESIGN = 'Design'
     INTERVIEW = 'Interview'
     ETC = 'Etc'
+    NONE = 'None'
 
     INTEREST_TYPES = [
         (COMPUTER, '컴퓨터'),
@@ -44,6 +45,7 @@ class InterestCategory:
         (DESIGN, '디자인'),
         (INTERVIEW, '면접'),
         (ETC, '기타'),
+        (NONE, '없음')
     ]
 
 
@@ -55,7 +57,10 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    region_type = models.CharField(max_length=30, choices=AddressInformation.REGION_TYPES, default=AddressInformation.FIRST_REGION, help_text='지역 등록')
+    region_type = models.CharField(max_length=30, choices=AddressCategory.REGION_TYPES, default=AddressCategory.FIRST_REGION, help_text='지역 등록')
+    interest_type1 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
+    interest_type2 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
+    interest_type3 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
     nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
