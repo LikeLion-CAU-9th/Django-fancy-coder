@@ -3,15 +3,26 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone_number, nickname, password=None):
+    def create_user(
+        self,
+        name,
+        email,
+        phone_number,
+        nickname,
+        region_type,
+        birth_day,
+        password=None
+    ):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
+            name=name,
             email=self.normalize_email(email),
-            nickname=nickname,
             phone_number=phone_number,
-            # phoneNumber = phoneNumber,
+            nickname=nickname,
+            region_type=region_type,
+            birth_day=birth_day,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -27,5 +38,9 @@ class UserManager(BaseUserManager):
 
         )
         user.is_admin = True
+        is_signup_finish = True
+        is_signup_first_step = True
+        is_login = True
+        
         user.save(using=self._db)
         return user
