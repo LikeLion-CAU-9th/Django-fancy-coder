@@ -3,6 +3,28 @@ from django.contrib.auth.models import AbstractBaseUser
 from accounts.managers import UserManager
 
 
+class AddressInformation:
+    FIRST_REGION = 'first_region'
+    SECOND_REGION = 'second_region'
+    THIRD_REGION =  'third_region'
+    FOURTH_REGION = 'fourth_region'
+    FIFTH_REGION = 'fifth_region'
+    SIXTH_REGION = 'sixth_region'
+    SEVENTH_REGION = 'seventh_region'
+    EIGHTH_REGION = 'eighth_region'
+
+    REGION_TYPES = [
+        (FIRST_REGION, '성동구, 광진구, 성북구'),
+        (SECOND_REGION, '서초구, 강남구'),
+        (THIRD_REGION, '용산구, 중구, 종로구'),
+        (FOURTH_REGION, '여의도구, 영등포구'),
+        (FIFTH_REGION, '도봉구, 강북구, 노원구'),
+        (SIXTH_REGION, '양천구, 강서구, 구로구, 영등포구'),
+        (SEVENTH_REGION, '서대문구, 은평구'),
+        (EIGHTH_REGION, '관악구, 금천구, 동장구'),
+    ]
+
+
 class User(AbstractBaseUser):
     name = models.CharField(max_length=10, null=True, blank=True)
     email = models.EmailField(
