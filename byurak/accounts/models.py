@@ -26,14 +26,17 @@ class AddressInformation:
 
 
 class User(AbstractBaseUser):
+
+
     name = models.CharField(max_length=10, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
         unique=True,
     )
+    region_type = models.CharField(max_length=30, choices=AddressInformation.REGION_TYPES, default=AddressInformation.FIRST_REGION, help_text='지역 등록')
     nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
-    phone_number = models.CharField(max_length=14, null=True, unique=True)
+    phone _number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')
     is_login = models.BooleanField(default=False)
