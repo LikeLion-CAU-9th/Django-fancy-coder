@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!--Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+
+</head>
+
+<body>
+    <div class="col">
+        <div class="col-content">
+            <div class="col-content-image">
+                <img style="width:250px; height:250px; border-radius: 100%;  display: block;
+                margin-left: auto; margin-right: auto;" src="{% static 'image/mypicture.jpg'%}">
+            </div>
+
+            <div class="row col-content-id">
+                <p class="id">패션팀장<button class="setting-button">
+                        <img src="{% static 'image/settings.png' %}" class="button">
+                    </button>
+                </p>
+            </div>
+            <div class="row btn-set">
+                <button type="button" class="chatting-btn">
+                    채팅하기
+                </button>
+                <button type="button" class="popularity-btn">
+                    즐겨찾기
+                </button>  
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+    crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+</html>

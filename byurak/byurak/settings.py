@@ -122,6 +122,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Custom Auth Model
+AUTH_USER_MODEL = 'accounts.User'
+
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
