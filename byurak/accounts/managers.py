@@ -29,8 +29,8 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, phone_number, nickname, password):
-        user = self.create_user(
-            email,
+        user = self.model(
+            email=email,
             password=password,
             nickname=nickname,
             phone_number=phone_number,
@@ -41,6 +41,7 @@ class UserManager(BaseUserManager):
         is_signup_finish = True
         is_signup_first_step = True
         is_login = True
-        
+
+        user.set_password(password)
         user.save(using=self._db)
         return user
