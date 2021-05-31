@@ -5,12 +5,11 @@ from .views import *
 app_name = 'feed'
 
 urlpatterns = [
-    path('', service_landing, name="landing"),
     path('home/', post_home, name="post_home"),
     path('create/', post_create, name="post_create"),
     path('update/<int:pk>', post_update, name="post_update"),
     path('delete/<int:pk>', post_delete, name="post_delete"),
-    path('list/', post_list, name="post_list"),
+    path('', post_list, name="post_list"),
     path('detail/<int:pk>', post_detail, name="post_detail"),
 ]
 
