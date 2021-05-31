@@ -49,8 +49,6 @@ class InterestCategory:
 
 
 class User(AbstractBaseUser):
-
-
     name = models.CharField(max_length=10, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
