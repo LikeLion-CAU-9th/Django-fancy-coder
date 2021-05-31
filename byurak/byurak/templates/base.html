@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Byurak</title>
+
+    <style>
+        body {
+            background-color: #F7F9FB;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+            height: 80px;
+        }
+
+        li {
+            float: left;
+        }
+
+
+        li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #F7F9FB;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+
+    <ul>
+        <div class="row">
+            <div class="col-10">
+                <li><a class="active" href="#">Byurak</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </div>
+            <div class="col-2" style ="text-align: right;">
+                <li><a href="#">my page</a></li>
+                <li><a href ="#">logout</a></li>
+            </div>
+        </div>
+    </ul>
+
+    {% block contents %}
+    {% endblock %}
 </body>
+
 </html>

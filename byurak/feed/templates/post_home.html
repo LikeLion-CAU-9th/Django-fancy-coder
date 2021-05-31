@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+    {% block contents %}
 
-    게시글 올리자!!
+    <p> 게시글 올리자!! </p>
 
     <br><br><br><br>
 
@@ -17,6 +19,10 @@
     <br><br><br><br>
 
     <a href="{% url 'feed:post_list' %}">게시글 리스트!!!</a>
+
+    {% endblock %}
+
+    
 
     
 
