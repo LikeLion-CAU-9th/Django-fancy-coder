@@ -39,7 +39,8 @@ DEFAULT_APPS = [
 PROJECT_APPS = [
     'accounts',
     'feed',
-    'chat'
+    'chat',
+    'group'
 ]
 
 COMMON_APPS = [
