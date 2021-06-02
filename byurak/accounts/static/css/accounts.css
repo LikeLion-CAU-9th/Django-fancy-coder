@@ -24,10 +24,6 @@ body{
     vertical-align: center;
 }
 
-.btn-set{
-    display:block;
-}
-
 .chatting-btn{
     background-color: rgba(28, 159, 215, 1);
     font-size:20px;
@@ -35,13 +31,15 @@ body{
     border-radius:15px;
     color: white;
     padding: 15px 32px;
+    display:block;
 }
 
-.popularity-btn{
+.fav-btn{
     background-color: rgba(28, 159, 215, 1);
     font-size:20px;
     border: none;
     border-radius:15px;
     color: white;
     padding: 15px 32px;
+    display:block;
 }
