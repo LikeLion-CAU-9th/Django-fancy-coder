@@ -4,6 +4,11 @@ from accounts.managers import UserManager
 
 
 class AddressCategory:
+    """
+    AddressCategory
+    - for user signup, need Refactoring
+    - please add region 
+    """
     FIRST_REGION = 'first_region'
     SECOND_REGION = 'second_region'
     THIRD_REGION =  'third_region'
@@ -63,7 +68,7 @@ class User(AbstractBaseUser):
     interest_type3 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
     nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
-    withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
+    withdrew_at = models.DateTiasmeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')
     is_login = models.BooleanField(default=False)
     is_signup_first_step = models.BooleanField(default=False)
@@ -87,3 +92,27 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class Profile(models.Model):
+    EMAIL = 'email'
+    KAKAO = 'kakao'
+    NAVER = 'naver'
+    FACEBOOK = 'facebook'
+    INSTAGRAM = 'instagram'
+
+    SIGNUP_TYPES = [
+        (EMAIL, 'EMAIL'),
+        (KAKAO, 'KAKAO'),
+        (NAVER, 'NAVER'),
+        (FACEBOOK, 'FACEBOOK'),
+        (INSTAGRAM, 'INSTAGRAM')
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, help_text='유저')
+    signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
+    short_introduce = models.CharField(max_length=511, null=True, blank=True)
+    image = models.ImageField(upload_to='profile/', blank=True, null=True)
+    device_token = models.CharField(max_length=512, blank=True, help_text='notification 기기 고유 토크값')
+    is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
+    popularity_score = models.IntegerField(null=True, blank=True)
