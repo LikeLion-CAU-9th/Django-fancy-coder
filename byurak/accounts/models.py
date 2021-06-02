@@ -127,3 +127,18 @@ class Profile(models.Model):
     @property
     def is_signup_finished(self):
         return self.user.is_signup_finish
+
+class UserFollow(models.Model):
+    user_from = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_from_set')
+    user_to = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_to_set')
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return f'{self.user_from} follow {self.user_to}'
+
+
+User.add_to_class('following',
+                  models.ManyToManyField('self', through=UserFollow, related_name='followed', symmetrical=False))
