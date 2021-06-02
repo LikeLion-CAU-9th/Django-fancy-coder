@@ -38,4 +38,22 @@ class GroupNotice(models.Model):
     body = models.TextField(help_text="그룹 공지 글")
     created_at = models.DateTimeField(default=timezone.now)
 
+    @property
+    def is_group_representive(self, user):
+        if user == self.group.representive:
+            return True
+        return False
 
+
+class GroupCommunityPost(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, help_text='그룹')
+    user = models.Foreignkey(User, on_delete=models.CASCADE, help_text="유저")
+    title = models.CharField(max_length=127, null=True, blank=True)
+    body = models.TextField(help_text="그룹 공지 글")
+    created_at = models.DateTimeField(default=timezone.now)
+
+    @property
+    def is_group_representive(self, user):
+        if user == self.group.representive:
+            return True
+        return False
