@@ -6,14 +6,27 @@ import datetime
 Implementation List
 1. Group class
 2. Group Community class
-
+3. Group Notice class
 """
 
 
 class Group(models.Model):
+    
+    COMPLETE = 'complete'
+    RECRUITMENT = 'recruitment'
+    OVERDUE = 'overdue'
+
+    STATUS_TYPES = [
+        (COMPLETE, 'COMPLETE'),
+        (RECRUITMENT, 'RECRUITMENT'),
+        (OVERDUE, 'OVERDUE')
+    ]
+
     users = models.JSONField()
     mento_users = models.JSONField()
     mentee_users = models.JSONField()
+    limited_user_numbers = models.IntegerField(default=1, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_TYPES, default=RECRUITMENT, help_text='그룹 상태')
     representive = models.ForeignKey(User, on_delete=models.CASCADE, help_text='유저')  
     start_date = models.DateTimeField(
         default=timezone.now,
