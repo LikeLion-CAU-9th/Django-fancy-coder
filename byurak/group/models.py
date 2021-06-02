@@ -30,3 +30,12 @@ class Group(models.Model):
     keyword = models.CharField(max_length=63, null=True, blank=True)
     short_description = models.CharField(max_length=255, null=True, blank=True)
      
+
+class GroupNotice(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, help_text='그룹')
+    user = models.Foreignkey(User, on_delete=models.CASCADE, help_text="유저")
+    title = models.CharField(max_length=127, null=True, blank=True)
+    body = models.TextField(help_text="그룹 공지 글")
+    created_at = models.DateTimeField(default=timezone.now)
+
+
