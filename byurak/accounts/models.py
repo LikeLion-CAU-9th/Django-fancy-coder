@@ -4,6 +4,11 @@ from accounts.managers import UserManager
 
 
 class AddressCategory:
+    """
+    AddressCategory
+    - for user signup, need Refactoring
+    - please add region 
+    """
     FIRST_REGION = 'first_region'
     SECOND_REGION = 'second_region'
     THIRD_REGION =  'third_region'
@@ -87,3 +92,53 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class Profile(models.Model):
+    EMAIL = 'email'
+    KAKAO = 'kakao'
+    NAVER = 'naver'
+    FACEBOOK = 'facebook'
+    INSTAGRAM = 'instagram'
+
+    SIGNUP_TYPES = [
+        (EMAIL, 'EMAIL'),
+        (KAKAO, 'KAKAO'),
+        (NAVER, 'NAVER'),
+        (FACEBOOK, 'FACEBOOK'),
+        (INSTAGRAM, 'INSTAGRAM')
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, help_text='유저')
+    signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
+    short_introduce = models.CharField(max_length=511, null=True, blank=True)
+    image = models.ImageField(upload_to='profile/', blank=True, null=True)
+    device_token = models.CharField(max_length=512, null=True, blank=True, help_text='notification 기기 고유 토크값')
+    is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
+    popularity_score = models.IntegerField(default=0, null=True, blank=True)
+
+    def __str__(self):
+        return self.user.name
+
+    @property
+    def nickname(self):
+        return self.user.nickname
+
+    @property
+    def is_signup_finished(self):
+        return self.user.is_signup_finish
+
+class UserFollow(models.Model):
+    user_from = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_from_set')
+    user_to = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_to_set')
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return f'{self.user_from} follow {self.user_to}'
+
+
+User.add_to_class('following',
+                  models.ManyToManyField('self', through=UserFollow, related_name='followed', symmetrical=False))
