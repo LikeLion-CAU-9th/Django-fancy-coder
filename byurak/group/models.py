@@ -22,10 +22,9 @@ class Group(models.Model):
         (RECRUITMENT, 'RECRUITMENT'),
         (OVERDUE, 'OVERDUE')
     ]
-
-    users = models.JSONField()
-    mento_users = models.JSONField()
-    mentee_users = models.JSONField()
+    users = models.CharField(max_length=255, null=True, blank=True)
+    mento_users = models.CharField(max_length=255, null=True, blank=True)
+    mentee_users = models.CharField(max_length=255, null=True, blank=True)
     limited_user_numbers = models.IntegerField(default=1, null=True, blank=True)
     status = models.CharField(max_length=31, choices=STATUS_TYPES, default=RECRUITMENT, help_text='그룹 상태')
     representive = models.ForeignKey(User, on_delete=models.CASCADE, help_text='유저')  
