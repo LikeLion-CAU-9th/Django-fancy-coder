@@ -68,7 +68,7 @@ class User(AbstractBaseUser):
     interest_type3 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
     nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
-    withdrew_at = models.DateTiasmeField(blank=True, null=True, verbose_name='탈퇴 시점')
+    withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')
     is_login = models.BooleanField(default=False)
     is_signup_first_step = models.BooleanField(default=False)
@@ -116,3 +116,14 @@ class Profile(models.Model):
     device_token = models.CharField(max_length=512, blank=True, help_text='notification 기기 고유 토크값')
     is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
     popularity_score = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return self.user.name
+
+    @property
+    def nickname(self):
+        return self.user.nickname
+
+    @property
+    def is_signup_finished(self):
+        return self.user.is_signup_finish
