@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,15 +33,11 @@
 
         li a {
             display: block;
-            color: black;
             text-align: center;
             padding: 10px 10px;
             text-decoration: none;
         }
 
-        li a:hover {
-            background-color: #F7F9FB;
-        }
     </style>
 </head>
 
@@ -50,13 +47,13 @@
     <ul>
         <div class="row">
             <div class="col-10">
-                <li><a class="active" href="#">Byurak</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class = "logo"><img src="{% static 'img/lightening.png' %}" alt ="..."></a></li>
+                <li><a href="#"><img src="{% static 'img/navbarfeedicon.jpg' %}" alt ="..."></a></li>
+                <li><a href="#"><img src="{% static 'img/navbarcommunityicon.jpg' %}" alt ="..."></a></li>
+                <li><a href="#"><img src="{% static 'img/navbarchaticon.jpg' %}" alt ="..."></a></li>
+                <li><a href="#"><img src="{% static 'img/navbaralarmicon.jpg' %}" alt ="..."></a></li>
             </div>
-            <div class="col-2" style ="text-align: right;">
+            <div class="col-2">
                 <li><a href="#">my page</a></li>
                 <li><a href ="#">logout</a></li>
             </div>
