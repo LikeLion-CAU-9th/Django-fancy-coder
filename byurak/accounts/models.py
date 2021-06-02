@@ -113,9 +113,9 @@ class Profile(models.Model):
     signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
     short_introduce = models.CharField(max_length=511, null=True, blank=True)
     image = models.ImageField(upload_to='profile/', blank=True, null=True)
-    device_token = models.CharField(max_length=512, blank=True, help_text='notification 기기 고유 토크값')
+    device_token = models.CharField(max_length=512, null=True, blank=True, help_text='notification 기기 고유 토크값')
     is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
-    popularity_score = models.IntegerField(null=True, blank=True)
+    popularity_score = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
         return self.user.name
