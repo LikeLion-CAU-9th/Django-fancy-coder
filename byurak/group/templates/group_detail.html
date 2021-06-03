@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/group_detail.css' %}">
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+    <link rel="stylesheet" href="{% static 'css/postit.css' %}">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 </head>
@@ -103,117 +104,122 @@
                     <hr>
                     <br>
                     <div class="row">
-                        
+
                         <div class="col-6">
-                            sdf
+                            <h3>공지사항</h3>
+                            <br>
+                            <div class="postit shadow">
+                                <p>요러코럼 저러코롬</p>
+                            </div>
                         </div>
                         <div class="col-6">
-                                <h3>일정</h3>
+                            <h3>일정</h3>
+                            <br>
+                            <ul class="timeline">
+                                <li>
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>첫번째 일정</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <p class="text-right">Feb-21-2014</p>
+                                        </div>
+                                    </div>
+                                </li>
 
-                                <ul class="timeline">
-                                    <li>
-                                        <div class="timeline-badge">
-                                          <a><i class="fa fa-circle" id=""></i></a>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle invert" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>두번째 일정</h4>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>첫번째 일정</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <p class="text-right">Feb-21-2014</p>
-                                            </div>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
                                         </div>
-                                    </li>
-                                    
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge">
-                                            <a><i class="fa fa-circle invert" id=""></i></a>
+                                        <div class="timeline-footer">
+                                            <p class="text-right">Feb-23-2014</p>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>두번째 일정</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <p class="text-right">Feb-23-2014</p>
-                                            </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>세번째 일정</h4>
                                         </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <div class="timeline-badge">
-                                            <a><i class="fa fa-circle" id=""></i></a>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>세번째 일정</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <p class="text-right">Feb-23-2014</p>
-                                            </div>
+                                        <div class="timeline-footer">
+                                            <p class="text-right">Feb-23-2014</p>
                                         </div>
-                                    </li>
-                                    
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge">
-                                            <a><i class="fa fa-circle invert" id=""></i></a>
+                                    </div>
+                                </li>
+
+                                <li class="timeline-inverted">
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle invert" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>네번째 일정</h4>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>네번째 일정</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 됨</p>
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <p class="text-right">Feb-27-2014</p>
-                                            </div>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 됨</p>
                                         </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <div class="timeline-badge">
-                                            <a><i class="fa fa-circle" id=""></i></a>
+                                        <div class="timeline-footer">
+                                            <p class="text-right">Feb-27-2014</p>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>다섯번째 일정</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <p class="text-right">Mar-01-2014</p>
-                                            </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>다섯번째 일정</h4>
                                         </div>
-                                    </li>
-                                    
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge">
-                                            <a><i class="fa fa-circle invert" id=""></i></a>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임저녁시간이라 배가 고프다 밥먹자
+                                                왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
                                         </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4>Timeline Event</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <p>Crede respiciens loco dedit beneficio ad suis alteri si puella eius in. Acceptis codicello lenonem in deinde plectrum anni ipsa quod eam est Apollonius.</p>
-                                            </div>
-                                            <div class="timeline-footer primary">
-                                                <p class="text-right">Mar-02-2014</p>
-                                            </div>
+                                        <div class="timeline-footer">
+                                            <p class="text-right">Mar-01-2014</p>
                                         </div>
-                                    </li>
-                                    <li class="clearfix no-float"></li>
-                                </ul>
+                                    </div>
+                                </li>
+
+                                <li class="timeline-inverted">
+                                    <div class="timeline-badge">
+                                        <a><i class="fa fa-circle invert" id=""></i></a>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>여섯번째 일정</h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>저녁시간이라 배가 고프다 밥먹자 왜냐하면 밥을 먹어야 힘이 나기 때문이다. 장소는 중앙대 흑석시장임</p>
+                                        </div>
+                                        <div class="timeline-footer primary">
+                                            <p class="text-right">Mar-02-2014</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="clearfix no-float"></li>
+                            </ul>
                         </div>
                     </div>
 

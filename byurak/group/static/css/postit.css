@@ -1,0 +1,30 @@
+.postit {
+    float: left;
+    width: 80%;
+    height:0%;
+    margin: 0 10% 2em;
+    border-radius:0px 0px 44px 0px
+    /* overflow: hidden; */
+}
+.postit p {
+    border-top: 1em solid #ebd587;
+    background: #fff1a5;
+    border-radius:10px 0px 0px 0px;
+    padding: 1em;
+}
+  
+  /* Shadow: Default */
+.shadow {
+    box-shadow: 0 3px 3px -3px #777;
+}
+  
+  /* Curved shadow */
+.curved {
+    border-radius: 100%/2em;
+  }
+  
+  /* Curved (large version) */
+.curved-large {  
+    box-shadow: 0 15px 15px -15px #777;
+    border-radius: 100%/4em;
+  }
