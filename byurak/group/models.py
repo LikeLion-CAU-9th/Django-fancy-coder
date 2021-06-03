@@ -42,7 +42,7 @@ class Group(models.Model):
         default=timezone.now() + datetime.timedelta(days=1),
         blank=True,
         null=True,
-        verbose_name='그룹 시작일'
+        verbose_name='그룹 마침일'
     )
     keyword = models.CharField(max_length=63, null=True, blank=True)
     short_description = models.CharField(max_length=255, null=True, blank=True)
@@ -55,7 +55,7 @@ class Group(models.Model):
         return users.split(',')
 
     @property
-    def get_users(request):
+    def get_users(self):
         users_information = []
         users = self.get_splited_users(self.users)
 
