@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-import group.views
+from group.views import group_detail, group_list
 
 
 urlpatterns = [
-    path('', group.views.group_detail, name="groupDetail"),
+    path('<int:pk>', group_detail, name="groupDetail"),
+    path('', group_list, name="groupList"),
 ]

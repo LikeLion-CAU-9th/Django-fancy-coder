@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Byurak</title>
 
     <!--Bootstrap -->
@@ -15,12 +16,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/group_detail.css' %}">
+
 </head>
 
 <body>
-    <div class = "container">
-        <div class = "row">
-            asdfd
+    <div class="container">
+        <div class="row" style="margin:12% 0 0 0">
+            <div class="col-3"></div>
+            <div class="col-6" style = "text-align: center;">
+                <img style="display: block; margin: 0px auto; width:50%" src="{% static 'image/group_representive_image.png' %}">
+                <br/>
+                <h2>{{group.title}}</h2>
+                <br/>
+                <div class = "row">
+                    <div class = "col-3" style = "text-align: right">
+                            <img style="width:18%" src="{% static 'image/personPictogram.png' %}">
+                            {{group.limited_user_numbers}}명
+                    </div>
+                    <div class = "col-9">
+                            <img style="width:8%" src="{% static 'image/calendarPictogram.png' %}">
+                            {{group.start_date|date:"Y.m.d"}} ~ {{group.end_date|date:"Y.m.d"}}
+                    </div>
+                </div>
+                <br/>
+                {{group.keyword}}
+                <br/>
+                <hr>
+                {{group.short_description}}
+                     
+                
+            </div>
+            <div class="col-3"></div>
         </div>
     </div>
 </body>
