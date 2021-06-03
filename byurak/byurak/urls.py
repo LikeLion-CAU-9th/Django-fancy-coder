@@ -9,7 +9,8 @@ urlpatterns = [
     path('', service_landing, name="landing"),
     path('feed/', include('feed.urls')),
     path('chat/', include('chat.urls')),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('group/', include('group.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
