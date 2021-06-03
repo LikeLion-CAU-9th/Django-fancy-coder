@@ -51,10 +51,34 @@
                     <br />
                     <hr>
                     {{group.short_description}}
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                        {% for mento in mento_users %}
+                        <div class = "row">
+                            <div class = "col-3">
+                                    <img style="
+                                    object-fit:cover; 
+                                    width:200px; 
+                                    height:200px;
+                                    border-radius: 70%" src="{{mento.profile.image.url}}">
+                            </div>
+                            <div class = "col-1"></div>
+                            <div class = "col-8" style="text-align: left; padding:10% 30px">
+                                <h2>{{mento.nickname}}</h2>
+                                "{{mento.profile.short_introduce}}"
+                            </div>
+                        </div>
+                        
+                        <br>
+                        
+                        {% endfor %} 
+                     
                     
                     <div class="row">
                         {% for user in users %}
-                        <div class="col">
+                        <div class="col-3">
                             <img style="
                                     object-fit:cover; 
                                     width:100px; 

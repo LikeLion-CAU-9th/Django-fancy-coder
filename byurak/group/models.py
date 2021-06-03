@@ -68,9 +68,16 @@ class Group(models.Model):
         return users_information
 
     @property
-    def get_mento_users(request):
-        return self.mento_users.split(',')
-    
+    def get_mento_users(self):
+        mento_users_information = []
+        mento_users = self.get_splited_users(self.mento_users)
+        for user_id in mento_users:
+            try:
+                user = User.objects.get(id=user_id)
+            except UserDoesNotExist:
+                user = ''
+            mento_users_information.append(user)
+        return mento_users_information    
 
 class GroupNotice(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE, help_text='그룹')
