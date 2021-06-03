@@ -11,7 +11,7 @@ h2 {
 
 p.footer {
     margin-bottom: 20px;
-    color: #999999;
+    color: #FFDC61;
     font-size: 18px;
     text-align: center;
 }
@@ -31,7 +31,7 @@ p.footer {
     position: absolute;
     content:" ";
     width: 2px;
-    background: #dcdcdc;
+    background: #FFDC61;
     left: 50%;
     margin-left: -1.5px;
 }
@@ -61,7 +61,7 @@ p.footer {
     width: -moz-calc(100% - 25px);
     width: -webkit-calc(100% - 25px);
     float: left;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #FFDC61;
     background: #ffffff;
     position: relative;
 }
@@ -82,8 +82,8 @@ p.footer {
     right: -14px;
     display: inline-block;
     border-top: 14px solid transparent;
-    border-left: 14px solid #dcdcdc;
-    border-right: 0 solid #dcdcdc;
+    border-left: 14px solid #FFDC61;
+    border-right: 0 solid #FFDC61;
     border-bottom: 14px solid transparent;
     content:" ";
 }
@@ -126,7 +126,7 @@ p.footer {
 .timeline-heading h4 {
     font-weight: 400;
     padding: 0 15px;
-    color: #4679bd;
+    color: #37806B;
 }
 .timeline-body > p, .timeline-body > ul {
     padding: 10px 15px;
@@ -134,7 +134,7 @@ p.footer {
 }
 .timeline-footer {
     padding: 5px 15px;
-    background-color:#f4f4f4;
+    background-color:#FFDC61;
 }
 .timeline-footer p { margin-bottom: 0; }
 .timeline-footer > a {
