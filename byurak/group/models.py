@@ -8,6 +8,9 @@ Implementation List
 1. Group class
 2. Group Community class
 3. Group Notice class
+4. Pending List class
+5. Group Calendar class
+6. Group Comment class
 """
 
 
@@ -105,3 +108,9 @@ class GroupNotice(AbstractGroupBaseInfo):
 class GroupCommunityPost(AbstractGroupBaseInfo):
     class Meta:
         db_table = 'group_community_post'
+
+
+class GroupCalendar(AbstractGroupBaseInfo):
+    plan_date = models.DateTimeField()
+    class Meta:
+        db_table = 'group_calendar'
