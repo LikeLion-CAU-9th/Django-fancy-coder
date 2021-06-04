@@ -3,7 +3,7 @@ from group.models import GroupNotice
 
 class GroupNoticeForm(forms.ModelForm):
     class Meta:
-        model = Post
+        model = GroupNotice
         fields = ('title', 'body')
 
     def validate_title(self):
