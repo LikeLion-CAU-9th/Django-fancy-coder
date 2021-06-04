@@ -159,8 +159,17 @@
                             {% for notice in group_notice %}
                             <div class="row">
                                 <div class="postit shadow">
-                                    <p>{{notice.title}}<br>
-                                        {{notice.body}}</p>
+                                        
+                                    <p>
+                                        {{notice.title}} 
+                                        <a type="button" 
+                                        href = "{% url 'groupNoticeDelete' group.id notice.id %}" 
+                                        class="btn btn-outline-secondary"
+                                        style = "float:right;"
+                                        >삭제</a>
+                                        <br>
+                                        {{notice.body}}
+                                    </p>
                                     
                                 </div>
                             </div>
