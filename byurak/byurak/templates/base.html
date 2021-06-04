@@ -36,7 +36,7 @@
             text-align: center;
             padding: 10px 10px;
             text-decoration: none;
-            margin-right: 40px;
+            margin-right: 10px;
         }
 
         .logo {
@@ -49,6 +49,10 @@
             text-decoration: underline;
             text-decoration-color: black;
         }
+
+        .menu {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -57,7 +61,7 @@
 
     <ul>
         <div class="row">
-            <div class="col-9">
+            <div class="col-8">
                 <li><a href="#" class = "logo"><img src="{% static 'img/lightening.png' %}" alt ="..."></a></li>
                 <div class = "menu">
                 <li><a href="#"><img src="{% static 'img/navbarfeedicon.jpg' %}" alt ="..."></a></li>
@@ -66,14 +70,14 @@
                 <li><a href="#"><img src="{% static 'img/navbaralarmicon.jpg' %}" alt ="..."></a></li>
             </div>
             </div>
-            <div class ="col-1">
+            <div class ="col-2">
                 <li><a href = "#"><img src="{% static 'img/lightening.png' %}" alt ="..."
                     style = " padding-bottom: 10px;
                     border-radius: 26px;
-                    "></a></li>
+                    "></a> </li>
+                <li style = "padding-top:30px;">최윤한님</li>
             </div>
             <div class="col-2" style = "padding:15px">
-                
                 <li><a href="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">My Page</a></li>
                 <li><a href ="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Logout</a></li>
             </div>
