@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from group.models import Group, GroupNotice, GroupCalendar
 from django.views.generic import View, DeleteView
-from group.forms import GroupNoticeForm
+from group.forms import GroupNoticeForm, GroupCalendarForm
 
 
 def group_list(request):
@@ -59,3 +59,19 @@ class GroupNoticeDeleteAPIView(GenericGroupView):
         group_notice = GroupNotice.objects.get(id=pk)
         group_notice.delete()
         return render(request, 'group_detail.html', self.get_group_queryset(id))
+
+
+class GroupCalendarAPIView(GenericGroupView):
+    def post(self, request, pk):
+        group = Group.objects.get(id=pk)
+        user = request.user
+        group_post_form = GroupCalendarForm()
+        group_calendar_form = GroupCalendarForm(request.POST)
+
+        if group_calendar_form.is_valid():
+            calendar_instance = group_calendar_form.save(commit=False)
+            calendar_instance.user = user
+            calendar_instance.group = group
+            calendar_instance.save()
+            return render(request, 'group_detail.html', self.get_group_queryset(pk))
+        return render(request, 'group_detail.html')
