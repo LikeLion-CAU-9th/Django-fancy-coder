@@ -111,6 +111,6 @@ class GroupCommunityPost(AbstractGroupBaseInfo):
 
 
 class GroupCalendar(AbstractGroupBaseInfo):
-    plan_date = models.DateTimeField()
+    plan_date = models.DateTimeField(null=True)
     class Meta:
         db_table = 'group_calendar'
