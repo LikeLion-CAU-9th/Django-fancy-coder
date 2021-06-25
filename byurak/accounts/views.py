@@ -4,5 +4,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
-def index(request):
-    return render(request, 'signup_main')
+def signup_main(request):
+    return render(request, 'signup_main.html')
+
+def signup_infor(request):
+    return render(request, 'signup_infor.html')
