@@ -3,69 +3,43 @@ from django.contrib.auth.models import AbstractBaseUser
 from accounts.managers import UserManager
 
 
-class AddressCategory:
+class UserType:
     """
-    AddressCategory
-    - for user signup, need Refactoring
-    - please add region 
+    UserType
+    - 서비스제공자와 이용자 구분
     """
-    FIRST_REGION = 'first_region'
-    SECOND_REGION = 'second_region'
-    THIRD_REGION =  'third_region'
-    FOURTH_REGION = 'fourth_region'
-    FIFTH_REGION = 'fifth_region'
-    SIXTH_REGION = 'sixth_region'
-    SEVENTH_REGION = 'seventh_region'
-    EIGHTH_REGION = 'eighth_region'
+    SERVICE_PROVIDER = 'service_provider'
+    SERVICE_BUYER = 'service_buyer'
 
-    REGION_TYPES = [
-        (FIRST_REGION, '성동구, 광진구, 성북구'),
-        (SECOND_REGION, '서초구, 강남구'),
-        (THIRD_REGION, '용산구, 중구, 종로구'),
-        (FOURTH_REGION, '여의도구, 영등포구'),
-        (FIFTH_REGION, '도봉구, 강북구, 노원구'),
-        (SIXTH_REGION, '양천구, 강서구, 구로구, 영등포구'),
-        (SEVENTH_REGION, '서대문구, 은평구'),
-        (EIGHTH_REGION, '관악구, 금천구, 동장구'),
+    USER_TYPES = [
+        (SERVICE_PROVIDER, '서비스 제공자'),
+        (SERVICE_BUYER, '서비스 이용자'),
     ]
 
 
-class InterestCategory:
-    COMPUTER = 'Computer'
-    ENGLISH = 'English'
-    UNIVERSITY_ENTRANCE = 'University_entrance'
-    CERTIFICATE = 'Certificate'
-    FOREIGN_LANGUAGE = 'Foreign_language'
-    DESIGN = 'Design'
-    INTERVIEW = 'Interview'
-    ETC = 'Etc'
-    NONE = 'None'
+class StatusType:
+    """
+    StatusTYpe
+    - 서비스제공자의 경우 관리자 승인을 받아야 함
+    - 그로 인해 승인 대기중인 상황 발생
+    """
+    AVAILABLE = 'available'
+    WATING_APPROVAL = 'wating_approval'
 
-    INTEREST_TYPES = [
-        (COMPUTER, '컴퓨터'),
-        (ENGLISH, '영어'),
-        (UNIVERSITY_ENTRANCE, '대입'),
-        (CERTIFICATE, '자격증'),
-        (FOREIGN_LANGUAGE, '외국어'),
-        (DESIGN, '디자인'),
-        (INTERVIEW, '면접'),
-        (ETC, '기타'),
-        (NONE, '없음')
+    STATUS_TYPES = [
+        (AVAILABLE, '사용 가능'),
+        (WATING_APPROVAL, '승인 대기'),
     ]
 
 
 
 class User(AbstractBaseUser):
-    name = models.CharField(max_length=10, null=True, blank=True)
+    name = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
         unique=True,
     )
-    region_type = models.CharField(max_length=30, choices=AddressCategory.REGION_TYPES, default=AddressCategory.FIRST_REGION, help_text='지역 등록')
-    interest_type1 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
-    interest_type2 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
-    interest_type3 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
     nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')

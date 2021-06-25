@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+        
+{% block contents %}
+
+<body>
+    <form action="{% url 'accounts_logout' %}" method="POST">
+        {% csrf_token %}
+        <button class="success__home__btn" type="submit">네</button>
+    </form>
+</body>
+</html>
+{% endblock %}
