@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
         
 {% block contents %}
-    helloworld!!
 
     {% if user.is_active %}
         <a href="{% url 'accounts_logout' %}">log out</a>
