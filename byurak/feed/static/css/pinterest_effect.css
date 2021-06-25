@@ -38,12 +38,13 @@ figure.effect-sadie figcaption::before {
 
 figure.effect-sadie h3 {
 	position: absolute;
-    top: 50%;
+    top: -webkit-calc(50% + 10px);
     margin:0;
 	text-align: center;
     width: 100%;
     padding:auto;
-	color: #fff;
+    color: #fff;
+    opacity: 0;
 	transition: transform 0.35s, color 0.35s;
 	transform: translate3d(0,-50%,0);
 }
@@ -66,7 +67,7 @@ figure.effect-sadie p, figure.effect-sadie a {
 figure.effect-sadie:hover h3, figure.effect-sadie:hover p {
     color: #d3d3d3;
     text-align: center;
-
+    opacity: 1;
 	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
 }
 
