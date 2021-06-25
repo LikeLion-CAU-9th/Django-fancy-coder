@@ -14,7 +14,7 @@ def accounts_signup(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            form.save()
             return redirect("signup_success")
         else:
             ctx = {
@@ -33,7 +33,7 @@ def accounts_signup(request):
 def accounts_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
-        email = request.POST["email"]
+        email = request.POST.get("email")
         password = request.POST["password"]
         user = authenticate(email=email, password=password)
         if user is not None:
