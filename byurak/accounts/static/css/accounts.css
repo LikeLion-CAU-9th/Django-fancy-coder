@@ -1,6 +1,6 @@
 body{
     background-color: rgba(247, 249, 251, 1);
-    font-size: 50px;
+    font-size: 20px;
 }
 
 .col-content{
@@ -9,37 +9,27 @@ body{
 }
 
 .col-content-id{
-    font-size: 50px;
     text-align: center;
-    
 }
 
 .setting-button{
-    background-size:cover;
-    background-position: center;
-    background-image:url('settings.png');
-    background-repeat:no-repeat;
     background-color:transparent;
     border:none;
-    vertical-align: center;
+}
+
+.btn{
+    text-align: center;
 }
 
 .chatting-btn{
+    width: 100px;
     background-color: rgba(28, 159, 215, 1);
-    font-size:20px;
+    font-size:15px;
     border: none;
     border-radius:15px;
     color: white;
-    padding: 15px 32px;
+    padding: 7px;
     display:block;
 }
 
-.fav-btn{
-    background-color: rgba(28, 159, 215, 1);
-    font-size:20px;
-    border: none;
-    border-radius:15px;
-    color: white;
-    padding: 15px 32px;
-    display:block;
-}
+
