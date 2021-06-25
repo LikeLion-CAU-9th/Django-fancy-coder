@@ -1,0 +1,22 @@
+.images {
+    max-width: 100%;
+    padding:auto;
+}
+  
+.image {
+    display: inline-block;
+    position: absolute;
+    max-width: 370px;
+    padding: 10px;
+}
+  
+.image > img {
+    width: 100%;
+}
+  
+.image > span {
+    position: absolute;
+    color: white;
+    bottom: 25px;
+    right: 25px;
+}
