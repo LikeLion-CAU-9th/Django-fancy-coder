@@ -20,3 +20,54 @@
     bottom: 25px;
     right: 25px;
 }
+
+figure.effect-sadie figcaption::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 350px;
+    height: -webkit-calc(100% - 20px);
+    padding-bottom:10px;
+    margin: 10px;
+	background: rgba(16, 17, 22, 0.6);
+	content: '';
+	opacity: 0;
+    /* transform: translate3d(0,50%,0); */
+    
+}
+
+figure.effect-sadie h2 {
+	position: absolute;
+	top: 50%;
+	left: 10;
+	width: 100%;
+	color: #484c61;
+	transition: transform 0.35s, color 0.35s;
+	transform: translate3d(0,-50%,0);
+}
+
+figure.effect-sadie figcaption::before,
+figure.effect-sadie p,figure.effect-sadie a {
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-sadie p, figure.effect-sadie a {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 2em;
+	width: 100%;
+	opacity: 0;
+	transform: translate3d(0,10px,0);
+}
+
+figure.effect-sadie:hover h2 {
+	color: #fff;
+	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+}
+
+figure.effect-sadie:hover figcaption::before ,
+figure.effect-sadie:hover p, figure.effect-sadie a {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+}
