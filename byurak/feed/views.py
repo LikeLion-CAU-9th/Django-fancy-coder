@@ -74,3 +74,7 @@ def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post:post_home')
+
+
+def feedhome(request):
+    return render(request, 'feedhome.html')
