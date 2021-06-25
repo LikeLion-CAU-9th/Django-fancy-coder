@@ -36,12 +36,14 @@ figure.effect-sadie figcaption::before {
     
 }
 
-figure.effect-sadie h2 {
+figure.effect-sadie h3 {
 	position: absolute;
-	top: 50%;
-	left: 10;
-	width: 100%;
-	color: #484c61;
+    top: 50%;
+    margin:0;
+	text-align: center;
+    width: 100%;
+    padding:auto;
+	color: #fff;
 	transition: transform 0.35s, color 0.35s;
 	transform: translate3d(0,-50%,0);
 }
@@ -61,8 +63,10 @@ figure.effect-sadie p, figure.effect-sadie a {
 	transform: translate3d(0,10px,0);
 }
 
-figure.effect-sadie:hover h2 {
-	color: #fff;
+figure.effect-sadie:hover h3, figure.effect-sadie:hover p {
+    color: #d3d3d3;
+    text-align: center;
+
 	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
 }
 
