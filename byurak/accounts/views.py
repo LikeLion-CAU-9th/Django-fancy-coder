@@ -19,6 +19,10 @@ def signup_infor(request):
     return render(request, 'signup_infor.html')
 
 
+def signup_fin(request):
+    return render(request, 'signup_fin.html')
+
+
 def accounts_signup(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
