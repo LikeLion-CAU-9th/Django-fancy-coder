@@ -54,7 +54,7 @@ def accounts_login(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect("login_success")
+            return redirect("feed:feedList")
         else:
             ctx = {
                 "form": form,
