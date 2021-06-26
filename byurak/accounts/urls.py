@@ -14,5 +14,7 @@ urlpatterns = [
     path("signup_success/", accounts.views.signup_success, name='signup_success'),
     path("login_success/", accounts.views.login_success, name="login_success"),
     path("logout_success/", accounts.views.logout_success, name="logout_success"),
+
+    path("profile", accounts.views.index, name='profile')
 ]
 
