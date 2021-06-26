@@ -72,23 +72,23 @@
                 <li><a href="#"><img src="{% static 'img/just_looking.png' %}" alt ="..."></a><div style="font-size: 3px">둘러보기</div></li>
             </div>
             
+            
+            {% if user.is_active %}
             <div class ="col-2">
-                {% if user.is_active %}
-                <a href="{% url 'profile' %}"><li style = "padding-top:15px;">{{user.name}}</li>
-                {% else %}
-                    
-                {% endif %}
-                
+                    <li style = "padding-top:15px;"><a href="{% url 'profile' %}">{{user.name}}</a></li>
             </div>
             <div class="col-2" style="padding-right:10px;" >
-                {% if user.is_active %}
-                <li style = "padding-top:10px;"><a href="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">My Page</a></li>
-                <li style = "padding-top:10px;"><a href ="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Log out</a></li>
-                {% else %}
-                <li style = "padding-top:10px;"><a href="{% url 'accounts_signup' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Sign up</a></li>
-                <li style = "padding-top:10px;"><a href ="{% url 'accounts_login' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Log In</a></li>
-                {% endif %}
+                <li style = "padding-top:10px;"><a href="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">MyPage</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">LogOut</a></li>
             </div>
+
+            {% else %}
+            <div class ="col-2"></div>
+            <div class="col-2" style="padding-right:10px;" >
+                <li style = "padding-top:10px;"><a href="{% url 'accounts_signup' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">SignUp</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_login' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">LogIn</a></li>
+            </div>
+            {% endif %}
         </div>
     </ul>
     <div class = "container">
