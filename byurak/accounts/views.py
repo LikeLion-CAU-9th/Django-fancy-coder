@@ -27,9 +27,8 @@ def accounts_signup(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
 
-        print("ab")
+        print(form.errors)
         if form.is_valid():
-            print("a")
             user = form.save()
             user.save()
             return redirect("signup_success")
