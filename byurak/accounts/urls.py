@@ -4,11 +4,10 @@ import accounts.views
 
 
 urlpatterns = [
-
-    path('', accounts.views.index, name="index"),
+    path('', accounts.views.accounts_home, name="accounts_home"),
     path('signup/check', accounts.views.signup_main, name="signup_main"),
     path('signup/information', accounts.views.signup_infor, name="signup_infor"),
-    path('', accounts.views.accounts_home, name="accounts_home"),
+    path('signup/finish', accounts.views.signup_fin, name="signup_fin"),  
     path('signup/', accounts.views.accounts_signup, name='accounts_signup'),
     path('login/', accounts.views.accounts_login, name='accounts_login'),
     path('logout/', accounts.views.accounts_logout, name='accounts_logout'),

@@ -19,11 +19,18 @@ def signup_infor(request):
     return render(request, 'signup_infor.html')
 
 
+def signup_fin(request):
+    return render(request, 'signup_fin.html')
+
+
 def accounts_signup(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
+
+        print(form.errors)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.save()
             return redirect("signup_success")
         else:
             ctx = {
