@@ -73,11 +73,21 @@
             </div>
             
             <div class ="col-2">
-                <li style = "padding-top:15px;">최윤한님</li>
+                {% if user.is_active %}
+                <a href="{% url 'profile' %}"><li style = "padding-top:15px;">{{user.name}}</li>
+                {% else %}
+                    
+                {% endif %}
+                
             </div>
             <div class="col-2" style="padding-right:10px;" >
-                <li style = "padding-top:10px;"><a href="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">My Page</a></li>
-                <li style = "padding-top:10px;"><a href ="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Logout</a></li>
+                {% if user.is_active %}
+                <li style = "padding-top:10px;"><a href="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">My Page</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Log out</a></li>
+                {% else %}
+                <li style = "padding-top:10px;"><a href="{% url 'accounts_signup' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Sign up</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_login' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Log In</a></li>
+                {% endif %}
             </div>
         </div>
     </ul>
