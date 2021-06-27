@@ -2,27 +2,31 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>사이트 약관동의</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/signup_main.css' %}">
+    <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-    <div id = "header">
+    <div id="header">
         <img style=" width : 70%; height:6%;" src="{% static 'image/signup_stepper1.png' %}">
 
-        <p style = "text-align: center; font-size: 2.0em; ">Culture book 회원가입 약관</p>
-    </div> 
+        <p style="text-align: center; font-size: 2.0em; ">Culture book 회원가입 약관</p>
+    </div>
     <br>
-    <form action="" id="joinForm">
+    <form action="" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
+        {% csrf_token %}
+
         <ul class="join_box">
             <li class="checkBox check01">
                 <ul class="clearfix">
                     <li>서비스 이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</li>
                     <li class="checkALLBtn">
-                        <input type="checkbox" name="chkAll" id="chk" class="chkAll">
+                        <input type="checkbox" name="chkAll" id="chkAll" class="chkAll">
                     </li>
                 </ul>
             </li>
@@ -31,10 +35,10 @@
                 <ul class="clearfix">
                     <li>이용약관 동의(필수)</li>
                     <li class="checkBtn">
-                        <input type="checkbox" name="chk">
+                        <input type="checkbox" name="chk" id="chk_1">
                     </li>
                 </ul>
-            <textarea name="" id="" >제1조(목적)
+                <textarea name="" id="">제1조(목적)
 
                 본 회원약관은 <Philo-Coders>(이하 '갑'라 한다)이 운영하는 인터넷관련 서비스 ‘컬쳐 북’(www.culture-book.com) (이하 '서비스'라 한다)를 이용함에 있어 호스트와 이용자(이하 '회원'라 한다)의 권리, 의무 및 책임사항을 규정함을 목적으로 한다.
                 
@@ -172,17 +176,17 @@
                 
                 제 1 조 (시행일) 이 약관은 2021년 6월 27일부터 시행한다. 
             </textarea>
-        </li>
+            </li>
 
-        <li class="checkBox check02">
-            <ul class="clearfix">
-                <li>개인정보 수집 및 이용에 관한 안내(필수)</li>
-                <li class="checkBtn">
-                    <input type="checkbox" name="chk">
-                </li>
-            </ul>
+            <li class="checkBox check02">
+                <ul class="clearfix">
+                    <li>개인정보 수집 및 이용에 관한 안내(필수)</li>
+                    <li class="checkBtn">
+                        <input type="checkbox" name="chk" id=chk_2>
+                    </li>
+                </ul>
 
-            <textarea name="" id="">
+                <textarea name="" id="">
                 < Philo-coders >('www.culture-book.com'이하 'Culture Book')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
                 ○ 이 개인정보처리방침은 2021년 6월 1부터 적용됩니다.
                 
@@ -338,33 +342,62 @@
                 
                 ①    이 개인정보처리방침은 2021년 6월 1부터 적용됩니다.
             </textarea>
-        </li>
+            </li>
 
             <ul class="footBtwrap clearfix">
                 <li><button class="fpmgBt1">비동의</button></li>
                 <li><button class="fpmgBt2">동의</button></li>
             </ul>
-        </form>
-
-
-                </h3>
-            </div>
-        </div>
+            <input type="submit" value="다 음" class="btn_order" style="margin:10px; color : black;">
+    </form>
+    </h3>
+    </div>
+    </div>
     </div>
     <br>
     <br>
-
-        <br>
-        <div class="btn_area">
-                <button onclick="location.href='http://127.0.0.1:8000/accounts/signup/information'">다음단계</button>
-        </div>
-        <br>
-        
+    <br>
+    <div class="btn_area">
+        <button onclick="location.href='http://127.0.0.1:8000/accounts/signup/information'">다음단계</button>
     </div>
+    <br>
+    </div>
+    <br>
+    <script>
+        function CheckForm(Join) {
+            var msg = "약관에 동의해주십시오"
 
-<br>
- 
+            var chk1 = document.Join.chk.checked;
+            var chk2 = document.Join.chK_2.checked;
+            console.log(chk1)
+            console.log(agreeChkAll)
+            if (chk1 == "") {
+                alert("약관에 동의해주세요");
+                return false;
+            }
+            if (chk2 == "") {
+                alert("약관에 동의해주세요");
+                return false;
+            }
+        }
+    </script>
 
-    
+    <script type="text/javascript">
+        $(function () { //전체선택 체크박스 클릭 
+            $("#chkAll").click(function () {
+                //만약 전체 선택 체크박스가 체크된상태일경우 
+                if ($("#chkAll").prop("checked")) {
+                    console.log("ture")
+                    //해당화면에 전체 checkbox들을 체크해준다 
+                    $("input[type=checkbox]").prop("checked", true);
+                    // 전체선택 체크박스가 해제된 경우 
+                }
+                else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+                    $("input[type=checkbox]").prop("checked", false);
+                }
+            })
+        }) 
+    </script>
 </body>
+
 </html>
