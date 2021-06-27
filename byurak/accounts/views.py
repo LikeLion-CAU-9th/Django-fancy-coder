@@ -7,12 +7,25 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'index.html')
 
 
 def signup_main(request):
     return render(request, 'signup_main.html')
+
+
+def signup_check(request):
+    if not request.POST.get('chk_1', None) == None:
+        if not request.POST.get('chk_2', None) == None:
+            return redirect('signup_infor')
+        else:
+            return render(request, 'signup_main.html')
+    else:
+        return render(request, 'signup_main.html')
+    
 
 
 def signup_infor(request):

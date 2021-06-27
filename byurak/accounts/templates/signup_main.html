@@ -18,7 +18,7 @@
         <p style="text-align: center; font-size: 2.0em; ">Culture book 회원가입 약관</p>
     </div>
     <br>
-    <form action="" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
+    <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name=Join onSubmit="return CheckForm(this)">
         {% csrf_token %}
 
         <ul class="join_box">
@@ -35,7 +35,7 @@
                 <ul class="clearfix">
                     <li>이용약관 동의(필수)</li>
                     <li class="checkBtn">
-                        <input type="checkbox" name="chk" id="chk_1">
+                        <input type="checkbox" name="chk_1" id="chk_1">
                     </li>
                 </ul>
                 <textarea name="" id="">제1조(목적)
@@ -182,7 +182,7 @@
                 <ul class="clearfix">
                     <li>개인정보 수집 및 이용에 관한 안내(필수)</li>
                     <li class="checkBtn">
-                        <input type="checkbox" name="chk" id=chk_2>
+                        <input type="checkbox" name="chk_2" id=chk_2>
                     </li>
                 </ul>
 
@@ -348,7 +348,10 @@
                 <li><button class="fpmgBt1">비동의</button></li>
                 <li><button class="fpmgBt2">동의</button></li>
             </ul>
-            <input type="submit" value="다 음" class="btn_order" style="margin:10px; color : black;">
+            <div class="btn_area">
+
+            <button><input type="submit" value="다 음" class="btn_order" style="margin:10px; color : black;"></button>
+            </div>
     </form>
     </h3>
     </div>
@@ -363,25 +366,6 @@
     <br>
     </div>
     <br>
-    <script>
-        function CheckForm(Join) {
-            var msg = "약관에 동의해주십시오"
-
-            var chk1 = document.Join.chk.checked;
-            var chk2 = document.Join.chK_2.checked;
-            console.log(chk1)
-            console.log(agreeChkAll)
-            if (chk1 == "") {
-                alert("약관에 동의해주세요");
-                return false;
-            }
-            if (chk2 == "") {
-                alert("약관에 동의해주세요");
-                return false;
-            }
-        }
-    </script>
-
     <script type="text/javascript">
         $(function () { //전체선택 체크박스 클릭 
             $("#chkAll").click(function () {
@@ -398,6 +382,25 @@
             })
         }) 
     </script>
+    <script>
+        function CheckForm(Join) {
+            var msg = "약관에 동의해주십시오"
+            console.log(document.Join)
+            var chk1 = document.Join.chk_1.checked;
+            var chk2 = document.Join.chK_2.checked;
+            console.log(chk1)
+            if (chk1 == "") {
+                alert("약관에 동의해주세요");
+                return false;
+            }
+            if (chk2 == "") {
+                alert("약관에 동의해주세요");
+                return false;
+            }
+        }
+    </script>
+
+    
 </body>
 
 </html>
