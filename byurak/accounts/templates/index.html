@@ -43,11 +43,15 @@
         text-align: center;
     }
 
+    .exp-card{
+        margin-bottom:20px;
+        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+    }
     .exp-card-body {
         display: flex;
         flex-direction: row;
         text-align: left;
-        padding: 22px;
+        padding: 20px;
     }
 
     .exp-card-text {
@@ -66,8 +70,8 @@
     }
 
     .exp-card-image {
-        max-width: 200px;
-        max-height: 200px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
         border-radius: 5px;
     }
@@ -77,6 +81,9 @@
         margin-top: 10px;
     }
 
+    .visit-btn{
+        margin:0 0 auto auto;
+    }
     .visit-master {
         width: 100px;
         height: 36px;
@@ -87,12 +94,11 @@
         color: white;
         padding: 7px;
         display: block;
-    }
+    }   
 
     #tab1:checked~#content1,
     #tab2:checked~#content2,
-    #tab3:checked~#content3,
-    #tab4:checked~#content4 {
+    #tab3:checked~#content3 {
         display: block;
     }
 
@@ -150,36 +156,68 @@
         color:rgb(255, 255, 255);
     }
 
-    .flex-container {
-        /* We first create a flex layout context */
-        display: flex;
-
-        /* Then we define the flow direction and if we allow the items to wrap 
-        * Remember this is the same as:
-        * flex-direction: row;
-        * flex-wrap: wrap;
-        */
-        flex-flow: row wrap;
-
-        /* Then we define how is distributed the remaining space */
-        justify-content: space-around;
-
-        padding: 0;
-        margin: 0;
-        list-style: none;
+    
+    /* reservation tab css */
+    .reservation-card{
+        margin-bottom:20px;
+        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        height:200px;
+    }
+    .reservation-card-image{
+        width:160px;
+        height:160px;
+        object-fit: cover;
+        border-radius: 5px;
     }
 
-    .flex-item {
-        background: tomato;
-        padding: 5px;
-        width: 200px;
-        height: 150px;
-        margin-top: 10px;
-        line-height: 150px;
-        color: white;
+    .reservation-card-body {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .reservation-card-text {
+        display: flex;
+        flex-direction: column;
+        vertical-align: top;
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .reservation-card-title{
         font-weight: bold;
-        font-size: 3em;
-        text-align: center;
+        font-size:24px;
+    }
+
+    .reservation-card-date{
+        margin-top:10px;
+    }
+
+    .reservation-status{
+        width: 80px;
+        height: 30px;
+        
+        font-size: 12px;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        padding: 7px;
+        display: block;
+        text-align:center;
+        margin:0 0 auto auto;
+    }
+
+    .in-progress{
+        background-color: rgba(132, 191, 216, 1);
+    }
+
+    .complete{
+        background-color: rgba(28, 159, 215, 1);
+    }
+
+    .impossible{
+        background-color: rgb(194, 0, 0);
     }
 </style>
 
@@ -218,7 +256,7 @@
 
         <!-- 활동한 체험 -->
         <section id="content1" class="experience">
-            <div class="card">
+            <div class="card exp-card">
                 <div class="exp-card-body">
                     <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
                     <inline class="exp-card-text">
@@ -232,11 +270,33 @@
                             완전 강! 추!
                         </inline>
                     </inline>
-                    <button type="button" class="visit-master">
-                        방문하기
-                    </button>
+                    <div class="visit-btn">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
                 </div>
             </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">이천 도예 체험</inline>
+                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-content">
+                            장인님께서
+                            <br>
+                            가족끼리 
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                    
+                </div>
+            </div> 
         </section>
 
         <!-- 북마크 -->
@@ -273,14 +333,42 @@
 
         <!-- 예약현황 -->
         <section id="content3" class="reservation">
-            <ul class="flex-container">
-                <li class="flex-item">1</li>
-                <li class="flex-item">2</li>
-                <li class="flex-item">3</li>
-                <li class="flex-item">4</li>
-                <li class="flex-item">5</li>
-                <li class="flex-item">6</li>
-            </ul>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status in-progress">
+                        진행중
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status complete">
+                        예약완료
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status impossible">
+                        예약불가
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </div>
