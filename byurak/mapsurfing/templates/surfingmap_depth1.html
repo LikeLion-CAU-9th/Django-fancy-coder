@@ -2,14 +2,15 @@
 
 {% block contents %}
 
-<form action = "#" method = "get">
-    <input type = "search" name = "search" style = "width: 700px; height :30px; margin:30px 0 30px 310px;"> 
+<form action = "{% url 'depth2' %}" method = "get">
+    <input type = "search" value = "" id = "keyword" style = "width: 700px; height :30px; margin:30px 0 30px 310px;"> 
     <input type="submit">
 </form>
 
 <div id="map" style="width:1000px;height:750px; margin-left: 170px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=clusterer"></script>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{KAKAO_MAP_KEY}}&libraries=clusterer"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -29,8 +30,9 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var map_coordinate_data = [
     [37.50417693439669, 126.95669427974502, '<div style="padding:5px">중앙대학교</div>'],
     [37.49588032997288, 126.95693766986257, '<div style="padding:5px">숭실대학교</div>'],
-    [37.45971000415799, 126.9492757952058, '<div style="padding:5px">서울대학교</div>']
-    
+    [37.45971000415799, 126.9492757952058, '<div style="padding:5px">서울대학교</div>'],
+    [35.84648059644505, 127.12891076848453, '<div style="padding:5px">전북대학교</div>'],
+    [35.889341095263866, 128.61030430454034, '<div style="padding:5px">경북대학교</div>']
 ]
 
 var markers = [];
@@ -84,9 +86,6 @@ function makeOutListener(infowindow) {
     };
 }
 </script>
-<<<<<<< HEAD
 
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> 9f48b6697c88fed8f63eb3b6ce91108731b53512
+

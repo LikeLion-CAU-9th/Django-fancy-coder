@@ -20,7 +20,7 @@ def get_secret(setting, secrets=secrets):
         raise ImproperlyConfigured(error_msg)
 
 SECRET_KEY = get_secret("SECRET_KEY")
-
+KAKAO_MAP_KEY = get_secret("KAKAO_MAP_KEY")
 
 
 DEBUG = True
