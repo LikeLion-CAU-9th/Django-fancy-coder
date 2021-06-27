@@ -1,21 +1,57 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 완료</title>
     <link rel="stylesheet" href="{% static 'css/new_main.css' %}">
+    <style type="text/css">
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+
 </head>
+
 <body>
-    <div id = "header">
+    <div id="header">
         <img style="width : 70%; height:6%;" src="{% static 'image/signup_stepper3.png' %}">
-
-        <h1>여행간김에 회원가입 완료!</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1><b>회원가입이 완료되었습니다.</b></h1>
     </div>
-
     <div id="wrapper">
-
+        <div id="content" style="text-align:center">
+            <div>
+                <div class="btn_area">
+                    <button><a href="">
+                            <span>시작하기</span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
