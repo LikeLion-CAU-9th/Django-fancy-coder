@@ -2,10 +2,12 @@
 
 {% block contents %}
 
-<form>
-<input>검색어를 입력해주세요.</input>
+<form action = "#" method = "get">
+    <input type = "search" name = "search" style = "width: 700px; height :30px; margin:30px 0 30px 310px;"> 
+    <input type="submit">
 </form>
-<div id="map" style="width:1000px;height:800px;"></div>
+
+<div id="map" style="width:1000px;height:750px; margin-left: 170px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fd03fd34aa71e5315192a64c35a0a694&libraries=clusterer"></script>
 <script>
