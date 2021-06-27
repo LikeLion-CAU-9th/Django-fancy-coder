@@ -10,7 +10,10 @@
     <!-- Custom CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/pinterest_effect.css' %}">
+     
     <title>Culture Book</title>
+    <link rel = "stylesheet" href="{% static 'css/new_main.css' %}">
 
     <style>
         body {
@@ -66,16 +69,26 @@
             <div class="col-8" style="padding-left:10%">
                 <!-- <li><a href="#" class = "logo"><img src="{% static 'img/lightening.png' %}" alt ="..."></a></li> -->
                 <li><a href="#"><img src="{% static 'img/finding.png' %}" alt ="..."></a><div style="font-size: 3px">찾기</div></li>
-                <li><a href="#"><img src="{% static 'img/just_looking.png' %}" alt ="..."></a><div style="font-size: 3px">둘러보기</div></li>
+                <li><a href="{% url 'feed:feedList' %}"><img src="{% static 'img/just_looking.png' %}" alt ="..."></a><div style="font-size: 3px">둘러보기</div></li>
             </div>
             
+            
+            {% if user.is_active %}
             <div class ="col-2">
-                <li style = "padding-top:15px;">최윤한님</li>
+                    <li style = "padding-top:15px;">{{user.name}} 님</li>
             </div>
             <div class="col-2" style="padding-right:10px;" >
-                <li style = "padding-top:10px;"><a href="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">My Page</a></li>
-                <li style = "padding-top:10px;"><a href ="#" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">Logout</a></li>
+                <li style = "padding-top:10px;"><a href="{% url 'profile' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">MyPage</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_logout' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">LogOut</a></li>
             </div>
+
+            {% else %}
+            <div class ="col-2"></div>
+            <div class="col-2" style="padding-right:10px;" >
+                <li style = "padding-top:10px;"><a href="{% url 'accounts_signup' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">SignUp</a></li>
+                <li style = "padding-top:10px;"><a href ="{% url 'accounts_login' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">LogIn</a></li>
+            </div>
+            {% endif %}
         </div>
     </ul>
     <div class = "container">
@@ -83,6 +96,7 @@
     {% endblock %}
 </div>
 </body>
+<script src = "{% static 'js/pinterest_effect.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
     crossorigin="anonymous"></script>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block contents %}
+
+<div id="header">
+    <h1>여행간김에</h1>
+</div>
+
+<div id="wrapper">
+    <div id="content">
+        <form method="POST" action="{% url 'accounts_login' %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <!-- <div class="fieldWrapper">
+                <h3 class="join_title">
+                    <label for="id">{{ field.label_tag }}</label>
+                </h3>
+                <span class="box_int_id">
+                    <div class="int">
+                        {{ field }}
+                    </div>
+                </span>
+            </div>
+
+            {% endfor %} -->
+            <!-- {{ form.as_p }} -->
+            <div>
+                <h3 class="join_title">
+                    <label for="id">아이디</label>
+                </h3>
+                <span class="box_int_id">
+                    <input type="text" id="id" class="int" maxlength="30" name="email"
+                        value="{{ form.email.value|default_if_none:'' }}">
+                    <span class="step_url">@naver.com</span>
+                </span>
+                <span class="error_next_box"></span>
+            </div>
+            <div>
+                <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                <span class="box_int_id">
+                    <input type="password" id="pswd1" class="int" maxlength="30" name="password" value="{{ form.password.value|default_if_none:'' }}">
+                    <img src="" id="pwsd1_img1" class="pswd">
+                </span>
+                <span class="error_next_box"></span>
+            </div>
+            <br>
+            <div class="btn_area" style="width:100%; text-align:center">
+                <button type="submit">로그인</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
