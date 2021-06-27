@@ -345,24 +345,19 @@
             </li>
 
             <ul class="footBtwrap clearfix">
-                <li><button class="fpmgBt1">비동의</button></li>
+                <li><button class="fpmgBt1">취소</button></li>
                 <li><button class="fpmgBt2">동의</button></li>
             </ul>
-            <div class="btn_area">
+            <!-- <div class="btn_area">
 
             <button><input type="submit" value="다 음" class="btn_order" style="margin:10px; color : black;"></button>
-            </div>
+            </div> -->
     </form>
     </h3>
-    </div>
-    </div>
-    </div>
+
     <br>
     <br>
-    <br>
-    <div class="btn_area">
-        <button onclick="location.href='http://127.0.0.1:8000/accounts/signup/information'">다음단계</button>
-    </div>
+
     <br>
     </div>
     <br>
@@ -385,10 +380,8 @@
     <script>
         function CheckForm(Join) {
             var msg = "약관에 동의해주십시오"
-            console.log(document.Join)
             var chk1 = document.Join.chk_1.checked;
             var chk2 = document.Join.chK_2.checked;
-            console.log(chk1)
             if (chk1 == "") {
                 alert("약관에 동의해주세요");
                 return false;
@@ -400,7 +393,7 @@
         }
     </script>
 
-    
+
 </body>
 
 </html>
