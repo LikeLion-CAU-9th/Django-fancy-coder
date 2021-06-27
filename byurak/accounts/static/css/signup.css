@@ -16,7 +16,7 @@ body {
     cursor: pointer;
 }
 
-#header {
+.signup_header {
     padding-top: 62px;
     padding-bottom: 20px;
     text-align: center;

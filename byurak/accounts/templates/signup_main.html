@@ -7,15 +7,16 @@
     <meta charset="UTF-8">
     <title>사이트 약관동의</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <link rel="stylesheet" href="{% static 'css/signup_main.css' %}">
     <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-    <div id="header">
+    <div class="signup_header">
         <img style=" width : 70%; height:6%;" src="{% static 'image/signup_stepper1.png' %}">
 
-        <p style="text-align: center; font-size: 2.0em; ">Culture book 회원가입 약관</p>
+        <h1>Culture book 회원가입</h1>    
     </div>
     <br>
     <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
@@ -348,10 +349,6 @@
                 <li><button class="fpmgBt1">취소</button></li>
                 <li><button type="submit" class="fpmgBt2">동의</button></li>
             </ul>
-            <!-- <div class="btn_area">
-
-            <button><input type="submit" value="다 음" class="btn_order" style="margin:10px; color : black;"></button>
-            </div> -->
     </form>
     </h3>
 
