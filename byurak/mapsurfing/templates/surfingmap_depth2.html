@@ -5,7 +5,7 @@
 <div class="map_wrap">
         <div id="map" style="width:1400px;height:850px;position:relative;"></div>
 
-        <div id="menu_wrap" class="bg_white" style="">
+        <div id="menu_wrap" class="bg_white">
             <div class="option">
                 <div>
                     <form onsubmit="searchPlaces(); return false;">
@@ -34,6 +34,7 @@
 
     // 지도를 생성합니다    
     var map = new kakao.maps.Map(mapContainer, mapOption);
+
 
     // 장소 검색 객체를 생성합니다
     var ps = new kakao.maps.services.Places();
