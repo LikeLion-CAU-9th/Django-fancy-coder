@@ -165,7 +165,7 @@ select {
 /* 버튼 */
 
 .btn_area button{
-    width: 100%;
+    width: 50%;
     padding: 21px 0 17px;
     border: 0;
     cursor: pointer;
