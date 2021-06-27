@@ -18,7 +18,7 @@
         <p style="text-align: center; font-size: 2.0em; ">Culture book 회원가입 약관</p>
     </div>
     <br>
-    <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name=Join onSubmit="return CheckForm(this)">
+    <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
         {% csrf_token %}
 
         <ul class="join_box">
@@ -31,7 +31,7 @@
                 </ul>
             </li>
 
-            <li class="checkBox check02">
+            <li class="checkBox check01">
                 <ul class="clearfix">
                     <li>이용약관 동의(필수)</li>
                     <li class="checkBtn">
@@ -346,7 +346,7 @@
 
             <ul class="footBtwrap clearfix">
                 <li><button class="fpmgBt1">취소</button></li>
-                <li><button class="fpmgBt2">동의</button></li>
+                <li><button type="submit" class="fpmgBt2">동의</button></li>
             </ul>
             <!-- <div class="btn_area">
 
@@ -358,42 +358,37 @@
     <br>
     <br>
 
-    <br>
-    </div>
-    <br>
     <script type="text/javascript">
-        $(function () { //전체선택 체크박스 클릭 
+        $(function () {
             $("#chkAll").click(function () {
-                //만약 전체 선택 체크박스가 체크된상태일경우 
                 if ($("#chkAll").prop("checked")) {
                     console.log("ture")
-                    //해당화면에 전체 checkbox들을 체크해준다 
                     $("input[type=checkbox]").prop("checked", true);
-                    // 전체선택 체크박스가 해제된 경우 
                 }
-                else { //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+                else {
                     $("input[type=checkbox]").prop("checked", false);
                 }
             })
+
         }) 
     </script>
-    <script>
+    <script type="text/javascript">
+        $(function () {
+
+        })
         function CheckForm(Join) {
             var msg = "약관에 동의해주십시오"
-            var chk1 = document.Join.chk_1.checked;
-            var chk2 = document.Join.chK_2.checked;
-            if (chk1 == "") {
+           
+            if (!document.Join.chk_2.checked) {
                 alert("약관에 동의해주세요");
                 return false;
             }
-            if (chk2 == "") {
+            if (!document.Join.chk_1.checked) {
                 alert("약관에 동의해주세요");
                 return false;
             }
         }
     </script>
-
-
 </body>
 
 </html>
