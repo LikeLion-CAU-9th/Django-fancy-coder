@@ -54,7 +54,7 @@ def accounts_login(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect("login_success")
+            return redirect("feed:feedList")
         else:
             ctx = {
                 "form": form,
@@ -72,9 +72,11 @@ def accounts_login(request):
 def accounts_logout(request):
     if request.method == "POST":
         auth_logout(request)
-        return redirect("logout_success")
+        return redirect("feed:feedList")
     elif request.method == "GET":
-        return render(request, "accounts_logout.html")
+        auth_logout(request)
+        # return render(request, "feedhome.html")
+        return redirect("feed:feedList")
 
 
 def accounts_home(request):

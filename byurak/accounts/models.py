@@ -83,7 +83,16 @@ class Profile(models.Model):
         (INSTAGRAM, 'INSTAGRAM')
     ]
 
+    SERVICE_PROVIDER = 'service_provider'
+    DEFAULT_USER = 'default_user'
+
+    USER_TYPES = [
+        (SERVICE_PROVIDER, 'SERVICE_PROVIDER'),
+        (DEFAULT_USER, DEFAULT_USER)
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text='유저')
+    user_type = models.CharField(max_length=20, choices=USER_TYPES, default=DEFAULT_USER, help_text='유저 타입')
     signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
     short_introduce = models.CharField(max_length=511, null=True, blank=True)
     image = models.ImageField(upload_to='profile/', blank=True, null=True)
@@ -101,6 +110,7 @@ class Profile(models.Model):
     @property
     def is_signup_finished(self):
         return self.user.is_signup_finish
+
 
 class UserFollow(models.Model):
     user_from = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_from_set')
