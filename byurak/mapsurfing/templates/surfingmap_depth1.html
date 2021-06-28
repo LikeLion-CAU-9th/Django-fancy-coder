@@ -29,18 +29,20 @@
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
     var geocoder = new kakao.maps.services.Geocoder();
-    //var profiles = ;
-    for (var i = 0; i < "{{profiles}}"; i++) {
-        geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function (result, status) {
+    var profiles = JSON.parse("{{ profiles | escapejs }}");
+    console.log(profiles)
+    var profiles_address = [];
+    for (var i = 0; i < profiles.length; i++) {
+        geocoder.addressSearch(profiles[i].address, function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
     
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                console.log(coords)
+                // console.log(coords)
+                profiles_address.push(coords)
             }
         });
     }
-
-    
+    console.log(profiles_address)
 
 
     // 마커 클러스터러를 생성합니다
