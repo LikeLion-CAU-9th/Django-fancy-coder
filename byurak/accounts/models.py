@@ -94,6 +94,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text='유저')
     user_type = models.CharField(max_length=20, choices=USER_TYPES, default=DEFAULT_USER, help_text='유저 타입')
     signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
+    address = models.CharField(max_length=127, null=True, blank=True)
     short_introduce = models.CharField(max_length=511, null=True, blank=True)
     image = models.ImageField(upload_to='profile/', blank=True, null=True)
     device_token = models.CharField(max_length=512, null=True, blank=True, help_text='notification 기기 고유 토크값')
@@ -110,6 +111,12 @@ class Profile(models.Model):
     @property
     def is_signup_finished(self):
         return self.user.is_signup_finish
+
+
+class ProfileIntroduce(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, help_text='유저 프로필')
+    image = models.ImageField(upload_to='profile/profile_introduce', blank=True, null=True)
+    description = models.CharField(max_length=511, null=True, blank=True)        
 
 
 class UserFollow(models.Model):
