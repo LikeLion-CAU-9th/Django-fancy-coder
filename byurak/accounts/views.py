@@ -10,10 +10,10 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request, id):
-    profile = Profile.objects.filter(id=id)
-
+    user = User.objects.get(id=id)
+    profile = Profile.objects.filter(user=user)
     if profile: 
-        profile = Profile.objects.get(id=id)
+        profile = Profile.objects.get(user=user)
 
     return render(request, 'index.html', {"profile":profile})
 
