@@ -29,13 +29,20 @@
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
     var geocoder = new kakao.maps.services.Geocoder();
-    geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
+    //var profiles = ;
+    for (var i = 0; i < "{{profiles}}"; i++) {
+        geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+    
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                console.log(coords)
+            }
+        });
+    }
 
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-            console.log(coords)
-        }
-    });
+    
+
+
     // 마커 클러스터러를 생성합니다
     var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
