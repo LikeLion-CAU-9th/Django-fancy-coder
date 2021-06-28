@@ -3,12 +3,16 @@
 {% block contents %}
 
 <form action = "{% url 'depth2' %}" method = "get">
-    <input type = "search" value = "" id = "keyword" style = "width: 700px; height :30px; margin:30px 0 30px 310px;"> 
+    <input type = "search" value = "" id = "keyword" style = "width: 700px; height :30px; margin:30px 0 30px 310px;" placeholder="검색어를 입력하세요."> 
     <input type="submit">
 </form>
 
-<div id="map" style="width:1000px;height:750px; margin-left: 170px;"></div>
-
+<div id="map" style="width:1000px;height: 650px; margin-left: 170px;"></div>
+<p>
+    <button onclick="zoomIn()" style="margin-left: 50px;">확대</button>
+    <button onclick="zoomOut()">축소</button>
+    <span id="maplevel"></span>
+</p>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{KAKAO_MAP_KEY}}&libraries=clusterer"></script>
 <script>
@@ -85,6 +89,34 @@ function makeOutListener(infowindow) {
         infowindow.close ();
     };
 }
+
+// 지도 레벨을 표시합니다
+displayLevel();
+ 
+// 지도 레벨은 지도의 확대 수준을 의미합니다
+// 지도 레벨은 1부터 14레벨이 있으며 숫자가 작을수록 지도 확대 수준이 높습니다
+function zoomIn() {        
+    // 현재 지도의 레벨을 얻어옵니다
+    var level = map.getLevel();
+    
+    // 지도를 1레벨 내립니다 (지도가 확대됩니다)
+    map.setLevel(level - 1);
+    
+    // 지도 레벨을 표시합니다
+    displayLevel();
+}    
+
+function zoomOut() {    
+    // 현재 지도의 레벨을 얻어옵니다
+    var level = map.getLevel(); 
+    
+    // 지도를 1레벨 올립니다 (지도가 축소됩니다)
+    map.setLevel(level + 1);
+    
+    // 지도 레벨을 표시합니다
+    displayLevel(); 
+}    
+ 
 </script>
 
 {% endblock %}
