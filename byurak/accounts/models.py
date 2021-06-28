@@ -34,13 +34,13 @@ class StatusType:
 
 
 class User(AbstractBaseUser):
-    name = models.CharField(max_length=20, null=True, blank=True)
+    name = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
         unique=True,
     )
-    nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
+    nickname = models.CharField(max_length=31, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')

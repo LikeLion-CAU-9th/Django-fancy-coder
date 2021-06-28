@@ -70,6 +70,7 @@ def accounts_login(request):
         email = request.POST.get("email")
         password = request.POST["password"]
         user = authenticate(email=email, password=password)
+        print(user)
         if user is not None:
             auth_login(request, user)
             return redirect("feed:feedList")
