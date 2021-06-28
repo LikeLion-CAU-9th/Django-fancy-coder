@@ -34,13 +34,13 @@ class StatusType:
 
 
 class User(AbstractBaseUser):
-    name = models.CharField(max_length=20, null=True, blank=True)
+    name = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
         unique=True,
     )
-    nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
+    nickname = models.CharField(max_length=31, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')
@@ -100,6 +100,9 @@ class Profile(models.Model):
     device_token = models.CharField(max_length=512, null=True, blank=True, help_text='notification 기기 고유 토크값')
     is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
     popularity_score = models.IntegerField(default=0, null=True, blank=True)
+    service_price = models.CharField(max_length=15, null=True, blank=True)
+    service_one_time = models.FloatField(default=1.0)
+
 
     def __str__(self):
         return self.user.name
