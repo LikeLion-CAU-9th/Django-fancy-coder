@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/pinterest_effect.css' %}">
      
     <title>Culture Book</title>
-    <link rel = "stylesheet" href="{% static 'css/new_main.css' %}">
+    <link rel = "stylesheet" href="{% static 'css/signup.css' %}">
 
     <style>
         body {
@@ -120,7 +120,7 @@
             {% else %}
             <div class ="col-2"></div>
             <div class="col-2" style="padding-right:10px;" >
-                <li style = "padding-top:10px;"><a href="{% url 'accounts_signup' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">SignUp</a></li>
+                <li style = "padding-top:10px;"><a href="{% url 'signup_main' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">SignUp</a></li>
                 <li style = "padding-top:10px;"><a href ="{% url 'accounts_login' %}" style = "color: rgba(24, 24, 24, 0.2);" class = "navbar-right">LogIn</a></li>
             </div>
             {% endif %}
