@@ -9,8 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'index.html')
+def index(request, id):
+    profile = Profile.objects.filter(id=id)
+
+    if profile: 
+        profile = Profile.objects.get(id=id)
+
+    return render(request, 'index.html', {"profile":profile})
 
 
 def signup_main(request):

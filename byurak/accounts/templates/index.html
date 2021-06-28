@@ -222,7 +222,8 @@
 </style>
 
 <link rel='stylesheet' href="{% static 'css/accounts.css' %}">
-
+{{ profile.user_type }}
+{% if profile.user_type == "default_user" %}
 <div class="col-9 align-self-center mt-5" style="margin:auto;">
     <div class="row">
         <div style="text-align: center;">
@@ -235,6 +236,7 @@
                     <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
                 </button>
             </div>
+
             <div class="col">
                 <button type="button" class="chatting-btn" style="margin:auto;">
                     채팅하기
@@ -242,7 +244,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
@@ -372,5 +374,132 @@
         </section>
     </div>
 </div>
+
+{% elif profile.user_type == "SERVICE_PROVIDER" %}
+<div class="col-9 align-self-center mt-5" style="margin:auto;">
+    <div class="row">
+        <div style="text-align: center;">
+            <div class="profile-picture">
+                <img style=" width: 170px; height:170px; object-fit: cover; border-radius: 100%;" src="{% static 'image/profilePicture.jpg' %}">
+            </div>
+            <div class="user-info m-2" style="vertical-align: middle;">
+                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
+                <button class="setting-button">
+                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
+                </button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="chatting-btn" style="margin:auto;">
+                    채팅하기
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content mt-3 border-top">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <!--디폴트 메뉴-->
+        <label for="tab1">소개글</label>
+
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2">후기</label>
+
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3">예약현황</label>
+
+        <!-- 소개글 -->
+        <section id="content1" class="experience">
+            
+        </section>
+
+        <!-- 북마크 -->
+        <section id="content2" class="bookmark">
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">이천 도예 체험</inline>
+                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-content">
+                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
+                            한국 고유의 문화를 알게 됐어요!!
+                            <br>
+                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
+                            완전 강! 추!
+                        </inline>
+                    </inline>
+                    <div class="visit-btn">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">이천 도예 체험</inline>
+                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-content">
+                            장인님께서
+                            <br>
+                            가족끼리 
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                    
+                </div>
+            </div> 
+        </section>
+
+        <!-- 예약현황 -->
+        <section id="content3" class="reservation">
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status in-progress">
+                        진행중
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status complete">
+                        예약완료
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status impossible">
+                        예약불가
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endif %}
+
 
 {% endblock %}
