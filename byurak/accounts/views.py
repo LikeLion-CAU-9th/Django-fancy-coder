@@ -25,7 +25,7 @@ def signup_main(request):
 def signup_check(request):
     if not request.POST.get('chk_1', None) == None:
         if not request.POST.get('chk_2', None) == None:
-            return redirect('signup_infor')
+            return redirect('accounts_signup')
         else:
             return render(request, 'signup_main.html')
     else:
@@ -49,7 +49,8 @@ def accounts_signup(request):
         if form.is_valid():
             user = form.save()
             user.save()
-            return redirect("signup_success")
+            auth_login(request, user)
+            return redirect("feed:feedList")
         else:
             ctx = {
                 "form": form,
