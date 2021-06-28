@@ -114,6 +114,7 @@ class Profile(models.Model):
 
     def to_json(self):
         return {
+            "user_name": self.user.name,
             "user_type": self.user_type,
             "signup_type": self.signup_type,
             "address": self.address,

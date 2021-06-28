@@ -38,7 +38,7 @@
     
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                 // console.log(coords)
-                profiles_address.push(coords)
+                profiles_address.push([profiles[i].user_name])
             }
         });
     }
