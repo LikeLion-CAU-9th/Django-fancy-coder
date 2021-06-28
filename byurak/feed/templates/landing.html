@@ -20,12 +20,13 @@
     <section class="et-hero-tabs">
         <div class="row">
             <div class="col-6" style="padding: 80px 120px 20px 20px">
-                <h4 style = "color:black">체험활동 하러 가자!!</h4>
+                <h4 style="color:black">체험활동 하러 가자!!</h4>
 
                 <strong>
                     <h1 style="font-weight: bold;"><span style="color : #50BCDF;">C</span>ULTURE
                         <br>
-                        <span style="color : #50BCDF;">B</span>OOK</h1>
+                        <span style="color : #50BCDF;">B</span>OOK
+                    </h1>
                 </strong>
                 <br />
                 <br />
@@ -33,7 +34,7 @@
                 <h6>컬쳐북은 <br />지역문화체험 예약 서비스입니다.</h6>
                 <br />
 
-                <a class="button" href="{% url 'feed:feedList' %}" style = "font-weight:800;">시작하기</a>
+                <a class="button" href="{% url 'feed:feedList' %}" style="font-weight:800;">시작하기</a>
 
             </div>
             <div class="col-6" style="padding:100px 0 0 0">
@@ -55,18 +56,38 @@
     <!-- Main -->
     <main class="et-main">
         <section class="et-slide" id="tab-es6">
-            <h1 style="font-weight: bold;"> <span style="color : #50BCDF;">문</span>화<br><span style="color : #50BCDF;">C</span>ULTURE</h1>
-            <hr />
-            <br />
+            <div class="row" style="margin-bottom: 75px;">
+                <h1 style="font-weight: bold;"> <span style="color : #50BCDF;">문</span>화<br><span
+                        style="color : #50BCDF;">C</span>ULTURE</h1>
+                <hr />
+                <br />
 
-            <h6>우리 주위에는 소중한 문화체험들이 많이 있습니다.</h6>
-            <br />
+                <h6>우리 주위에는 소중한 문화체험들이 많이 있습니다.</h6>
+                <h6> 우리나라 문화를 배울 수 있는 체험들을 경험해보세요.</h6>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <img style="display:flex; width : 70%; height: 70%; margin:0 0 0 100px;"
+                        src="{%static 'img/byurakMainHeader.png'%}">
+                    <br>
+                    <h2>전통문화체험</h2>
+                </div>
 
-            <br />
+                <div class="col-4">
+                    <img style="display:flex; width : 70%; height: 70%; margin: 0 150px 0px 100px;"
+                        src="{%static 'img/byurakMainHeader.png'%}">
+                        <br>
+                        <h2>무형문화재</h2>
+                </div>
+                <div class="col-2"></div>
+                <br />
+                <br />
+            </div>
         </section>
 
         <section class="et-slide" id="tab-flexbox">
-            
+
             <br />
             <br />
             <div class="row" style="margin:0 100px 0 0">
@@ -92,7 +113,7 @@
 
         <section class="et-slide" id="tab-react">
             <br />
-            
+
             <div class="row">
                 <div class="col-6" style="padding:0 100px 0 0">
                     <br />
@@ -106,12 +127,11 @@
                         관심있는 체험을 북마크 해보세요.</h6>
                     <br />
                     <br />
-                    <a class="button" href="함께 하기"><strong>보러 가기</strong></a>
                 </div>
             </div>
             <br />
             <br />
-           
+
             <br />
             <br />
             <br />
@@ -123,7 +143,7 @@
                 <div class="col-6" style="padding:15% 4% 0 0">
                     <h3>마음에 드는 체험을 고른후에 <br />
                         빠르게 예약!</h3>
-                        <h6> 예약후에 1:1채팅을 통해 예약을 확인 및 문의를 할 수 있습니다! </h6>
+                    <h6> 예약후에 1:1채팅을 통해 예약을 확인 및 문의를 할 수 있습니다! </h6>
                     <br />
                     <br />
                 </div>
