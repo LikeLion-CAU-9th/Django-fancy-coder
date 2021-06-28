@@ -79,8 +79,8 @@ def reservation_pay_method(request, pk):
 
 
 #넘어오는 pk값은 hostr의 pk
-#만약 request.user가 Service Provider 일때만 해당 URL에 접속하게 하려면 
-#Decorator를 검색하셔서 Validation 작업을 수행하시면 됩니다. 
+#만약 request.user가 Service Provider 일때만 해당 URL에 접속하게 하는 경우?
+# 검색결과 Decorator를 검색하셔서 Validation 작업을 수행헤야 함(?)
 def reservation_host_confirm(request, pk):
     profile = Profile.objects.get(pk = pk)
 
