@@ -2,12 +2,12 @@
 
 {% block contents %}
 
-<form action = "{% url 'depth2' %}" method = "get">
-    <input type = "search" id = "keyword" style = "width: 700px; height :30px; margin:30px 0 30px 310px;" placeholder="가고싶은 지역 또는 하고싶은 체험활동을 입력해주세요."> 
+<form action = "{% url 'depth2' %}" method = "get" style="width:80%; padding: 0 0 0 0; margin:auto">
+    <input type = "search" id = "keyword" style = "width: 80%; height :30px; margin:20px auto" placeholder="가고싶은 지역 또는 하고싶은 체험활동을 입력해주세요."> 
     <input type="submit">
 </form>
 
-<div id="map" style="width:1000px;height: 650px; margin-left: 170px;"></div>
+<div id="map" style="width:80%;height: 650px; margin: auto"></div>
 <p>
     <button onclick="zoomIn()" style="margin-left: 50px;">확대</button>
     <button onclick="zoomOut()">축소</button>
