@@ -42,7 +42,8 @@ PROJECT_APPS = [
     'feed',
     'chat',
     'group',
-    'mapsurfing'
+    'mapsurfing',
+    'reservation'
 ]
 
 COMMON_APPS = [

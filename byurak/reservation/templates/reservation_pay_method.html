@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h5>{{reservation.service.user.name}}</h5>
+
+    <h5>{{reservation.customer.name}}</h5>
+
+    <h5>{{reservation.activate_date}}</h5>
+
+    <h5>{{reservation.customer_count}}</h5>
+
+    <h5>{{reservation.payment_fee}}</h5>
+
+
+    <form method="POST" action="{% url 'reservation:reservation_pay_method' reservation.pk %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div>
+            {{ form.as_p }}
+        </div>
+        
+        <button type="submit">생성하기</button>
+    
+    </form>
+</body>
+</html>

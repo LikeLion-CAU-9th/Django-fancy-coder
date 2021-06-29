@@ -11,7 +11,8 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('accounts/', include('accounts.urls')),
     path('group/', include('group.urls')),
-    path('mapsurfing/', include('mapsurfing.urls'))
+    path('mapsurfing/', include('mapsurfing.urls')),
+    path('reservation/', include('reservation.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
