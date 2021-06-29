@@ -16,10 +16,8 @@
     <button onclick="zoomOut()">축소</button>
     <span id="maplevel"></span>
 </p>
-
 <script type="text/javascript"
     src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{KAKAO_MAP_KEY}}&libraries=clusterer,services"></script>
-
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
@@ -29,21 +27,68 @@
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
     var geocoder = new kakao.maps.services.Geocoder();
-    var profiles = JSON.parse("{{ profiles | escapejs }}");
-    console.log(profiles)
-    var profiles_address = [];
-    for (var i = 0; i < profiles.length; i++) {
-        geocoder.addressSearch(profiles[i].address, function (result, status) {
-            if (status === kakao.maps.services.Status.OK) {
+    var profiles = JSON.parse("{{ json_profiles_data | escapejs }}");
     
-                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                // console.log(coords)
-                profiles_address.push([profiles[i].user_name])
-            }
-        });
-    }
-    console.log(profiles_address)
+    // console.log(profiles)
+    var profilesAddress = new Array();
 
+    // var temp = new Array();
+
+    for (let i = 0; i < profiles.length; i++) {
+
+        profilesAddress.push(profiles[i].user);
+    };
+    console.log(profilesAddress)
+
+    for (let j = 0; j < profiles.length; j++) {
+        var La = "";
+        var Ma = "";
+        var temp = []
+        geocoder.addressSearch(profiles[j].address, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                //console.log(profiles[i].address);
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                // console.log(coords.La);
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+                var content = '<div class="overlay_info">';
+                    content += '    <a><strong>' + a +'</strong></a>';
+                    content += '    <div class="desc">';
+                    content += '        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/place_thumb.png" alt="">';
+                    content += '        <span class="address">'+  +'</span>';
+                    content += '    </div>';
+                    content += '</div>';
+
+                	        // 인포윈도우로 장소에 대한 설명을 표시합니다
+	            var infowindow = new kakao.maps.InfoWindow({
+	                //  content: cmpnmList[index], 
+	                content: content,
+	           	    disableAutoPan: true
+	           	
+	            });
+                infowindow.open(map, marker);
+                    La = coords.La;
+                    Ma = coords.Ma;
+                    temp.push(La);
+                    temp.push(Ma);
+            }
+            
+        });
+    };
+
+    console.log("a")
+    for (let k = 0; k<profiles.length; k++){
+        console.log(profilesAddress[k])
+    }
+    console.log(profilesAddress)
+    profilesAddress.push(temp)
+    console.log(profilesAddress[2][0])
+    console.log("b")
+    for (var z in profilesAddress[2]){
+        console.log(profilesAddress[z])
+    }
 
     // 마커 클러스터러를 생성합니다
     var clusterer = new kakao.maps.MarkerClusterer({
