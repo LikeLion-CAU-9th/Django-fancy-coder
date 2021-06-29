@@ -143,3 +143,13 @@ class UserFollow(models.Model):
 
 User.add_to_class('following',
                   models.ManyToManyField('self', through=UserFollow, related_name='followed', symmetrical=False))
+
+
+class Introduction(models.Model):
+
+    title = models.CharField(max_length=40, help_text="제목")
+    body = models.TextField(help_text="소개글 본문 내용")
+    image = models.ImageField(upload_to="image/", blank=True, null=True)
+
+    def __str__(self):
+        return self.title

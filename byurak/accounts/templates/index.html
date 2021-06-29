@@ -39,6 +39,36 @@
         border-bottom: 2px solid #1C9FD7;
     }
 
+    button {
+        border: 2px solid #1C9FD7;
+        outline: none;
+        text-decoration: none;
+    }
+
+    button:hover {
+        background-color: #fff;
+        border-color: #1C9FD7;
+        color: #1C9FD7;
+    }
+
+    button::before,
+    button::after {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        content: '';
+    }
+
+    button,
+    button::before,
+    button::after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+
     .main-content {
         text-align: center;
     }
@@ -88,14 +118,14 @@
 
     .visit-master {
         width: 100px;
-        height: 36px;
         background-color: rgba(28, 159, 215, 1);
         font-size: 15px;
-        border: none;
         border-radius: 15px;
         color: white;
         padding: 7px;
         display: block;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     #tab1:checked~#content1,
@@ -199,7 +229,6 @@
 
     .reservation-status {
         width: 100px;
-        height: 36px;
         font-size: 15px;
         border: none;
         border-radius: 15px;
@@ -229,7 +258,6 @@
         width: 100px;
         background-color: rgba(28, 159, 215, 1);
         font-size: 15px;
-        border: none;
         border-radius: 15px;
         color: white;
         padding: 7px;
@@ -242,7 +270,6 @@
         width: 100px;
         background-color: rgba(28, 159, 215, 1);
         font-size: 15px;
-        border: none;
         border-radius: 15px;
         color: white;
         padding: 7px;
@@ -255,20 +282,20 @@
 
     .edit-btn {
         width: 100px;
-        height: 36px;
         background-color: rgba(28, 159, 215, 1);
         font-size: 15px;
-        border: none;
         border-radius: 15px;
         color: white;
         padding: 7px;
         display: block;
-        float:right;
+        margin-left: 10px;
+        margin-right: 10px;
+        float: right;
     }
-
 </style>
 
 <link rel='stylesheet' href="{% static 'css/accounts.css' %}">
+
 
 <!-- DEFAULT_USER -->
 {% if profile.user_type == "default_user" %}
@@ -475,19 +502,66 @@
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
-        <label for="tab1">소개글</label>
+        <label for="tab1" style="font-weight:bolder;">소개글</label>
 
         <input id="tab2" type="radio" name="tabs">
-        <label for="tab2">후기</label>
+        <label for="tab2" style="font-weight:bolder;">후기</label>
 
         <input id="tab3" type="radio" name="tabs">
-        <label for="tab3">예약현황</label>
+        <label for="tab3" style="font-weight:bolder;">예약현황</label>
 
         <!-- 소개글 -->
         <section id="content1" class="experience">
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
-                    <button type="button" class="edit-btn">소개글 편집</button>
+                    <a type="button" class="edit-btn" href="{% url 'create_introduction' %}" target="_self">소개글 편집</a>
+                </div>
+                <div class="introduction">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
+                        <form method="post" action="{% url 'create_introduction' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">제목</label>
+                                <input type="text" class="form-control" id="recipient-name" name="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">내용</label>
+                                <textarea class="form-control" id="message-text" name="body"></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="inputGroupFile02" name="image">
+                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="btn btn-primary" style="background-color:pink; border: None;"
+                                    type="submit" value="완료">
+                            </div>
+                        </form>
+                    </div>
+                    {% for post in post_list %}
+                    <div class="item-2">
+                        <a href="{% url 'post-detail' post.id %}" class="card">
+                            {% if post.image %}
+                            <div class="thumb" style="background-image: url({{ post.image.url }})">
+
+                            </div>
+                            {% endif %}
+                            <article>
+                                <h1>{{post.title}}</h1>
+                                <p>{{post.body}}</p>
+                                <span>{{post.datetime}}</span>
+                            </article>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+
                 </div>
             </div>
         </section>

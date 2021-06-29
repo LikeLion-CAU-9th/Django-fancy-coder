@@ -114,3 +114,21 @@ def login_success(request):
 
 def logout_success(request):
     return render(request, "logout_success.html")
+
+
+def create_introduction(request):
+    if request.method == 'POST':
+        if request.FILES.get('image'):
+            Introduction.objects.create(
+                title = request.POST['title'],
+                body = request.POST['body'],
+                image = request.POST['image']
+            )
+        else:
+            Introduction.objects.create(
+                title = request.POST['title'],
+                body = request.POST['body']
+            )
+        Intro = Introduction.objects.all()
+        return render(request, 'create_intrduction.html', {'Intro':Intro})
+    return redirect('/')
