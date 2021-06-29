@@ -115,6 +115,15 @@ class Profile(models.Model):
     def is_signup_finished(self):
         return self.user.is_signup_finish
 
+    def to_json(self):
+        return {
+            "user_name": self.user.name,
+            "user_type": self.user_type,
+            "signup_type": self.signup_type,
+            "address": self.address,
+            "short_introduce": self.short_introduce
+        }
+
 
 class ProfileIntroduce(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, help_text='유저 프로필')
