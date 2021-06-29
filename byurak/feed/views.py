@@ -7,6 +7,10 @@ def service_landing(request):
     return render(request, 'landing.html')
 
 
+def temp_landing(request):
+    return render(request, 'landing2.html')
+
+
 def post_home(request):
     return render(request, template_name="post_home.html")
 
