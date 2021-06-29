@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<head>
-
-</head>
 {% block contents %}
 <form class="searchform group" action="{% url 'depth2' %}" method="get"
     style="width:80%; padding: 0 0 0 0; margin:30px 10% 30px 10%">
@@ -15,7 +12,91 @@
 </form>
 <div class="row">
     <div class="col-5">
-        <hr>
+        <h1 class="text-center">Hot Place</h1>
+
+
+        <!-- Item slider-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-12 col-md-12">
+                    <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-xs-6 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'image/profilePicture.jpg' %}"
+                                            class="img-responsive center-block" style="width:150px; height:80px"></a>
+                                    <h4 class="text-center">안산 양궁 </h4>
+                                    <h5 class="text-center">review 156</h5>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-6 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'img/byurakMain.png' %}"
+                                            class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                    <h4 class="text-center">부산 승마체험</h4>
+                                    <h5 class="text-center">review 123</h5>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'image/profilePicture.jpg' %}"
+                                            class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                    <span class="badge">10%</span>
+                                    <h4 class="text-center">안산 양궁 </h4>
+                                    <h5 class="text-center">review 156</h5>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'img/byurakMain.png' %}"
+                                            class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                            <h4 class="text-center">부산 승마체험</h4>
+                                            <h5 class="text-center">review 123</h5>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'image/profilePicture.jpg' %}"
+                                            class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                            <h4 class="text-center">안산 양궁 </h4>
+                                            <h5 class="text-center">review 156</h5>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    <a href="#"><img
+                                            src="{% static 'img/byurakMain.png' %}"
+                                            class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                            <h4 class="text-center">부산 승마체험</h4>
+                                            <h5 class="text-center">review 123</h5>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="slider-control">
+                            <a class="left carousel-control" href="#itemslider" data-slide="prev"><img
+                                    src="https://cdn0.iconfinder.com/data/icons/website-kit-2/512/icon_402-512.png"
+                                    alt="Left" class="img-responsive"></a>
+                            <a class="right carousel-control" href="#itemslider" data-slide="next"><img
+                                    src="http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png" style="width:70px" alt="Right"
+                                    class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card">
             <div class="row">
                 <div class="col-5" style="margin:0px">
@@ -126,16 +207,16 @@
         overlay.setMap(null)
         // var content = document.createElement('div');
         // content.style.cssText='backgroud-color:white; height:100px';
-        
+
         var contentText = document.createElement('div')
         contentText.innerHTML = '<div class="wrap">' +
-                '    <div class="info">' +
-                '        <div class="title">' +
-                            map_coordinate_data[i][2] +
-                '        </div>' +
-                '        <div class="body">' +
-                '            <div class="img">' +
-                '                <img src="'+'{% static 'image/profilePicture.jpg' %}'+'" height="70">' +
+            '    <div class="info">' +
+            '        <div class="title">' +
+            map_coordinate_data[i][2] +
+            '        </div>' +
+            '        <div class="body">' +
+            '            <div class="img">' +
+            '                <img src="' + '{% static 'image / profilePicture.jpg' %}' + '" height="70">' +
                 '           </div>' +
                 '            <div class="desc">' +
                 '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' +
@@ -145,7 +226,7 @@
                 '        </div>' +
                 '    </div>' +
                 '</div>';
-        
+
         // content.appendChild(contentText);
         var closeBtn = document.createElement('button');
         closeBtn.setAttribute("id", "mapBtn");
@@ -154,17 +235,17 @@
             overlay.setMap(null);
         };
         contentText.appendChild(closeBtn);
-        
+
         //document.body.getElementsByClassName('close').appendChild(closeBtn)
-        
+
         // content.appendChild(test);
         overlay.setContent(contentText);
-    
-        kakao.maps.event.addListener(marker, 'click', function() {
+
+        kakao.maps.event.addListener(marker, 'click', function () {
             overlay.setMap(map);
         });
 
-       
+
     }
 
     // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
