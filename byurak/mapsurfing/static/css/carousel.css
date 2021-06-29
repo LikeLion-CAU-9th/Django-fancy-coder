@@ -76,11 +76,11 @@
     background-image: none;
   }
   .carousel-showmanymoveone .carousel-control.left {
-    margin-left: -18px;
+    margin-left: -15px;
     padding-top:10px
   }
   .carousel-showmanymoveone .carousel-control.right {
-    margin-right: -22px;
+    margin-right: -15px;
     width:6%;
   }
   .carousel-showmanymoveone .cloneditem-1,
