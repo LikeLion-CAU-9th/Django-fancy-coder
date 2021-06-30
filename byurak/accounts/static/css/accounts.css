@@ -1,6 +1,9 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);  
+
 body{
-    background-color: rgba(247, 249, 251, 1);
+    background-color: #EDECEA;
     font-size: 20px;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .col-content{
@@ -23,7 +26,7 @@ body{
 
 .chatting-btn{
     width: 100px;
-    background-color: rgba(28, 159, 215, 1);
+    background-color: #535E53;
     font-size:15px;
     border: none;
     border-radius:15px;
@@ -33,3 +36,294 @@ body{
 }
 
 
+    /* experience col css */
+    section {
+        display: none;
+        padding: 20px 0 0;
+
+    }
+
+    input {
+        display: none;
+    }
+
+    label {
+        width: 150px;
+        display: inline-block;
+        margin: 0 0 -1px;
+        padding: 10px 10px;
+        font-weight: 400;
+        text-align: center;
+        color: #bbb;
+        border: 1px solid transparent;
+    }
+
+    label:hover {
+        color: #ACCCC4;
+        cursor: pointer;
+    }
+
+    /*input 클릭시, label 스타일*/
+    input:checked+label {
+        color: #ACCCC4;
+        border-top: 2px solid #ACCCC4;
+        border-bottom: 2px solid #ACCCC4;
+    }
+
+    button {
+        border: 2px solid #ACCCC4;
+        outline: none;
+        text-decoration: none;
+    }
+
+    button:hover {
+        background-color: transparent;
+        border-color: #ACCCC4;
+        color: #ACCCC4;
+    }
+
+    button::before,
+    button::after {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        content: '';
+    }
+
+    button,
+    button::before,
+    button::after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+
+    .main-content {
+        text-align: center;
+    }
+
+    .exp-card {
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        background-color: #f5f5f5;
+    }
+
+    .exp-card-body {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .exp-card-text {
+        display: flex;
+        flex-direction: column;
+        vertical-align: top;
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .exp-card-title {
+        vertical-align: top;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .exp-card-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .exp-card-content {
+        font: size 15px;
+        margin-top: 10px;
+    }
+
+    .visit-btn {
+        margin: 0 0 auto auto;
+    }
+
+    .visit-master {
+        width: 100px;
+        background-color: #ACCCC4;
+        font-size: 15px;
+        border-radius: 15px;
+        color: white;
+        padding: 7px;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #tab1:checked~#content1,
+    #tab2:checked~#content2,
+    #tab3:checked~#content3 {
+        display: block;
+    }
+
+    #fontsub {
+        font-size: 120%;
+        color: #545454;
+    }
+
+    #fontbold {
+        font-weight: bold;
+    }
+
+
+    /* bookmark col css */
+    
+    .bookmark-card {
+        border: none;
+        width: 250px;
+        height: 250px;
+        padding: 0;
+        margin: 10px;
+        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        object-fit: cover;
+        background-size: contain;
+        align-content: center;
+    }
+
+    .bookmark-btn {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        background-size: cover;
+        text-decoration: none;
+    }
+
+    .item .cover {
+        object-fit: cover;
+        background-color: rgb(53, 53, 53);
+        transition: opacity 0.15s ease-in;
+        opacity: 0;
+        border-radius: 5px;
+        line-height: 250px;
+        vertical-align: middle;
+    }
+
+    .item:hover .cover {
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+    }
+
+    .item .cover .program-name {
+        height: 250px;
+        width: 250px;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+    }
+
+
+    /* reservation tab css */
+    .reservation-card {
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        height: 200px;
+        background-color: #f5f5f5;
+    }
+
+    .reservation-card-image {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .reservation-card-body {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .reservation-card-text {
+        display: flex;
+        flex-direction: column;
+        vertical-align: top;
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    .reservation-card-title {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .reservation-card-date {
+        margin-top: 10px;
+    }
+
+    .reservation-status {
+        width: 100px;
+        font-size: 15px;
+        border: none;
+        border-radius: 15px;
+        color: #f5f5f5;
+        padding: 7px;
+        display: block;
+        text-align: center;
+        margin: 0 0 auto auto;
+    }
+
+    .in-progress {
+        background-color: #C6DFD6;
+    }
+
+    .complete {
+        background-color: #ACCCC4;
+    }
+
+    .impossible {
+        background-color: #C4BCB8;
+    }
+
+
+    /* SERVICE_PROVIDER css */
+
+    .message-btn {
+        width: 80px;
+        background-color: #ACCCC4;
+        font-size: 12px;
+        border-radius: 10px;
+        color: white;
+        display: block;
+        margin-left: 30px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .reservation-btn {
+        width: 100px;
+        background-color: #ACCCC4;
+        font-size: 15px;
+        border-radius: 15px;
+        color: white;
+        padding: 7px;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    /* Introduction tab css */
+
+    .edit-btn {
+        width: 100px;
+        background-color: #ACCCC4;
+        font-size: 15px;
+        border-radius: 15px;
+        color: white;
+        padding: 7px;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+        float: right;
+    }

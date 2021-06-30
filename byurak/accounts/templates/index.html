@@ -4,323 +4,39 @@
 
 {% block contents %}
 
-<style>
-    /* experience col css */
-    section {
-        display: none;
-        padding: 20px 0 0;
-
-    }
-
-    input {
-        display: none;
-    }
-
-    label {
-        width: 150px;
-        display: inline-block;
-        margin: 0 0 -1px;
-        padding: 10px 10px;
-        font-weight: 400;
-        text-align: center;
-        color: #bbb;
-        border: 1px solid transparent;
-    }
-
-    label:hover {
-        color: #1C9FD7;
-        cursor: pointer;
-    }
-
-    /*input 클릭시, label 스타일*/
-    input:checked+label {
-        color: #1C9FD7;
-        border-top: 2px solid #1C9FD7;
-        border-bottom: 2px solid #1C9FD7;
-    }
-
-    button {
-        border: 2px solid #1C9FD7;
-        outline: none;
-        text-decoration: none;
-    }
-
-    button:hover {
-        background-color: #fff;
-        border-color: #1C9FD7;
-        color: #1C9FD7;
-    }
-
-    button::before,
-    button::after {
-        position: absolute;
-        z-index: -1;
-        display: block;
-        content: '';
-    }
-
-    button,
-    button::before,
-    button::after {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-    }
-
-    .main-content {
-        text-align: center;
-    }
-
-    .exp-card {
-        margin-bottom: 20px;
-        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-    }
-
-    .exp-card-body {
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        padding: 20px;
-    }
-
-    .exp-card-text {
-        display: flex;
-        flex-direction: column;
-        vertical-align: top;
-        font-size: 18px;
-        margin-left: 15px;
-    }
-
-    .exp-card-title {
-        vertical-align: top;
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .exp-card-image {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-
-    .exp-card-content {
-        font: size 15px;
-        margin-top: 10px;
-    }
-
-    .visit-btn {
-        margin: 0 0 auto auto;
-    }
-
-    .visit-master {
-        width: 100px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    #tab1:checked~#content1,
-    #tab2:checked~#content2,
-    #tab3:checked~#content3 {
-        display: block;
-    }
-
-    #fontsub {
-        font-size: 120%;
-        color: #545454;
-    }
-
-    #fontbold {
-        font-weight: bold;
-    }
-
-    #green {
-        color: #00be68;
-    }
-
-
-    /* bookmark col css */
-    .bookmark-card {
-        border: none;
-        width: 300px;
-        height: 300px;
-        padding: 0;
-        margin: 11px;
-        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-        background-image: url('/static/image/programPicture.png');
-        background-size: contain;
-    }
-
-    .bookmark-btn {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-    }
-
-    .item .cover {
-        width: 100%;
-        height: 100%;
-        background-color: rgb(53, 53, 53);
-        transition: opacity 0.15s ease-in;
-        opacity: 0;
-        border-radius: 5px;
-        line-height: 300px;
-        vertical-align: middle;
-    }
-
-    .item:hover .cover {
-        opacity: 0.8;
-        width: 100%;
-        height: 100%;
-    }
-
-    .item .cover .program-name {
-        font-size: 25px;
-        color: rgb(255, 255, 255);
-    }
-
-
-    /* reservation tab css */
-    .reservation-card {
-        margin-bottom: 20px;
-        box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-        height: 200px;
-    }
-
-    .reservation-card-image {
-        width: 160px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-
-    .reservation-card-body {
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        padding: 20px;
-    }
-
-    .reservation-card-text {
-        display: flex;
-        flex-direction: column;
-        vertical-align: top;
-        font-size: 18px;
-        margin-left: 15px;
-    }
-
-    .reservation-card-title {
-        font-weight: bold;
-        font-size: 24px;
-    }
-
-    .reservation-card-date {
-        margin-top: 10px;
-    }
-
-    .reservation-status {
-        width: 100px;
-        font-size: 15px;
-        border: none;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        text-align: center;
-        margin: 0 0 auto auto;
-    }
-
-    .in-progress {
-        background-color: rgba(132, 191, 216, 1);
-    }
-
-    .complete {
-        background-color: rgba(28, 159, 215, 1);
-    }
-
-    .impossible {
-        background-color: rgb(194, 0, 0);
-    }
-
-
-    /* SERVICE_PROVIDER css */
-
-    .message-btn {
-        width: 100px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .reservation-btn {
-        width: 100px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    /* Introduction tab css */
-
-    .edit-btn {
-        width: 100px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-        float: right;
-    }
-</style>
-
 <link rel='stylesheet' href="{% static 'css/accounts.css' %}">
-
 
 <!-- DEFAULT_USER -->
 {% if profile.user_type == "default_user" %}
-<div class="col-9 align-self-center mt-5" style="margin:auto;">
+<div class="col-8 align-self-center mt-5" style="margin:auto;">
+    <div>
     <div class="row">
-        <div style="text-align: center;">
-            <div class="profile-picture">
-                <img style=" width: 170px; height:170px; object-fit: cover; border-radius: 100%;"
+        <div class="profile" style="display:flex; flex-direction: row;">
+            <div class="col-3 profile-picture;">
+                <img style=" width: 150px; height:150px; object-fit: cover; border-radius: 100%; margin-left:35px;"
                     src="{% static 'image/profilePicture.jpg' %}">
             </div>
-            <div class="user-info m-2" style="vertical-align: middle;">
-                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
-                <button class="setting-button">
-                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
+            <div class="col user-info" style="display:flex; flex-direction: column;">
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">
+                    <div class="username" style="font-size: 30px; margin-left:30px;">패션팀장</div>
+                    <button class="setting-button">
+                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
+                    </button>
+                </div>
+                <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    1:1 채팅
                 </button>
-            </div>
-
-            <div class="col">
-                <button type="button" class="chatting-btn" style="margin:auto;">
-                    채팅하기
-                </button>
+                <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
+                    안녕하세요! 저는 백엔드엔 잼병이고
+                    <br>
+                    그나마 프론트엔드만 끄적대는
+                    <br>
+                    패션팀장이라고 합니다!
+                </div>
             </div>
         </div>
     </div>
-
+    
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
@@ -336,16 +52,14 @@
         <section id="content1" class="experience">
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/myungju.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">다같이 명주짜기!</inline>
+                        <inline class="exp-card-date">2021년 6월 23일</inline>
                         <inline class="exp-card-content">
-                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
-                            한국 고유의 문화를 알게 됐어요!!
-                            <br>
-                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
-                            완전 강! 추!
+                            평소에 경주 여행을 즐겨 다니는데 너무 자주 가서 이번엔 뭐할까 고민하다
+                            교양과목에서 들었던 명주짜기를 경험하러 가봤는데
+                            우리나라 선조들이 얼마나 지혜로왔는지 알 수 있게 됐습니다 ㅎㅎ
                         </inline>
                     </inline>
                     <div class="visit-btn">
@@ -357,14 +71,13 @@
             </div>
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/korean-traditional-dance.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">서울 봉산 탈춤</inline>
+                        <inline class="exp-card-date">2021년 4월 24일</inline>
                         <inline class="exp-card-content">
-                            장인님께서
-                            <br>
-                            가족끼리
+                            멀리 나가기는 귀찮고... 서울 안에서 우리나라 전통 문화를 경험하고 싶어서 찾아봤는데
+                            생각보다 유익한 시간이었네요! 장인님께서 봉산탈춤의 의미도 설명해주시고 너무 좋았습니다!
                         </inline>
                     </inline>
                     <div class="visit-btn" style="margin:0 0 auto auto;">
@@ -376,16 +89,14 @@
             </div>
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/line-walk.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">경기도 아슬아슬 줄타기</inline>
+                        <inline class="exp-card-date">2020년 5월 24일</inline>
                         <inline class="exp-card-content">
-                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
-                            한국 고유의 문화를 알게 됐어요!!
-                            <br>
-                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
-                            완전 강! 추!
+                            요즘 대세인 줄타기를 직접 경험해봤는데 생각보다 어렵고 힘들었어요 ㅠㅠ
+                            그래도 너무너무 재미있었고 경기도 전통음식도 많이 먹고 와서 행복한 문화체험이었습니다!!
+                            
                         </inline>
                     </inline>
                     <div class="visit-btn">
@@ -399,44 +110,41 @@
 
         <!-- 북마크 -->
         <section id="content2" class="bookmark">
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
+            <div style="display:flex; flex-direction: row;">
+                <div class="card item bookmark-card" style="justify-content: center; margin-left:32px;">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/haenyu-exp.png');">
+                        <div class="cover">
+                            <div class="program-name">하귀 해녀체험</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/surfy-beach.jpg');" >
+                        <div class="cover">
+                            <div class="program-name">양양 서핑체험</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/paragliding.jpeg');">
+                        <div class="cover">
+                            <div class="program-name">단양 패러글라이딩</div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            
         </section>
 
         <!-- 예약현황 -->
         <section id="content3" class="reservation">
             <div class="card reservation-card">
                 <div class="reservation-card-body">
-                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="reservation-card-image" src="{% static 'image/bowandarrow.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">전통 양궁 체험</inline>
+                        <inline class="reservation-card-date">2021년 7월 24일</inline>
                     </inline>
                     <div class="reservation-status in-progress">
                         진행중
@@ -445,10 +153,10 @@
             </div>
             <div class="card reservation-card">
                 <div class="reservation-card-body">
-                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="reservation-card-image" src="{% static 'image/mask.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">탈춤 공연 관람</inline>
+                        <inline class="reservation-card-date">2021년 9월 1일</inline>
                     </inline>
                     <div class="reservation-status complete">
                         예약완료
@@ -457,10 +165,10 @@
             </div>
             <div class="card reservation-card">
                 <div class="reservation-card-body">
-                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="reservation-card-image" src="{% static 'image/chiljang.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">칠장 설명 및 체험</inline>
+                        <inline class="reservation-card-date">2021년 5월 12일</inline>
                     </inline>
                     <div class="reservation-status impossible">
                         예약불가
@@ -470,6 +178,7 @@
         </section>
     </div>
 </div>
+
 
 
 <!-- SERVICE_PROVIDER -->
@@ -515,53 +224,6 @@
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
                     <a type="button" class="edit-btn" href="{% url 'create_introduction' %}" target="_self">소개글 편집</a>
-                </div>
-                <div class="introduction">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
-                        <form method="post" action="{% url 'create_introduction' %}" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">제목</label>
-                                <input type="text" class="form-control" id="recipient-name" name="title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">내용</label>
-                                <textarea class="form-control" id="message-text" name="body"></textarea>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02" name="image">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-                            <div class="modal-footer">
-                                <input class="btn btn-primary" style="background-color:pink; border: None;"
-                                    type="submit" value="완료">
-                            </div>
-                        </form>
-                    </div>
-                    {% for post in post_list %}
-                    <div class="item-2">
-                        <a href="{% url 'post-detail' post.id %}" class="card">
-                            {% if post.image %}
-                            <div class="thumb" style="background-image: url({{ post.image.url }})">
-
-                            </div>
-                            {% endif %}
-                            <article>
-                                <h1>{{post.title}}</h1>
-                                <p>{{post.body}}</p>
-                                <span>{{post.datetime}}</span>
-                            </article>
-                        </a>
-                    </div>
-                    {% endfor %}
-
-
                 </div>
             </div>
         </section>
