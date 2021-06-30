@@ -1,31 +1,35 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.search-bar{
-    height: 40px;
-    width: 400px;
-    border: 1px solid #1b5ac2;
-    margin : 1px 1px 1px 10px;
-    background: #ffffff;
-}
-
-.search-bar .searchInput{
-    font-size: 16px;
-    width: 325px;
-    padding: 1px;
-    border: 0px;
-    outline: none;
-    float: left;
-}
-
-.search-bar .searchButton {
-    width: 50px;
-    height: 100%;
-    border: 0px;
-    background: #1b5ac2 !important;
-    outline: none;
+.searchform {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    width: 50%;
+  }
+  label, input {
+    vertical-align: baseline;
+    color: #737373;
+  }
+  label {
+    margin: 0.125em 0.125em 0 0;
     float: right;
-    color: #ffffff;
-}
+    
+  }
+  input[type="search"] {
+    border: 2px solid #737373;
+    border-width: 0 0 3px;
+    background-color: transparent;
+    font: 22px "Open Sans", sans-serif;
+    padding: 0.125em 0.225em;
+    width: 85%;
+    float: left;
+    
+  }
+  input[type="search"]:focus {
+    color: #ACCCC4;
+    border-color: #ACCCC4;
+    outline: none;
+  }
 
 .images {
     max-width: 100%;
