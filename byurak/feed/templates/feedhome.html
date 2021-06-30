@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block contents %}
+<link rel="stylesheet" href="{% static 'css/pinterest_effect.css' %}">
+<link rel="stylesheet" href="{% static 'css/searchBar.css' %}">
 <br>
 <form class="searchform group" action="{% url 'depth2' %}" method="get"
     style="width:80%; padding: 0 0 0 0; margin:30px 10% 30px 10%">
@@ -16,7 +20,7 @@
                 alt="">
             <figcaption>
                 <h3>전라도 <span>윤도장전수관</span></h3>
-                <p style=font-family: "Noto Sans KR";, sans-serif>윤도를 직접 만들어 볼 수 있는 곳입니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif">윤도를 직접 만들어 볼 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
@@ -26,7 +30,7 @@
                 alt="">
             <figcaption>
                 <h3>경기도 <span>유기체험</span></h3>
-                <p style=font-family: "Noto Sans KR";, sans-serif>유기를 직접 만들어 볼 수 있는 곳입니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif">유기를 직접 만들어 볼 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
@@ -36,7 +40,7 @@
                 alt="">
             <figcaption>
                 <h3>서울시 <span>자수공예체험</span></h3>
-                <p style=font-family: "Noto Sans KR";, sans-serif>자수공예를 직접 체험할 수 있는 곳입니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif">자수공예를 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
@@ -46,7 +50,7 @@
                 alt="">
             <figcaption>
                 <h3>경기도 <span>공방체험</span></h3>
-                <p style=font-family: "Noto Sans KR";, sans-serif>브로치등을 직접 체험할 수 있는 곳입니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif">브로치등을 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
@@ -57,7 +61,7 @@
                 alt="">
             <figcaption>
                 <h3>경기도 <span>양궁체험</span></h3>
-                <p style=font-family: "Noto Sans KR";, sans-serif>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <p style="font-family: 'Noto Sans KR', sans-serif">양궁을 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
