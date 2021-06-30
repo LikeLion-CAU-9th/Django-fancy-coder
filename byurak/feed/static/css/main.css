@@ -709,7 +709,7 @@ hr {
     transition: opacity 0.6s ease-in-out
 }
 #full-slide .banner li:nth-child(1) {
-    background-image: url("../img/full-slide/thumb-1.jpg")
+    background-image: url("/static/img/camera.png")
 }
 #full-slide .banner li:nth-child(2) {
     background-image: url("../img/full-slide/thumb-2.jpg")
