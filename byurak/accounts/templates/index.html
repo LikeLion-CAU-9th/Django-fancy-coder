@@ -4,171 +4,39 @@
 
 {% block contents %}
 
-<style>
-    /* 활동한 체험 css */
-    section {
-        display: none;
-        padding: 20px 0 0;
-
-    }
-
-    input {
-        display: none;
-    }
-
-    label {
-        width: 150px;
-        display: inline-block;
-        margin: 0 0 -1px;
-        padding: 10px 10px;
-        font-weight: 400;
-        text-align: center;
-        color: #bbb;
-        border: 1px solid transparent;
-    }
-
-    label:hover {
-        color: #1C9FD7;
-        cursor: pointer;
-    }
-
-    /*input 클릭시, label 스타일*/
-    input:checked+label {
-        color: #1C9FD7;
-        border-top: 2px solid #1C9FD7;
-        border-bottom: 2px solid #1C9FD7;
-    }
-
-    .main-content {
-        text-align: center;
-    }
-
-    .exp-card-body {
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        padding: 22px;
-    }
-
-    .exp-card-text {
-        display: flex;
-        flex-direction: column;
-        vertical-align: top;
-        font-size: 18px;
-        margin-left: 15px;
-    }
-
-    .exp-card-title {
-        vertical-align: top;
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .exp-card-image {
-        max-width: 200px;
-        max-height: 200px;
-        border-radius: 5px;
-    }
-
-    .exp-card-content {
-        font: size 15px;
-        margin-top: 10px;
-    }
-
-    .visit-master {
-        width:100px;
-        height: 36px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border: none;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-    }
-
-    .bookmark-card {
-        width: 300px;
-        height: 300px;
-    }
-
-    #tab1:checked~#content1,
-    #tab2:checked~#content2,
-    #tab3:checked~#content3,
-    #tab4:checked~#content4 {
-        display: block;
-    }
-
-    #fontsub {
-        font-size: 120%;
-        color: #545454;
-    }
-
-    #fontbold {
-        font-weight: bold;
-    }
-
-    #green {
-        color: #00be68;
-    }
-
-
-    /* 북마크 css */
-    .flex-container {
-        /* We first create a flex layout context */
-        display: flex;
-
-        /* Then we define the flow direction 
-     and if we allow the items to wrap 
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
-        flex-flow: row wrap;
-
-        /* Then we define how is distributed the remaining space */
-        justify-content: space-around;
-
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    .flex-item {
-        background: tomato;
-        padding: 5px;
-        width: 200px;
-        height: 150px;
-        margin-top: 10px;
-        line-height: 150px;
-        color: white;
-        font-weight: bold;
-        font-size: 3em;
-        text-align: center;
-    }
-</style>
-
 <link rel='stylesheet' href="{% static 'css/accounts.css' %}">
 
-<div class="col-9 align-self-center mt-5" style="margin:auto;">
+<!-- DEFAULT_USER -->
+{% if profile.user_type == "default_user" %}
+<div class="col-8 align-self-center mt-5" style="margin:auto;">
+    <div>
     <div class="row">
-        <div style="text-align: center;">
-            <img style="width:170px; height:170px; border-radius: 100%;" src="{% static 'image/profilePicture.jpg' %}">
-            <div class="user-info m-2" style="vertical-align: middle;">
-                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
-                <button class="setting-button">
-                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
-                </button>
+        <div class="profile" style="display:flex; flex-direction: row;">
+            <div class="col-3 profile-picture;">
+                <img style=" width: 150px; height:150px; object-fit: cover; border-radius: 100%; margin-left:35px;"
+                    src="{% static 'image/profilePicture.jpg' %}">
             </div>
-            <div class="col">
-                <button type="button" class="chatting-btn" style="margin:auto;">
-                    채팅하기
+            <div class="col user-info" style="display:flex; flex-direction: column;">
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">
+                    <div class="username" style="font-size: 30px; margin-left:30px;">패션팀장</div>
+                    <button class="setting-button">
+                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
+                    </button>
+                </div>
+                <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    1:1 채팅
                 </button>
+                <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
+                    안녕하세요! 저는 백엔드엔 잼병이고
+                    <br>
+                    그나마 프론트엔드만 끄적대는
+                    <br>
+                    패션팀장이라고 합니다!
+                </div>
             </div>
         </div>
     </div>
-
+    
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
@@ -180,8 +48,189 @@
         <input id="tab3" type="radio" name="tabs">
         <label for="tab3">예약현황</label>
 
-        <section id="content1">
-            <div class="card">
+        <!-- 활동한 체험 -->
+        <section id="content1" class="experience">
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/myungju.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">다같이 명주짜기!</inline>
+                        <inline class="exp-card-date">2021년 6월 23일</inline>
+                        <inline class="exp-card-content">
+                            평소에 경주 여행을 즐겨 다니는데 너무 자주 가서 이번엔 뭐할까 고민하다
+                            교양과목에서 들었던 명주짜기를 경험하러 가봤는데
+                            우리나라 선조들이 얼마나 지혜로왔는지 알 수 있게 됐습니다 ㅎㅎ
+                        </inline>
+                    </inline>
+                    <div class="visit-btn">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/korean-traditional-dance.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">서울 봉산 탈춤</inline>
+                        <inline class="exp-card-date">2021년 4월 24일</inline>
+                        <inline class="exp-card-content">
+                            멀리 나가기는 귀찮고... 서울 안에서 우리나라 전통 문화를 경험하고 싶어서 찾아봤는데
+                            생각보다 유익한 시간이었네요! 장인님께서 봉산탈춤의 의미도 설명해주시고 너무 좋았습니다!
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/line-walk.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">경기도 아슬아슬 줄타기</inline>
+                        <inline class="exp-card-date">2020년 5월 24일</inline>
+                        <inline class="exp-card-content">
+                            요즘 대세인 줄타기를 직접 경험해봤는데 생각보다 어렵고 힘들었어요 ㅠㅠ
+                            그래도 너무너무 재미있었고 경기도 전통음식도 많이 먹고 와서 행복한 문화체험이었습니다!!
+                            
+                        </inline>
+                    </inline>
+                    <div class="visit-btn">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 북마크 -->
+        <section id="content2" class="bookmark">
+            <div style="display:flex; flex-direction: row;">
+                <div class="card item bookmark-card" style="justify-content: center; margin-left:32px;">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/haenyu-exp.png');">
+                        <div class="cover">
+                            <div class="program-name">하귀 해녀체험</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/surfy-beach.jpg');" >
+                        <div class="cover">
+                            <div class="program-name">양양 서핑체험</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/paragliding.jpeg');">
+                        <div class="cover">
+                            <div class="program-name">단양 패러글라이딩</div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <!-- 예약현황 -->
+        <section id="content3" class="reservation">
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/bowandarrow.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">전통 양궁 체험</inline>
+                        <inline class="reservation-card-date">2021년 7월 24일</inline>
+                    </inline>
+                    <div class="reservation-status in-progress">
+                        진행중
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/mask.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">탈춤 공연 관람</inline>
+                        <inline class="reservation-card-date">2021년 9월 1일</inline>
+                    </inline>
+                    <div class="reservation-status complete">
+                        예약완료
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/chiljang.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">칠장 설명 및 체험</inline>
+                        <inline class="reservation-card-date">2021년 5월 12일</inline>
+                    </inline>
+                    <div class="reservation-status impossible">
+                        예약불가
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+<!-- SERVICE_PROVIDER -->
+{% elif profile.user_type == "service_provider" %}
+<div class="col-9 align-self-center mt-5" style="margin:auto;">
+    <div class="row">
+        <div style="text-align: center;">
+            <div class="profile-picture">
+                <img style=" width: 170px; height:170px; object-fit: cover; border-radius: 100%;"
+                    src="{% static 'image/profilePicture.jpg' %}">
+            </div>
+            <div class="user-info m-2" style="vertical-align: middle;">
+                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
+                <button class="setting-button">
+                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
+                </button>
+            </div>
+
+            <span class="row provider-btn-set" style="justify-content: center;">
+                <button type="button" class="message-btn" href="#">
+                    1:1 채팅
+                </button>
+                <button type="button" class="reservation-btn" href="#">
+                    예약하기
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="main-content mt-3 border-top">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <!--디폴트 메뉴-->
+        <label for="tab1" style="font-weight:bolder;">소개글</label>
+
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2" style="font-weight:bolder;">후기</label>
+
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3" style="font-weight:bolder;">예약현황</label>
+
+        <!-- 소개글 -->
+        <section id="content1" class="experience">
+            <div class="row">
+                <div class="intro-edit" style="margin:auto;">
+                    <a type="button" class="edit-btn" href="{% url 'create_introduction' %}" target="_self">소개글 편집</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 후기 -->
+        <section id="content2" class="bookmark">
+            <div class="card exp-card">
                 <div class="exp-card-body">
                     <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
                     <inline class="exp-card-text">
@@ -195,36 +244,95 @@
                             완전 강! 추!
                         </inline>
                     </inline>
-                    <button type="button" class="visit-master">
-                        방문하기
-                    </button>
+                    <div class="visit-btn">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">이천 도예 체험</inline>
+                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-content">
+                            장인님께서
+                            <br>
+                            가족끼리
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">이천 도예 체험</inline>
+                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-content">
+                            엄청난
+                            <br>
+                            후기!
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="content2">
-            <li class="card bookmark-card">
-                <img src="{% static 'image/profilePicture.jpg' %}">
-            </li>
-            <li class="card bookmark-card">
-                <img src="{% static 'image/profilePicture.jpg' %}">
-            </li>
-            <li class="card bookmark-card">
-                <img src="{% static 'image/profilePicture.jpg' %}">
-            </li>
-        </section>
-
-        <section id="content3">
-            <ul class="flex-container">
-                <li class="flex-item">1</li>
-                <li class="flex-item">2</li>
-                <li class="flex-item">3</li>
-                <li class="flex-item">4</li>
-                <li class="flex-item">5</li>
-                <li class="flex-item">6</li>
-            </ul>
+        <!-- 예약현황 -->
+        <section id="content3" class="reservation">
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status in-progress">
+                        진행중
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status complete">
+                        예약완료
+                    </div>
+                </div>
+            </div>
+            <div class="card reservation-card">
+                <div class="reservation-card-body">
+                    <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <inline class="reservation-card-text">
+                        <inline class="reservation-card-title">이천 도예 체험</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                    </inline>
+                    <div class="reservation-status impossible">
+                        예약불가
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </div>
+{% endif %}
+
 
 {% endblock %}

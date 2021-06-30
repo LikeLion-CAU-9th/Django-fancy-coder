@@ -16,6 +16,7 @@ urlpatterns = [
     path("login_success/", accounts.views.login_success, name="login_success"),
     path("logout_success/", accounts.views.logout_success, name="logout_success"),
 
-    path("profile", accounts.views.index, name='profile')
+    path("profile/<int:id>", accounts.views.index, name='profile'),
+    path("profile/post", accounts.views.create_introduction, name="create_introduction"),
 ]
 

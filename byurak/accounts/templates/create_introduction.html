@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contents %}
+<link class="stylesheet" href="{% static 'css/edit_intro.css' %}">
+
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
+    <form method="post" action="{% url 'create_introduction' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">제목</label>
+            <input type="text" class="form-control" id="recipient-name" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">내용</label>
+            <textarea class="form-control" id="message-text" name="body"></textarea>
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02" name="image">
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+        <div class="modal-footer">
+            <input class="btn btn-primary" style="background-color:pink; border: None;"
+                type="submit" value="완료">
+        </div>
+    </form>
+</div>
+{% for post in post_list %}
+<div class="item-2">
+    <a href="{% url 'post-detail' post.id %}" class="card">
+        {% if post.image %}
+        <div class="thumb" style="background-image: url({{ post.image.url }})">
+
+        </div>
+        {% endif %}
+        <article>
+            <h1>{{post.title}}</h1>
+            <p>{{post.body}}</p>
+            <span>{{post.datetime}}</span>
+        </article>
+    </a>
+</div>
+{% endfor %}
+
+
+
+{% endblock %}

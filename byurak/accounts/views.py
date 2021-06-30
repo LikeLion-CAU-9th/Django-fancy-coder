@@ -9,8 +9,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def index(request):
-    return render(request, 'index.html')
+def index(request, id):
+    user = User.objects.get(id=id)
+    profile = Profile.objects.filter(user=user)
+    if profile: 
+        profile = Profile.objects.get(user=user)
+
+    return render(request, 'index.html', {"profile":profile})
 
 
 def signup_main(request):
@@ -20,7 +25,7 @@ def signup_main(request):
 def signup_check(request):
     if not request.POST.get('chk_1', None) == None:
         if not request.POST.get('chk_2', None) == None:
-            return redirect('signup_infor')
+            return redirect('accounts_signup')
         else:
             return render(request, 'signup_main.html')
     else:
@@ -44,7 +49,9 @@ def accounts_signup(request):
         if form.is_valid():
             user = form.save()
             user.save()
-            return redirect("signup_success")
+            auth_login(request, user)
+            Profile.objects.create(user=user)
+            return redirect("feed:feedList")
         else:
             ctx = {
                 "form": form,
@@ -65,6 +72,7 @@ def accounts_login(request):
         email = request.POST.get("email")
         password = request.POST["password"]
         user = authenticate(email=email, password=password)
+        print(user)
         if user is not None:
             auth_login(request, user)
             return redirect("feed:feedList")
@@ -106,3 +114,21 @@ def login_success(request):
 
 def logout_success(request):
     return render(request, "logout_success.html")
+
+
+def create_introduction(request):
+    if request.method == 'POST':
+        if request.FILES.get('image'):
+            Introduction.objects.create(
+                title = request.POST['title'],
+                body = request.POST['body'],
+                image = request.POST['image']
+            )
+        else:
+            Introduction.objects.create(
+                title = request.POST['title'],
+                body = request.POST['body']
+            )
+        Intro = Introduction.objects.all()
+        return render(request, 'create_intrduction.html', {'Intro':Intro})
+    return redirect('/')
