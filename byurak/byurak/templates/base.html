@@ -16,6 +16,26 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
     <style>
+
+        html {
+            --scrollbarBG: transparent;
+            --thumbBG: #C4BCB8;
+        }
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body {
+            scrollbar-width: thin;
+            scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+        }
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: var(--thumbBG) ;
+            border-radius: 6px;
+            border: 1px solid var(--scrollbarBG);
+        }
         body {
             background-color: #F7F9FB;
         }

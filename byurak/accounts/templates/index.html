@@ -28,27 +28,27 @@
     }
 
     label:hover {
-        color: #1C9FD7;
+        color: #ACCCC4;
         cursor: pointer;
     }
 
     /*input 클릭시, label 스타일*/
     input:checked+label {
-        color: #1C9FD7;
-        border-top: 2px solid #1C9FD7;
-        border-bottom: 2px solid #1C9FD7;
+        color: #ACCCC4;
+        border-top: 2px solid #ACCCC4;
+        border-bottom: 2px solid #ACCCC4;
     }
 
     button {
-        border: 2px solid #1C9FD7;
+        border: 2px solid #ACCCC4;
         outline: none;
         text-decoration: none;
     }
 
     button:hover {
-        background-color: #fff;
-        border-color: #1C9FD7;
-        color: #1C9FD7;
+        background-color: transparent;
+        border-color: #ACCCC4;
+        color: #ACCCC4;
     }
 
     button::before,
@@ -76,6 +76,7 @@
     .exp-card {
         margin-bottom: 20px;
         box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+        background-color: #f5f5f5;
     }
 
     .exp-card-body {
@@ -108,7 +109,8 @@
     }
 
     .exp-card-content {
-        font: size 15px;
+        font-size: 18px;
+        font-weight: 200;
         margin-top: 10px;
     }
 
@@ -118,7 +120,7 @@
 
     .visit-master {
         width: 100px;
-        background-color: rgba(28, 159, 215, 1);
+        background-color: #ACCCC4;
         font-size: 15px;
         border-radius: 15px;
         color: white;
@@ -151,13 +153,14 @@
     /* bookmark col css */
     .bookmark-card {
         border: none;
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         padding: 0;
-        margin: 11px;
+        margin: 10px;
         box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
         background-image: url('/static/image/programPicture.png');
         background-size: contain;
+        align-content: center;
     }
 
     .bookmark-btn {
@@ -173,7 +176,7 @@
         transition: opacity 0.15s ease-in;
         opacity: 0;
         border-radius: 5px;
-        line-height: 300px;
+        line-height: 250px;
         vertical-align: middle;
     }
 
@@ -184,6 +187,8 @@
     }
 
     .item .cover .program-name {
+        height:250px;
+        width:250px;
         font-size: 25px;
         color: rgb(255, 255, 255);
     }
@@ -244,7 +249,7 @@
     }
 
     .complete {
-        background-color: rgba(28, 159, 215, 1);
+        background-color: #ACCCC4;
     }
 
     .impossible {
@@ -255,8 +260,20 @@
     /* SERVICE_PROVIDER css */
 
     .message-btn {
+        width: 80px;
+        background-color: #ACCCC4;
+        font-size: 12px;
+        border-radius: 10px;
+        color: white;
+        display: block;
+        margin-left: 30px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+    .reservation-btn {
         width: 100px;
-        background-color: rgba(28, 159, 215, 1);
+        background-color: #ACCCC4;
         font-size: 15px;
         border-radius: 15px;
         color: white;
@@ -266,23 +283,12 @@
         margin-right: 10px;
     }
 
-    .reservation-btn {
-        width: 100px;
-        background-color: rgba(28, 159, 215, 1);
-        font-size: 15px;
-        border-radius: 15px;
-        color: white;
-        padding: 7px;
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
 
     /* Introduction tab css */
 
     .edit-btn {
         width: 100px;
-        background-color: rgba(28, 159, 215, 1);
+        background-color: #ACCCC4;
         font-size: 15px;
         border-radius: 15px;
         color: white;
@@ -299,28 +305,35 @@
 
 <!-- DEFAULT_USER -->
 {% if profile.user_type == "default_user" %}
-<div class="col-9 align-self-center mt-5" style="margin:auto;">
+<div class="col-8 align-self-center mt-5" style="margin:auto;">
+    <div>
     <div class="row">
-        <div style="text-align: center;">
-            <div class="profile-picture">
-                <img style=" width: 170px; height:170px; object-fit: cover; border-radius: 100%;"
+        <div class="profile" style="display:flex; flex-direction: row;">
+            <div class="col-3 profile-picture;">
+                <img style=" width: 150px; height:150px; object-fit: cover; border-radius: 100%; margin-left:35px;"
                     src="{% static 'image/profilePicture.jpg' %}">
             </div>
-            <div class="user-info m-2" style="vertical-align: middle;">
-                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
-                <button class="setting-button">
-                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
+            <div class="col user-info" style="display:flex; flex-direction: column;">
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">
+                    <div class="username" style="font-size: 30px; margin-left:30px;">패션팀장</div>
+                    <button class="setting-button">
+                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
+                    </button>
+                </div>
+                <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    1:1 채팅
                 </button>
-            </div>
-
-            <div class="col">
-                <button type="button" class="chatting-btn" style="margin:auto;">
-                    채팅하기
-                </button>
+                <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
+                    안녕하세요! 저는 백엔드엔 잼병이고
+                    <br>
+                    그나마 프론트엔드만 끄적대는
+                    <br>
+                    패션팀장이라고 합니다!
+                </div>
             </div>
         </div>
     </div>
-
+    
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
@@ -336,16 +349,13 @@
         <section id="content1" class="experience">
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/myungju.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">다같이 명주짜기!</inline>
+                        <inline class="exp-card-date">2021년 6월 23일</inline>
                         <inline class="exp-card-content">
-                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
-                            한국 고유의 문화를 알게 됐어요!!
-                            <br>
-                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
-                            완전 강! 추!
+                            평소에 경주 여행을 즐겨 다니는데 너무 자주 가서 이번엔 뭐할까 고민하다
+                            교양과목에서 들었던 명주
                         </inline>
                     </inline>
                     <div class="visit-btn">
@@ -357,14 +367,13 @@
             </div>
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/korean-traditional-dance.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">서울 봉산 탈춤</inline>
+                        <inline class="exp-card-date">2021년 4월 24일</inline>
                         <inline class="exp-card-content">
-                            장인님께서
-                            <br>
-                            가족끼리
+                            멀리 나가기는 귀찮고... 서울 안에서 우리나라 전통 문화를 경험하고 싶어서 찾아봤는데
+                            생각보다 유익한 시간이었네요! 장인님께서 봉산탈춤의 의미도 설명해주시고 너무 좋았습니다!
                         </inline>
                     </inline>
                     <div class="visit-btn" style="margin:0 0 auto auto;">
@@ -376,16 +385,14 @@
             </div>
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/line-walk.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">경기도 아슬아슬 줄타기</inline>
+                        <inline class="exp-card-date">2020년 5월 24일</inline>
                         <inline class="exp-card-content">
-                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
-                            한국 고유의 문화를 알게 됐어요!!
-                            <br>
-                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
-                            완전 강! 추!
+                            요즘 대세인 줄타기를 직접 경험해봤는데 생각보다 어렵고 힘들었어요 ㅠㅠ
+                            그래도 너무너무 재미있었고 경기도 전통음식도 많이 먹고 와서 행복한 문화체험이었습니다!!
+                            
                         </inline>
                     </inline>
                     <div class="visit-btn">
@@ -399,34 +406,37 @@
 
         <!-- 북마크 -->
         <section id="content2" class="bookmark">
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
-            <li class="card item bookmark-card">
-                <a class="bookmark-btn" href="#">
-                    <div class="cover">
-                        <div class="program-name">이천 도예체험</div>
-                    </div>
-                </a>
-            </li>
+            <div style="justify-content: center;">
+                <li class="card item bookmark-card" style="justify-content: center;">
+                    <a class="bookmark-btn" href="#">
+                        <div class="cover">
+                            <div class="program-name">이천 도예체험</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#">
+                        <div class="cover">
+                            <div class="program-name">이천 도예체험</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#">
+                        <div class="cover">
+                            <div class="program-name">이천 도예체험</div>
+                        </div>
+                    </a>
+                </li>
+                <li class="card item bookmark-card">
+                    <a class="bookmark-btn" href="#">
+                        <div class="cover">
+                            <div class="program-name">이천 도예체험</div>
+                        </div>
+                    </a>
+                </li>
+            </div>
+            
         </section>
 
         <!-- 예약현황 -->
@@ -472,6 +482,7 @@
 </div>
 
 
+
 <!-- SERVICE_PROVIDER -->
 {% elif profile.user_type == "service_provider" %}
 <div class="col-9 align-self-center mt-5" style="margin:auto;">
@@ -515,53 +526,6 @@
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
                     <a type="button" class="edit-btn" href="{% url 'create_introduction' %}" target="_self">소개글 편집</a>
-                </div>
-                <div class="introduction">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
-                        <form method="post" action="{% url 'create_introduction' %}" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">제목</label>
-                                <input type="text" class="form-control" id="recipient-name" name="title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">내용</label>
-                                <textarea class="form-control" id="message-text" name="body"></textarea>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02" name="image">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                            </div>
-                            <div class="modal-footer">
-                                <input class="btn btn-primary" style="background-color:pink; border: None;"
-                                    type="submit" value="완료">
-                            </div>
-                        </form>
-                    </div>
-                    {% for post in post_list %}
-                    <div class="item-2">
-                        <a href="{% url 'post-detail' post.id %}" class="card">
-                            {% if post.image %}
-                            <div class="thumb" style="background-image: url({{ post.image.url }})">
-
-                            </div>
-                            {% endif %}
-                            <article>
-                                <h1>{{post.title}}</h1>
-                                <p>{{post.body}}</p>
-                                <span>{{post.datetime}}</span>
-                            </article>
-                        </a>
-                    </div>
-                    {% endfor %}
-
-
                 </div>
             </div>
         </section>
