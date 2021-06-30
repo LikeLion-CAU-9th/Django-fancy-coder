@@ -4,7 +4,6 @@ html {
 }
 
 body {
-    margin: 0;
     height: 100%;
     background: #f5f6f7;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
@@ -41,7 +40,7 @@ body {
 
 
 h3 {
-    margin: 19px 0 8px;
+    margin: 0 0 0 0;
     font-size: 14px;
     font-weight: 700;
 }
@@ -52,32 +51,28 @@ h3 {
     width: 100%;
     height: 51px;
     border: solid 1px #dadada;
-    padding: 10px 14px 10px 14px;
     box-sizing: border-box;
     background: #fff;
     position: relative;
 }
 
 .int {
-    display: block;
+    display: inline;
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 29px;
     border: none;
     background: #fff;
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
 input {
-    font-family: Dotum,'돋움',Helvetica,sans-serif;    
+    font-family: Noto SansKR,sans-serif;    
 }
 
 .box.int_id {
     padding-right: 110px;
-}
-
-.box.int_pass {
-    padding-right: 40px;
 }
 
 .box.int_pass_check {
@@ -165,7 +160,7 @@ select {
 /* 버튼 */
 
 .btn_area button, .btn_area a{
-    width: 300px;
+    width: 200px;
     padding: 21px 0 17px;
     border: 0;
     cursor: pointer;
@@ -173,8 +168,9 @@ select {
     background-color: #acccc4;
     font-size: 20px;
     font-weight: 400;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
+    font-family: Noto SansKR ,sans-serif;
     margin: auto;
+    align-items : center;
 }
 
 #btnJoin {
