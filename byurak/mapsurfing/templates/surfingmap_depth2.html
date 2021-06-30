@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
-{% block contents %}
+{% load static %}
 
+{% block contents %}
+<link rel="stylesheet" href="{% static 'css/searchBar.css' %}">
 <div class="map_wrap">
         <div id="map" style="width:1400px;height: 750px;position:relative;"></div>
 

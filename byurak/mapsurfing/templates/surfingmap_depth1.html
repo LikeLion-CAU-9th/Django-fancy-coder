@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block contents %}
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+<link rel="stylesheet" href="{% static 'css/searchBar.css' %}">
 <form class="searchform group" action="{% url 'depth2' %}" method="get"
     style="width:80%; padding: 0 0 0 0; margin:30px 10% 30px 10%">
     <label for="search-box">
@@ -279,7 +281,7 @@
             '        </div>' +
             '        <div class="body">' +
             '            <div class="img">' +
-            '                <img src="' + '{% static 'image / profilePicture.jpg' %}' + '" height="70">' +
+            '                <img src="' + '{% static "image/profilePicture.jpg" %}' + '" height="70">' +
                 '           </div>' +
                 '            <div class="desc">' +
                 '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' +

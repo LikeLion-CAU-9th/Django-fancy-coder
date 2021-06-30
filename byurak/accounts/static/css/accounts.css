@@ -1,9 +1,6 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);  
-
 body{
     background-color: #EDECEA;
     font-size: 20px;
-    font-family: "Noto Sans KR", sans-serif;
 }
 
 .col-content{
@@ -296,8 +293,8 @@ body{
         color: white;
         display: block;
         margin-left: 30px;
-        margin-right: 10px;
-        margin-top: 10px;
+        margin-right: 0 px;
+        margin-top:10px; margin-bottom:10px;
     }
 
     .reservation-btn {
@@ -308,8 +305,9 @@ body{
         color: white;
         padding: 7px;
         display: block;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top:10px; margin-bottom:10px;
     }
 
 

@@ -80,7 +80,7 @@ figure.effect-sadie h3 {
     opacity: 0;
 	transition: transform 0.35s, color 0.35s;
 	transform: translate3d(0,-50%,0);
-    font-family: "Noto Sans KR";, sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 figure.effect-sadie figcaption::before,
@@ -96,7 +96,7 @@ figure.effect-sadie p, figure.effect-sadie a {
 	width: 100%;
 	opacity: 0;
 	transform: translate3d(0,10px,0);
-    font-family: "Noto Sans KR";, sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 figure.effect-sadie:hover h3, figure.effect-sadie:hover p {
