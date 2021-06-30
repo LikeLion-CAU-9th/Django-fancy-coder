@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contents %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            background: gray;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <h1>예약한 서비스 내역</h1>
+
+    {% for reservation in reservations %}
+
+        <div class="box">
+
+            <h3>{{reservation.service.user.name}} : {{reservation.activate_date}}</h3>
+
+        </div>
+
+    
+    {% endfor %}
+
+</body>
+</html>
+
+{% endblock %}

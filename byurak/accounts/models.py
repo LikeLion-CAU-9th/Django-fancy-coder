@@ -3,70 +3,44 @@ from django.contrib.auth.models import AbstractBaseUser
 from accounts.managers import UserManager
 
 
-class AddressCategory:
+class UserType:
     """
-    AddressCategory
-    - for user signup, need Refactoring
-    - please add region 
+    UserType
+    - 서비스제공자와 이용자 구분
     """
-    FIRST_REGION = 'first_region'
-    SECOND_REGION = 'second_region'
-    THIRD_REGION =  'third_region'
-    FOURTH_REGION = 'fourth_region'
-    FIFTH_REGION = 'fifth_region'
-    SIXTH_REGION = 'sixth_region'
-    SEVENTH_REGION = 'seventh_region'
-    EIGHTH_REGION = 'eighth_region'
+    SERVICE_PROVIDER = 'service_provider'
+    SERVICE_BUYER = 'service_buyer'
 
-    REGION_TYPES = [
-        (FIRST_REGION, '성동구, 광진구, 성북구'),
-        (SECOND_REGION, '서초구, 강남구'),
-        (THIRD_REGION, '용산구, 중구, 종로구'),
-        (FOURTH_REGION, '여의도구, 영등포구'),
-        (FIFTH_REGION, '도봉구, 강북구, 노원구'),
-        (SIXTH_REGION, '양천구, 강서구, 구로구, 영등포구'),
-        (SEVENTH_REGION, '서대문구, 은평구'),
-        (EIGHTH_REGION, '관악구, 금천구, 동장구'),
+    USER_TYPES = [
+        (SERVICE_PROVIDER, '서비스 제공자'),
+        (SERVICE_BUYER, '서비스 이용자'),
     ]
 
 
-class InterestCategory:
-    COMPUTER = 'Computer'
-    ENGLISH = 'English'
-    UNIVERSITY_ENTRANCE = 'University_entrance'
-    CERTIFICATE = 'Certificate'
-    FOREIGN_LANGUAGE = 'Foreign_language'
-    DESIGN = 'Design'
-    INTERVIEW = 'Interview'
-    ETC = 'Etc'
-    NONE = 'None'
+class StatusType:
+    """
+    StatusTYpe
+    - 서비스제공자의 경우 관리자 승인을 받아야 함
+    - 그로 인해 승인 대기중인 상황 발생
+    """
+    AVAILABLE = 'available'
+    WATING_APPROVAL = 'wating_approval'
 
-    INTEREST_TYPES = [
-        (COMPUTER, '컴퓨터'),
-        (ENGLISH, '영어'),
-        (UNIVERSITY_ENTRANCE, '대입'),
-        (CERTIFICATE, '자격증'),
-        (FOREIGN_LANGUAGE, '외국어'),
-        (DESIGN, '디자인'),
-        (INTERVIEW, '면접'),
-        (ETC, '기타'),
-        (NONE, '없음')
+    STATUS_TYPES = [
+        (AVAILABLE, '사용 가능'),
+        (WATING_APPROVAL, '승인 대기'),
     ]
 
 
 
 class User(AbstractBaseUser):
-    name = models.CharField(max_length=10, null=True, blank=True)
+    name = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(
         verbose_name='email',
         max_length=255,
         unique=True,
     )
-    region_type = models.CharField(max_length=30, choices=AddressCategory.REGION_TYPES, default=AddressCategory.FIRST_REGION, help_text='지역 등록')
-    interest_type1 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
-    interest_type2 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
-    interest_type3 = models.CharField(max_length=30, choices=InterestCategory.INTEREST_TYPES, default=InterestCategory.NONE)
-    nickname = models.CharField(max_length=8, blank=True, null=True, unique=True)
+    nickname = models.CharField(max_length=31, blank=True, null=True, unique=True)
     phone_number = models.CharField(max_length=14, null=True, unique=True)
     withdrew_at = models.DateTimeField(blank=True, null=True, verbose_name='탈퇴 시점')
     birth_day = models.CharField(max_length=32, blank=True, help_text='생년월일')
@@ -109,13 +83,26 @@ class Profile(models.Model):
         (INSTAGRAM, 'INSTAGRAM')
     ]
 
+    SERVICE_PROVIDER = 'service_provider'
+    DEFAULT_USER = 'default_user'
+
+    USER_TYPES = [
+        (SERVICE_PROVIDER, 'SERVICE_PROVIDER'),
+        (DEFAULT_USER, DEFAULT_USER)
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text='유저')
+    user_type = models.CharField(max_length=20, choices=USER_TYPES, default=DEFAULT_USER, help_text='유저 타입')
     signup_type = models.CharField(max_length=10, choices=SIGNUP_TYPES, default=EMAIL, help_text='회원가입 방식')
+    address = models.CharField(max_length=127, null=True, blank=True)
     short_introduce = models.CharField(max_length=511, null=True, blank=True)
     image = models.ImageField(upload_to='profile/', blank=True, null=True)
     device_token = models.CharField(max_length=512, null=True, blank=True, help_text='notification 기기 고유 토크값')
     is_push = models.BooleanField(default=True, help_text='notification 수신 여부')
     popularity_score = models.IntegerField(default=0, null=True, blank=True)
+    service_price = models.CharField(max_length=15, null=True, blank=True)
+    service_one_time = models.FloatField(default=1.0)
+
 
     def __str__(self):
         return self.user.name
@@ -127,6 +114,29 @@ class Profile(models.Model):
     @property
     def is_signup_finished(self):
         return self.user.is_signup_finish
+
+    def to_json(self):
+        return {
+            "user_name": self.user.name,
+            "user_type": self.user_type,
+            "signup_type": self.signup_type,
+            "address": self.address,
+            "short_introduce": self.short_introduce
+        }
+
+
+class ProfileIntroduce(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, help_text='유저 프로필')
+    image = models.ImageField(upload_to='profile/profile_introduce', blank=True, null=True)
+    description = models.CharField(max_length=511, null=True, blank=True)     
+
+    def __str__(self):
+        return self.profile.user.name
+
+    @property
+    def user_type(self):
+        return self.profile.user_type 
+        
 
 class UserFollow(models.Model):
     user_from = models.ForeignKey(User, on_delete=models.CASCADE, related_name='follow_from_set')
@@ -142,3 +152,13 @@ class UserFollow(models.Model):
 
 User.add_to_class('following',
                   models.ManyToManyField('self', through=UserFollow, related_name='followed', symmetrical=False))
+
+
+class Introduction(models.Model):
+
+    title = models.CharField(max_length=40, help_text="제목")
+    body = models.TextField(help_text="소개글 본문 내용")
+    image = models.ImageField(upload_to="image/", blank=True, null=True)
+
+    def __str__(self):
+        return self.title

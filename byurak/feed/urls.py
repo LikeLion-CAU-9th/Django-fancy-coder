@@ -9,7 +9,8 @@ urlpatterns = [
     path('create/', post_create, name="post_create"),
     path('update/<int:pk>', post_update, name="post_update"),
     path('delete/<int:pk>', post_delete, name="post_delete"),
-    path('', feedhome, name="feed_list"),
+    path('post_list', post_list, name="post_list"),
+    path('', feedhome, name="feedList"),
     path('detail/<int:pk>', post_detail, name="post_detail"),
 ]
 
