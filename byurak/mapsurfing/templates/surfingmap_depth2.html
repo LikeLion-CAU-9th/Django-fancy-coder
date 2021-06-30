@@ -1,26 +1,59 @@
 {% extends 'base.html' %}
 
 {% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<div class="map_wrap">
-        <div id="map" style="width:1400px;height: 750px;position:relative;"></div>
+<style>
+    .location_list li {
+        width: 30%;
+    }
+</style>
 
-        <div id="menu_wrap" class="bg_white">
-            <div class="option">
-                <div>
-                    <form onsubmit="searchPlaces(); return false;">
-                        키워드 : <input type="text" value="{{ keyword }}" id="keyword" size="15">
-                        <button type="submit">검색하기</button>
-                    </form>
+</head>
+<body>
+    
+</body>
+</html>
+<div class = "row"> 
+    <div class ="col-2">
+        <ul class = "locaion_list">
+            <li>자신이</li>
+            <li>없다</li>
+            <li>하지만</li>
+        </ul>
+    </div>
+    <div class = col-10>
+    <div class="map_wrap">
+            <div id="map" style="width: 130% ;height: 160%;position:relative;"></div>
+    
+            <div id="menu_wrap" class="bg_white">
+                <div class="option">
+                    <div>
+                        <form onsubmit="searchPlaces(); return false;">
+                            키워드 : <input type="text" value="{{ keyword }}" id="keyword" size="15">
+                            <button type="submit">검색하기</button>
+                        </form>
+                    </div>
                 </div>
+                <hr>
+                <ul id="placesList"></ul>
+                <div id="pagination"></div>
             </div>
-            <hr>
-            <ul id="placesList"></ul>
-            <div id="pagination"></div>
         </div>
     </div>
+    </div>
+
 
 </div>
+
+
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{KAKAO_MAP_KEY}}&libraries=clusterer"></script>
 
 <script>
