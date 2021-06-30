@@ -13,7 +13,8 @@
 <div class="row">
     <div class="col-5">
         <div class="row-12">
-            <h1 class="text-center">Hot Place</h1>
+            <h1 class="text-center">인기명소</h1>
+            <hr>
             <!-- Item slider-->
             <div class="container-fluid">
 
@@ -94,15 +95,16 @@
         </div>
         <br>
         <div class="row-12">
-            <h1 class="text-center">Hot Place</h1>
+            <h1 class="text-center">새 장소</h1>
+            <hr>
             <!-- Item slider-->
             <div class="container-fluid">
 
                 <div class="row">
                     <div class="col-xs-6 col-sm-12 col-md-12">
-                        <div class="carousel carousel-showmanymoveone2 slide" id="itemslide">
-                            <div class="carousel-inner2">
-                                <div class="item2 active">
+                        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
+                            <div class="carousel-inner">
+                                <div class="item active">
                                     <div class="col-xs-6 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'image/profilePicture.jpg' %}"
                                                 class="img-responsive center-block"
@@ -112,7 +114,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item2">
+                                <div class="item">
                                     <div class="col-xs-6 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'img/byurakMain.png' %}"
                                                 class="img-responsive center-block" style="width:150px;height:80px"></a>
@@ -121,7 +123,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item2">
+                                <div class="item">
                                     <div class="col-xs-12 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'image/profilePicture.jpg' %}"
                                                 class="img-responsive center-block" style="width:150px;height:80px"></a>
@@ -131,7 +133,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item2">
+                                <div class="item">
                                     <div class="col-xs-12 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'img/byurakMain.png' %}"
                                                 class="img-responsive center-block" style="width:150px;height:80px"></a>
@@ -140,7 +142,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item2">
+                                <div class="item">
                                     <div class="col-xs-12 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'image/profilePicture.jpg' %}"
                                                 class="img-responsive center-block" style="width:150px;height:80px"></a>
@@ -149,7 +151,7 @@
                                     </div>
                                 </div>
 
-                                <div class="item2">
+                                <div class="item">
                                     <div class="col-xs-12 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'img/byurakMain.png' %}"
                                                 class="img-responsive center-block" style="width:150px;height:80px"></a>
@@ -160,11 +162,11 @@
 
                             </div>
 
-                            <div id="slider-control2">
-                                <a class="left1 carousel-control2" href="#itemslide" data-slide="prev1"><img
+                            <div id="slider-control">
+                                <a class="left carousel-control" href="#itemslider" data-slide="prev"><img
                                         src="https://cdn0.iconfinder.com/data/icons/website-kit-2/512/icon_402-512.png"
                                         alt="Left" class="img-responsive"></a>
-                                <a class="right1 carousel-control2" href="#itemslide" data-slide="next1"><img
+                                <a class="right carousel-control" href="#itemslider" data-slide="next"><img
                                         src="http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png"
                                         style="width:70px" alt="Right" class="img-responsive"></a>
                             </div>
@@ -173,21 +175,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="card">
-            <div class="row">
-                <div class="col-5" style="margin:0px">
-                    <img src="{% static 'image/profilePicture.jpg' %}" alt="Person" class="card__image">
-                </div>
-                <div class="col-7">
-                    <p class="card__name">안산 양궁 체험장</p>
-                    <div class="grid-container">
-                        Review : 156
-                    </div>
-                    <button class="btn draw-border">보러 가기</button>
-                </div>
-            </div>
-
-        </div> -->
     </div>
     <div class="col-7">
         <div id="map" style="width:100%; height: 450px; margin: auto"></div>
@@ -292,7 +279,7 @@
             '        </div>' +
             '        <div class="body">' +
             '            <div class="img">' +
-            '                <img src="' + '{% static 'image/profilePicture.jpg' %}' + '" height="70">' +
+            '                <img src="' + '{% static 'image / profilePicture.jpg' %}' + '" height="70">' +
                 '           </div>' +
                 '            <div class="desc">' +
                 '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' +
