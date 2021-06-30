@@ -45,6 +45,25 @@
     font-size: 10px;
     margin: 2px auto 5px;
   }
+
+  #itemslide h4{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 10px auto 3px;
+  }
+  #itemslide h5{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 3px auto 2px;
+  }
+  #itemslide h6{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;;
+    font-size: 10px;
+    margin: 2px auto 5px;
+  }
   .badge {
     background: #b20c0c;
     position: absolute;
@@ -70,6 +89,17 @@
     margin: 0 auto;
   }
   }
+
+  #slider-control2 img{
+    padding-top: 60%;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 992px){
+  #slider-control2 img {
+    padding-top: 70px;
+    margin: 0 auto;
+  }
+  }
   
   .carousel-showmanymoveone .carousel-control {
     width: 4%;
@@ -83,11 +113,30 @@
     margin-right: -15px;
     width:6%;
   }
+  .carousel-showmanymoveone2 .carousel-control2 {
+    width: 4%;
+    background-image: none;
+  }
+  .carousel-showmanymoveone2 .carousel-control2.left1 {
+    margin-left: -15px;
+    padding-top:10px
+  }
+  .carousel-showmanymoveone2 .carousel-control2.right1 {
+    margin-right: -15px;
+    width:6%;
+  }
   .carousel-showmanymoveone .cloneditem-1,
   .carousel-showmanymoveone .cloneditem-2,
   .carousel-showmanymoveone .cloneditem-3,
   .carousel-showmanymoveone .cloneditem-4,
   .carousel-showmanymoveone .cloneditem-5 {
+    display: none;
+  }
+  .carousel-showmanymoveone2 .cloneditem2-1,
+  .carousel-showmanymoveone2 .cloneditem2-2,
+  .carousel-showmanymoveone2 .cloneditem2-3,
+  .carousel-showmanymoveone2 .cloneditem2-4,
+  .carousel-showmanymoveone2 .cloneditem2-5 {
     display: none;
   }
   @media all and (min-width: 768px) {
@@ -108,6 +157,27 @@
       display: block;
     }
   }
+
+  /* second carousel */
+  @media all and (min-width: 768px) {
+    .carousel-showmanymoveone2 .carousel-inner2 > .active.left1,
+    .carousel-showmanymoveone2 .carousel-inner2 > .prev1 {
+      left: -50%;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .active.right1,
+    .carousel-showmanymoveone2 .carousel-inner2 > .next1 {
+      left: 50%;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .left1,
+    .carousel-showmanymoveone2 .carousel-inner2 > .prev1.right1,
+    .carousel-showmanymoveone2 .carousel-inner2 > .active {
+      left: 0;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 .cloneditem-1 {
+      display: block;
+    }
+  }
+
   @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
     .carousel-showmanymoveone .carousel-inner > .item.active.right,
     .carousel-showmanymoveone .carousel-inner > .item.next {
@@ -129,6 +199,29 @@
       left: 0;
     }
   }
+  /* second carousel */
+  @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.next1 {
+      -webkit-transform: translate3d(50%, 0, 0);
+      transform: translate3d(50%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active.left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.prev1 {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.prev1.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      left: 0;
+    }
+  }
+
   @media all and (min-width: 992px) {
     .carousel-showmanymoveone .carousel-inner > .active.left,
     .carousel-showmanymoveone .carousel-inner > .prev {
@@ -149,6 +242,28 @@
       display: block;
     }
   }
+
+/* second carousel */
+  @media all and (min-width: 992px) {
+    .carousel-showmanymoveone2 .carousel-inner2 > .active.left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .prev1 {
+      left: -30%;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .active.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .next1 {
+      left: 30%;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .prev1.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .active {
+      left: 0;
+    }
+  
+    .carousel-showmanymoveone2 .carousel-inner2 .cloneditem2-2,
+    .carousel-showmanymoveone2 .carousel-inner2 .cloneditem2-3  {
+      display: block;
+    }
+  }
   @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
     .carousel-showmanymoveone .carousel-inner > .item.active.right,
     .carousel-showmanymoveone .carousel-inner > .item.next {
@@ -165,6 +280,28 @@
     .carousel-showmanymoveone .carousel-inner > .item.left,
     .carousel-showmanymoveone .carousel-inner > .item.prev.right,
     .carousel-showmanymoveone .carousel-inner > .item.active {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      left: 0;
+    }
+  }
+/* second carousel */
+  @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.next1 {
+      -webkit-transform: translate3d(25%, 0, 0);
+      transform: translate3d(25%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active.left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.prev1 {
+      -webkit-transform: translate3d(-25%, 0, 0);
+      transform: translate3d(-25%, 0, 0);
+      left: 0;
+    }
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.left,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.prev1.right,
+    .carousel-showmanymoveone2 .carousel-inner2 > .item2.active {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       left: 0;
