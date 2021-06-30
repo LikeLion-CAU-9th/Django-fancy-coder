@@ -2,11 +2,13 @@
 
 {% block contents %}
 <br>
-<div class="search-bar" style="margin-left: 10px;">
-    <input class = "searchInput" style = "padding: 5px;"type="text" placeholder="체험을 검색해보세요">
-    <button class="searchButton">검색</button>
-</div>
-
+<form class="searchform group" action="{% url 'depth2' %}" method="get"
+    style="width:80%; padding: 0 0 0 0; margin:30px 10% 30px 10%">
+    <label for="search-box">
+        <span class="fa fa-2x fa-search"></span>
+    </label>
+    <input type="search" class="fa fa-2x fa-search" style placeholder="가고싶은 지역 또는 하고싶은 체험활동을 입력해주세요.">
+</form>
 <div class="images">
     <figure class="effect-sadie">
         <div class="image">
