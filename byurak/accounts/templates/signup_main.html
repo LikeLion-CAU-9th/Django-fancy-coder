@@ -9,14 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <link rel="stylesheet" href="{% static 'css/signup_main.css' %}">
-    <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>]
+
+    <style>
+    
+    body {
+        background-color: #edecea;
+    }
+
+    </style>
 </head>
 
 <body>
-    <div class="signup_header">
-        <img style=" width : 70%; height:6%;" src="{% static 'image/signup_stepper1.png' %}">
 
-        <h1>Culture book 회원가입</h1>    
+    <div class="signup_header">
+        <img style=" width : 70%; height:6%; margin-bottom: 2%;" src="{% static 'image/stepperMint1.png' %}">
+    
+
+        <p style = "color: #ACCCC4;font-family: Noto SansKR, sans-serif; font-size: 30px; font-weight: 800;">Culture Book <span style = "color : #000000">회원가입</span></P>    
     </div>
     <br>
     <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
@@ -347,7 +357,7 @@
 
             <ul class="footBtwrap clearfix">
                 <li><button class="fpmgBt1">취소</button></li>
-                <li><button type="submit" class="fpmgBt2">동의</button></li>
+                <li><button type="submit" class="fpmgBt2" style = "background-color: #ACCCC4;">동의</button></li>
             </ul>
     </form>
     </h3>

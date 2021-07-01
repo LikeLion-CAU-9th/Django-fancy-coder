@@ -9,7 +9,6 @@
 <!-- DEFAULT_USER -->
 {% if profile.user_type == "default_user" %}
 <div class="col-8 align-self-center mt-5" style="margin:auto;">
-    <div>
     <div class="row">
         <div class="profile" style="display:flex; flex-direction: row;">
             <div class="col-3 profile-picture;">
@@ -110,27 +109,27 @@
 
         <!-- 북마크 -->
         <section id="content2" class="bookmark">
-            <div style="display:flex; flex-direction: row;">
-                <div class="card item bookmark-card" style="justify-content: center; margin-left:32px;">
-                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/haenyu-exp.png');">
+            <div class="bookmark-container">
+                <div class="card item bookmark-card">
+                    <div class="bookmark-btn" style="background-image: url('/static/image/haenyu-exp.png');">
                         <div class="cover">
-                            <div class="program-name">하귀 해녀체험</div>
+                            <a class="program-name" href="#">하귀 해녀체험</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="card item bookmark-card">
-                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/surfy-beach.jpg');" >
+                    <div class="bookmark-btn" style="background-image: url('/static/image/surfy-beach.jpg');" >
                         <div class="cover">
-                            <div class="program-name">양양 서핑체험</div>
+                            <a class="program-name" href="#">양양 서핑체험</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="card item bookmark-card">
-                    <a class="bookmark-btn" href="#" style="background-image: url('/static/image/paragliding.jpeg');">
+                    <div class="bookmark-btn" style="background-image: url('/static/image/paragliding.jpeg');">
                         <div class="cover">
-                            <div class="program-name">단양 패러글라이딩</div>
+                            <a class="program-name" href="#">단양 패러글라이딩</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
             </div>
@@ -183,28 +182,37 @@
 
 <!-- SERVICE_PROVIDER -->
 {% elif profile.user_type == "service_provider" %}
-<div class="col-9 align-self-center mt-5" style="margin:auto;">
+<div class="col-8 align-self-center mt-5" style="margin:auto;">
     <div class="row">
-        <div style="text-align: center;">
-            <div class="profile-picture">
-                <img style=" width: 170px; height:170px; object-fit: cover; border-radius: 100%;"
-                    src="{% static 'image/profilePicture.jpg' %}">
+        <div class="profile" style="display:flex; flex-direction: row;">
+            <div class="col-3 profile-picture;">
+                <img style=" width: 150px; height:150px; object-fit: cover; border-radius: 100%; margin-left:35px;"
+                    src="{% static 'image/god_yun_han.png' %}">
             </div>
-            <div class="user-info m-2" style="vertical-align: middle;">
-                <inline class="username" style="font-size: 30px; margin:auto;">패션팀장</inline>
-                <button class="setting-button">
-                    <img style="width:35px; height: 35px;" src="{% static 'image/settings.png' %}" class="button">
-                </button>
+            <div class="col user-info" style="display:flex; flex-direction: column;">
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">
+                    <div class="username" style="font-size: 30px; margin-left:30px;">관악구물개</div>
+                    <button class="setting-button">
+                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
+                    </button>
+                </div>
+                <div style="display:flex; flex-direction: row;">
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                        1:1 채팅
+                    </button>
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px; margin-left:10px">
+                        예약하기
+                    </button>
+                </div>
+                
+                <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
+                    한국 붉은 악마 축구를 배우고 싶나요?!
+                    <br>
+                    이제는 동료들한테 그만 욕먹고 싶나요??!
+                    <br>
+                    축구 강의 문의 주세요!!
+                </div>
             </div>
-
-            <span class="row provider-btn-set" style="justify-content: center;">
-                <button type="button" class="message-btn" href="#">
-                    1:1 채팅
-                </button>
-                <button type="button" class="reservation-btn" href="#">
-                    예약하기
-                </button>
-            </span>
         </div>
     </div>
 
@@ -223,7 +231,23 @@
         <section id="content1" class="experience">
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
-                    <a type="button" class="edit-btn" href="{% url 'create_introduction' %}" target="_self">소개글 편집</a>
+                    <button type="button" class="edit-btn" href="#">소개글 편집</a>
+                </div>
+                <div class="card intro-main">
+                    <img class="intro-image" src="{% static 'image/god_yun_han_soccer.jpg' %}">
+                    <div class="intro-text">
+                        <div class="intro-title">
+                            윤한과 함께 축구를
+                        </div>
+                        <div class="intro-content">
+                            필드 위의 빛나는 모습이 보이시나요?
+                            <br>
+                            눈이 부셔서 안보이신다구요?
+                            <br>
+                            이런 갓.윤.한이 되고 싶으시다면
+                            <br>함께 체험해보세요
+                        </div>    
+                    </div>
                 </div>
             </div>
         </section>
@@ -232,35 +256,14 @@
         <section id="content2" class="bookmark">
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/god_yun_han_soccer.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">'패션팀장'님의 리뷰</inline>
+                        <inline class="exp-card-date">2021년 4월 24일</inline>
                         <inline class="exp-card-content">
-                            장인님께서 너무 친절하게 잘 가르쳐 주셨고
-                            한국 고유의 문화를 알게 됐어요!!
-                            <br>
-                            가족끼리 다녀왔는데 아이들도 너무 좋아해서 뿌듯했습니다!
-                            완전 강! 추!
-                        </inline>
-                    </inline>
-                    <div class="visit-btn">
-                        <button type="button" class="visit-master">
-                            방문하기
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="card exp-card">
-                <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
-                    <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
-                        <inline class="exp-card-content">
-                            장인님께서
-                            <br>
-                            가족끼리
+                            친구가 없지만 축구를 해보고 싶어서 밑져야 본전이라는 생각으로 신청해봤는데
+                            
+                            친구 사귀는 법도 알려주시고 축구 스킬도 잘 알려주셔서 너무 유익했어요!!
                         </inline>
                     </inline>
                     <div class="visit-btn" style="margin:0 0 auto auto;">
@@ -272,14 +275,32 @@
             </div>
             <div class="card exp-card">
                 <div class="exp-card-body">
-                    <img class="exp-card-image" src="{% static 'image/profilePicture.jpg' %}">
+                    <img class="exp-card-image" src="{% static 'image/god_yun_han_soccer.jpg' %}">
                     <inline class="exp-card-text">
-                        <inline class="exp-card-title">이천 도예 체험</inline>
-                        <inline class="exp-card-date">2021년 6월 24일</inline>
+                        <inline class="exp-card-title">'만능세훈'님의 리뷰</inline>
+                        <inline class="exp-card-date">2021년 5월 30일</inline>
                         <inline class="exp-card-content">
-                            엄청난
-                            <br>
-                            후기!
+                            솔직히 제가 더 잘하는 것 같긴 한데...
+                            그래도 열정적으로 가르치는 모습은 보였네요
+                            추천합니다!
+                        </inline>
+                    </inline>
+                    <div class="visit-btn" style="margin:0 0 auto auto;">
+                        <button type="button" class="visit-master">
+                            방문하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card exp-card">
+                <div class="exp-card-body">
+                    <img class="exp-card-image" src="{% static 'image/god_yun_han_soccer.jpg' %}">
+                    <inline class="exp-card-text">
+                        <inline class="exp-card-title">'채연팀장'님의 리뷰</inline>
+                        <inline class="exp-card-date">2021년 3월 2일</inline>
+                        <inline class="exp-card-content">
+                            축구를 처음 해보는데 친절히 잘 가르쳐 주시고
+                            봐주는 것 없이 실습도 했습니다!
                         </inline>
                     </inline>
                     <div class="visit-btn" style="margin:0 0 auto auto;">
@@ -297,8 +318,13 @@
                 <div class="reservation-card-body">
                     <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">'패션팀장'님의 예약</inline>
+                        <inline class="reservation-card-date">
+                            2021년 6월 24일 오후 12시
+                        </inline>
+                        <inline class="reservation-card-info">
+                            서울시 동작구
+                        </inline>
                     </inline>
                     <div class="reservation-status in-progress">
                         진행중
@@ -309,8 +335,11 @@
                 <div class="reservation-card-body">
                     <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">'패션팀장'님의 예약</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일 오전 10시</inline>
+                        <inline class="reservation-card-info">
+                            서울시 동작구
+                        </inline>
                     </inline>
                     <div class="reservation-status complete">
                         예약완료
@@ -321,8 +350,11 @@
                 <div class="reservation-card-body">
                     <img class="reservation-card-image" src="{% static 'image/profilePicture.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">이천 도예 체험</inline>
-                        <inline class="reservation-card-date">2021년 6월 24일</inline>
+                        <inline class="reservation-card-title">'패션팀장'님의 예약</inline>
+                        <inline class="reservation-card-date">2021년 6월 24일 오후 2시</inline>
+                        <inline class="reservation-card-info">
+                            서울시 동작구
+                        </inline>
                     </inline>
                     <div class="reservation-status impossible">
                         예약불가

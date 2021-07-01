@@ -12,8 +12,8 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Culture Book</title>
-    <link rel="stylesheet" href="{% static 'css/new_main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/searchBar.css' %}">
+    
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -23,9 +23,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
     <!-- for carousel in map page -->
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+
+    
 
     <style>
+        @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+        body {
+            font-family: "Noto Sans KR", sans-serif !important;
+        }
+
         .wrap {
             position: absolute;
             left: 0;
@@ -37,7 +43,6 @@
             overflow: hidden;
             font-size: 12px;
             z-index: 1;
-            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
             line-height: 1.5;
         }
 
@@ -168,7 +173,7 @@
             border: 1px solid var(--scrollbarBG);
         }
         body {
-            background-color: #F7F9FB;
+            background-color: #EDECEA;
         }
 
         ul {
@@ -215,7 +220,6 @@
         .map_wrap * {
             margin: 0;
             padding: 0;
-            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
             font-size: 12px;
         }
 
@@ -402,9 +406,12 @@
 <body>
     <ul>
         <div class="row">
-            <div class="col-8" style="padding-left:10%">
-                <!-- <li><a href="#" class = "logo"><img src="{% static 'img/lightening.png' %}" alt ="..."></a></li> -->
-                <li><a href="#"><img src="{% static 'img/finding.png' %}" alt="..."></a>
+            <div class="col-8" style="padding-left:5%">
+                <li><a href="{% url 'landing' %}" class = "logo" style = "float: left; margin-left: 0;">
+                    <p style="font-family: 'Noto Sans KR', sans-serif; margin : 5px 50px 0 0; font-size: 20px;">CULTU<span style = "color : #ACCCC4;">
+ R </span>E BOOK</p></a></li>
+
+                <li><a href="{% url 'depth1' %}"><img src="{% static 'img/finding.png' %}" alt="..."></a>
                     <div style="font-size: 3px">찾기</div>
                 </li>
                 <li><a href="{% url 'feed:feedList' %}"><img src="{% static 'img/just_looking.png' %}" alt="..."></a>
@@ -427,7 +434,7 @@
             {% else %}
             <div class="col-2"></div>
             <div class="col-2" style="padding-right:10px;">
-                <li style="padding-top:10px;"><a href="{% url 'accounts_signup' %}"
+                <li style="padding-top:10px;"><a href="{% url 'signup_main' %}"
                         style="color: rgba(24, 24, 24, 0.2);" class="navbar-right">SignUp</a></li>
                 <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(24, 24, 24, 0.2);"
                         class="navbar-right">LogIn</a></li>

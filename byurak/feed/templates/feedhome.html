@@ -1,44 +1,56 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block contents %}
+<link rel="stylesheet" href="{% static 'css/pinterest_effect.css' %}">
+<link rel="stylesheet" href="{% static 'css/searchBar.css' %}">
+<br>
+<form class="searchform group" action="{% url 'depth2' %}" method="get"
+    style="width:80%; padding: 0 0 0 0; margin:30px 10% 30px 10%">
+    <label for="search-box">
+        <span class="fa fa-2x fa-search"></span>
+    </label>
+    <input type="search" class="fa fa-2x fa-search" style placeholder="가고싶은 지역 또는 하고싶은 체험활동을 입력해주세요.">
+</form>
 <div class="images">
     <figure class="effect-sadie">
         <div class="image">
-            <img src="https://images.unsplash.com/photo-1552633832-4f5a1b110980?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjYxOTE2fQ"
+            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458202207500&width=380&height=526&ratioTy=A"
                 alt="">
             <figcaption>
-                <h3>전라도 <span>양궁체험</span></h3>
-                <p>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <h3>전라도 <span>윤도장전수관</span></h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">윤도를 직접 만들어 볼 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
     <figure class="effect-sadie">
         <div class="image">
-            <img src="https://images.unsplash.com/photo-1552584010-ca8bbbd5bd18?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjYxOTE2fQ"
+            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458201967481&width=380&height=526&ratioTy=A"
                 alt="">
             <figcaption>
-                <h3>전라도 <span>양궁체험</span></h3>
-                <p>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <h3>경기도 <span>유기체험</span></h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">유기를 직접 만들어 볼 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
     <figure class="effect-sadie">
         <div class="image">
-            <img src="https://images.unsplash.com/photo-1552644867-3c98a63f38eb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjYxOTE2fQ"
+            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458202017485&width=380&height=526&ratioTy=A"
                 alt="">
             <figcaption>
-                <h3>전라도 <span>양궁체험</span></h3>
-                <p>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <h3>서울시 <span>자수공예체험</span></h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">자수공예를 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
     <figure class="effect-sadie">
         <div class="image">
-            <img src="https://images.unsplash.com/photo-1552620543-31d952829801?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjYxOTE2fQ"
+            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458201997483&width=380&height=526&ratioTy=A"
                 alt="">
             <figcaption>
-                <h3>전라도 <span>양궁체험</span></h3>
-                <p>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <h3>경기도 <span>공방체험</span></h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">브로치등을 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>
@@ -48,8 +60,8 @@
             <img src="https://images.unsplash.com/photo-1552602989-715150494024?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjYxOTE2fQ"
                 alt="">
             <figcaption>
-                <h3>전라도 <span>양궁체험</span></h3>
-                <p>양궁을 직접 체험할 수 있는 곳입니다.</p>
+                <h3>경기도 <span>양궁체험</span></h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">양궁을 직접 체험할 수 있는 곳입니다.</p>
             </figcaption>
         </div>
     </figure>

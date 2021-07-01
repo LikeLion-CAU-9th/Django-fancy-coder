@@ -1,5 +1,7 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
 body {
-    font-family: "Century Gothic", 'Lato', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
 }
 a {
     text-decoration: none;

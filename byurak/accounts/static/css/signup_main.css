@@ -2,6 +2,7 @@
 body{background-color: #f7f7f7;}
 ul>li{list-style: none}
 a{text-decoration: none;}
+
 .clearfix::after{content: "";display: block;clear: both;}
 
 #joinForm{width: 460px;margin: 0 auto;}
@@ -11,18 +12,33 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 .checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: #888;}
 .checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
 .checkBox textarea{width: 96%;height: 90px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;}
-.footBtwrap{margin-top: 15px;}
-.footBtwrap>li{float: left;width: 50%;height: 60px;}
-.footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 20px;text-align: center;line-height: 60px;}
-.fpmgBt1{background-color: #fff;color:#888}
-.fpmgBt2{background-color: #50BCDF;color: #fff}
-.btn_area button{
+
+.footBtwrap {
+    margin-top: 15px;
+}
+.footBtwrap>li {
+    float: left;width: 50%;height: 60px;
+}
+.footBtwrap>li>button {
+    display: block; width: 100%;height: 100%; font-size: 20px;text-align: center;line-height: 60px;
+}
+
+.fpmgBt1 {
+    background-color: #fff; color:#888
+}
+
+.fpmgBt2 {
+    background-color: #acccc4; 
+    color: #fff;
+    font-weight: 700;
+}
+.btn_area button {
     width: 30%;
     padding: 21px 0 17px;
     border: 0;
     cursor: pointer;
     color: #fff;
-    background-color: #50BCDF;
+    background-color: #acccc4;
     font-size: 20px;
     font-weight: 400;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
