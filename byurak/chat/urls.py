@@ -2,6 +2,7 @@ from django.urls import path
 import chat.views
 
 urlpatterns = [
-    path('', chat.views.index, name='index'),
+    path('te', chat.views.index_3, name='index3'),
     path('<str:room_name>/', chat.views.room, name='room'),
+    path('test', chat.views.test, name="test")
 ]
