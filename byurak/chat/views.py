@@ -3,7 +3,7 @@ from django.shortcuts import render
 from chat.models import ChattingRoom
 from chat.models import Message
 
-def index(request):
+def index_3(request):
     chat_room = ChattingRoom.objects.all()
     chat_room_index = {}
     chat_room_member = {}
@@ -16,7 +16,7 @@ def index(request):
         except:
             chat_room_index[chat_room_no] = 1
 
-    return render(request, 'index.html', {
+    return render(request, 'index3.html', {
         'chat_room': chat_room_index, 
         'chat_member': chat_room_member,
         'chat_room_all': chat_room
