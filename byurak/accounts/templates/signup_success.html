@@ -19,7 +19,7 @@
         font-size: 70px;
         position : absolute;
         display : inline;
-        margin : 17% 0 0 15% ;
+        margin : 13% 0 0 15% ;
         font-family: "Noto Sans KR", sans-serif;
     }
 
@@ -30,7 +30,7 @@
         font-size: 30px;
         position : absolute;
         display : inline;
-        margin : 22% 0 0 20% ;
+        margin : 18% 0 0 20% ;
         font-family: "Noto Sans KR" , sans-serif;
     }
 </style>
@@ -38,8 +38,11 @@
 </head>
 
 <body>
+    {% load static %}
+    <img src = "{% static 'image/stepperMint3.png' %}" style = "margin-top: 50px;">
     <p class = "success">  CULTU<span style = "color :#ACCCC4">R</span>E BOOK  </p>
     <p class = "success1">회원 가입 완료되었습니다.</p>
+
 
 </body>
 </html>

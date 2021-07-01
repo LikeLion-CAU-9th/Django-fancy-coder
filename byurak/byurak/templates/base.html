@@ -408,11 +408,11 @@
     <ul>
         <div class="row">
             <div class="col-8" style="padding-left:5%">
-                <li><a href="#" class = "logo" style = "float: left; margin-left: 0;">
+                <li><a href="{% url 'landing' %}" class = "logo" style = "float: left; margin-left: 0;">
                     <p style="font-family: 'Noto Sans KR', sans-serif; margin : 5px 50px 0 0; font-size: 20px;">CULTU<span style = "color : #ACCCC4;">
  R </span>E BOOK</p></a></li>
 
-                <li><a href="#"><img src="{% static 'img/finding.png' %}" alt="..."></a>
+                <li><a href="{% url 'depth1' %}"><img src="{% static 'img/finding.png' %}" alt="..."></a>
                     <div style="font-size: 3px">찾기</div>
                 </li>
                 <li><a href="{% url 'feed:feedList' %}"><img src="{% static 'img/just_looking.png' %}" alt="..."></a>
@@ -435,7 +435,7 @@
             {% else %}
             <div class="col-2"></div>
             <div class="col-2" style="padding-right:10px;">
-                <li style="padding-top:10px;"><a href="{% url 'accounts_signup' %}"
+                <li style="padding-top:10px;"><a href="{% url 'signup_main' %}"
                         style="color: rgba(24, 24, 24, 0.2);" class="navbar-right">SignUp</a></li>
                 <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(24, 24, 24, 0.2);"
                         class="navbar-right">LogIn</a></li>
