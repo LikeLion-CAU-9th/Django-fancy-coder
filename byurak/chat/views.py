@@ -28,3 +28,7 @@ def room(request, room_name):
     messages = Message.objects.filter(object_id=int(room_name))
 
     return render(request, 'room.html', {'room_name': room_name,  'messages':messages})
+
+
+def test(request):
+    return render(request, 'test.html')
