@@ -56,7 +56,7 @@ h3 {
     position: relative;
 }
 
-.int {
+.int  {
     display: inline;
     position: relative;
     width: 90%;
@@ -64,8 +64,8 @@ h3 {
     border: none;
     background: #fff;
     font-size: 15px;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px !important;
+} 
 
 input {
     font-family: Noto SansKR,sans-serif;    
