@@ -28,7 +28,9 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 }
 
 .fpmgBt2 {
-    background-color: #acccc4; color: #000
+    background-color: #acccc4; 
+    color: #fff;
+    font-weight: 700;
 }
 .btn_area button {
     width: 30%;
