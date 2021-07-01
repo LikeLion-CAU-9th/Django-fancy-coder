@@ -1,3 +1,36 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.searchform {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    width: 50%;
+  }
+  label, input {
+    vertical-align: baseline;
+    color: #737373;
+  }
+  label {
+    margin: 0.125em 0.125em 0 0;
+    float: right;
+    
+  }
+  input[type="search"] {
+    border: 2px solid #737373;
+    border-width: 0 0 3px;
+    background-color: transparent;
+    font: 22px "Open Sans", sans-serif;
+    padding: 0.125em 0.225em;
+    width: 85%;
+    float: left;
+    
+  }
+  input[type="search"]:focus {
+    color: #ACCCC4;
+    border-color: #ACCCC4;
+    outline: none;
+  }
+
 .images {
     max-width: 100%;
     padding:auto;
@@ -43,10 +76,11 @@ figure.effect-sadie h3 {
 	text-align: center;
     width: 100%;
     padding:auto;
-    color: #fff;
+    color: #ACCCC4;
     opacity: 0;
 	transition: transform 0.35s, color 0.35s;
 	transform: translate3d(0,-50%,0);
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 figure.effect-sadie figcaption::before,
@@ -62,6 +96,7 @@ figure.effect-sadie p, figure.effect-sadie a {
 	width: 100%;
 	opacity: 0;
 	transform: translate3d(0,10px,0);
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 figure.effect-sadie:hover h3, figure.effect-sadie:hover p {
