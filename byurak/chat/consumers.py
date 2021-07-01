@@ -4,8 +4,8 @@ import json
 from asgiref.sync import async_to_sync, sync_to_async
 from channels.db import database_sync_to_async
 from channels.generic.websocket import WebsocketConsumer, AsyncWebsocketConsumer
-from django.contrib.auth.models import User
-
+# from django.contrib.auth.models import User
+from accounts.models import User
 from chat.handlers import ChatEventHandler
 from chat.models import Message, ChattingRoom
 
@@ -28,8 +28,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
         self.username = await database_sync_to_async(self.get_name)()
-        user = self.scope['user'].username
-        username = await sync_to_async(self.get_user)(user)
+        email = self.scope['user'].email
+        username = await sync_to_async(self.get_user)(email)
 
         await sync_to_async(self.create_chat_room)(self.room_name, username)
 
@@ -56,13 +56,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
         chatroom_id = self.scope['url_route']['kwargs']['room_name']
         self.username = await database_sync_to_async(self.get_name)()
 
-        user = self.scope["user"].username
-        username = await sync_to_async(self.get_user)(user)
+        email = self.scope["user"].email
+        print(email)
+        username = await sync_to_async(self.get_user)(email)
         # user_test = self.get_user(user)
-        print(user)
-        print(username.id)
-        print(username)
-        user_info=await sync_to_async(User.objects.get, thread_sensitive=True)(username=username)
+        #print(user)
+        #print(username.id)
+        #print(username)
+        user_info=await sync_to_async(User.objects.get, thread_sensitive=True)(email=username)
         # print(user_info)
         await Message.objects.async_create(
             object_id=chatroom_id,
@@ -77,7 +78,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             {
                 'type': 'chat_message',
                 'message': message,
-                'user': user,
+                'user': email,
                 'username': self.username,
                 'chat_room': chatroom_id
             }
@@ -99,10 +100,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         }))
 
     def get_name(self):
-        return User.objects.all()[0].username
+        return User.objects.all()[0].name
 
-    def get_user(self, username):
-        return User.objects.get(username=username)
+    def get_user(self, email):
+        return User.objects.get(email=email)
 
     def create_chat_room(self, chat_room_id, user):
         is_chat = ChattingRoom.objects.filter(

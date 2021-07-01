@@ -169,7 +169,6 @@
             border-radius: 6px;
             border: 1px solid var(--scrollbarBG);
         }
->>>>>>> 35a30aef473aac09e7e86bc1f43c432316d2088e
         body {
             background-color: #F7F9FB;
         }
@@ -421,7 +420,7 @@
                 <li style="padding-top:15px;">{{user.name}} 님</li>
             </div>
             <div class="col-2" style="padding-right:10px;">
-                <li style="padding-top:10px;"><a href="{% url 'profile' %}" style="color: rgba(24, 24, 24, 0.2);"
+                <li style="padding-top:10px;"><a href="{% url 'profile' user.id %}" style="color: rgba(24, 24, 24, 0.2);"
                         class="navbar-right">MyPage</a></li>
                 <li style="padding-top:10px;"><a href="{% url 'accounts_logout' %}"
                         style="color: rgba(24, 24, 24, 0.2);" class="navbar-right">LogOut</a></li>

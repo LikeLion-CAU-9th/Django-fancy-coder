@@ -47,7 +47,7 @@ class Message(ChattingModel):
     objects = MessageManager()
 
     class Meta:
-        ordering = ('-created_at',)
+        ordering = ('created_at',)
         indexes = [
             models.Index(fields=['-created_at'])
         ]

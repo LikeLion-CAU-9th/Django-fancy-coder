@@ -47,7 +47,9 @@ PROJECT_APPS = [
 ]
 
 COMMON_APPS = [
-    'channels'
+    'channels',
+    'sass_processor',
+
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + PROJECT_APPS + COMMON_APPS
@@ -132,7 +134,14 @@ AUTH_USER_MODEL = 'accounts.User'
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
 
+]
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
