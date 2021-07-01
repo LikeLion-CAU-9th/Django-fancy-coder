@@ -51,7 +51,7 @@ def accounts_signup(request):
             user.save()
             auth_login(request, user)
             Profile.objects.create(user=user)
-            return redirect("feed:feedList")
+            return redirect("signup_success.html")
         else:
             ctx = {
                 "form": form,
