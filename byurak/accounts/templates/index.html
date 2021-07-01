@@ -17,7 +17,7 @@
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
                 <div class="user-info-inner" style="display:flex; flex-direction: row;">
-                    <div class="username" style="font-size: 30px; margin-left:30px;">패션팀장</div>
+                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
                     <button class="setting-button">
                         <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
                     </button>
@@ -191,7 +191,7 @@
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
                 <div class="user-info-inner" style="display:flex; flex-direction: row;">
-                    <div class="username" style="font-size: 30px; margin-left:30px;">관악구물개</div>
+                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
                     <button class="setting-button">
                         <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
                     </button>
@@ -206,11 +206,12 @@
                 </div>
                 
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
-                    한국 붉은 악마 축구를 배우고 싶나요?!
-                    <br>
-                    이제는 동료들한테 그만 욕먹고 싶나요??!
-                    <br>
-                    축구 강의 문의 주세요!!
+                    {% if profile.short_introduce is null %}
+                    간단한 한줄소개를 적어주세요!
+                    {% else %}
+                    {{profile.short_introduce}}
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>
