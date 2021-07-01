@@ -198,7 +198,7 @@
                     </button>
                 </div>
                 <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    <button type="button" class="message-btn" onclick = "location.href='{% url 'room' profile.id %}'" style="margin-top:10px; margin-bottom:10px;">
                         1:1 채팅
                     </button>
                     <button type="button" class="message-btn" href="#"
@@ -234,7 +234,8 @@
         <section id="content1" class="experience">
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
-                    <button type="button" class="edit-btn" href="#">소개글 편집</a>
+                    <button type="button" class="edit-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">소개글 추가</a>
                 </div>
                 <br>
                 <!-- <div class="card intro-main"> -->
@@ -378,6 +379,46 @@
         </section>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
+                    <form method = "post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">제목</label>
+                            <input type="text" class="form-control" id="recipient-name" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">내용</label>
+                            <textarea class="form-control" id="message-text" name = "body"></textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="image">
+                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        </div>
+                        <div class="modal-footer">
+                                    <input class="btn btn-primary" style="background-color:pink; border: None;" type = "submit" value = "완료">
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            var myModal = document.getElementById('myModal')
+            var myInput = document.getElementById('myInput')
+    
+            myModal.addEventListener('shown.bs.modal', function () {
+                myInput.focus()
+            })
+        </script>
 {% endif %}
 
 {% endblock %}
