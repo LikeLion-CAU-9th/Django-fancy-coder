@@ -201,12 +201,11 @@
                 {% endif %}
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
-                <div class="user-info-inner" style="display:flex; flex-direction: row;">                
-                    {% if request.user != profile.user %}
-
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">    
                     <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
                 </div>
                 <div style="display:flex; flex-direction: row;">
+                    {% if request.user != profile.user %}
                     <button type="button" class="message-btn" onclick = "location.href='{% url 'room' profile.id %}'" style="margin-top:10px; margin-bottom:10px;">
                         1:1 채팅
                     </button>
@@ -239,8 +238,8 @@
     </div>
 
     <div class="main-content mt-3 border-top">
-        <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
+        <input id="tab1" type="radio" name="tabs" checked>
         <label for="tab1" style="font-weight:bolder;">소개글</label>
 
         <input id="tab2" type="radio" name="tabs">

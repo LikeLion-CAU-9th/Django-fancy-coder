@@ -1,5 +1,5 @@
 body{
-    /* background-color: #EDECEA; */
+    /*background-color: #EDECEA;*/
     font-size: 20px;
 }
 
@@ -46,8 +46,9 @@ body{
 
     label {
         width: 150px;
+        height:50px;
         display: inline-block;
-        margin: 0 0 -1px;
+        margin: 0;
         padding: 10px 10px;
         font-weight: 400;
         text-align: center;
@@ -190,6 +191,7 @@ body{
         object-fit: cover;
         background-size: contain;
         align-content: center;
+        border-radius: 5px;
     }
 
     .bookmark-btn {
