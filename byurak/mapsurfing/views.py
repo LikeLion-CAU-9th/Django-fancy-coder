@@ -11,7 +11,8 @@ def depth1(request):
 
     return render(request, 'surfingmap_depth1.html', {
         'KAKAO_MAP_KEY' : KAKAO_MAP_KEY,
-        "profiles": json_profiles_data
+        "profiles": json_profiles_data,
+        "service_providers": profiles
         })
 
 

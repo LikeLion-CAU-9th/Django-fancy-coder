@@ -400,10 +400,40 @@
             cursor: default;
             color: #777;
         }
+
+        footer {
+            width: 100%;
+            height: 95px;
+            background-color: #333;
+            bottom:0;
+        }
+
+        .brandName {
+            color : #818181;
+            font-size: 12px;
+            font-weight: 300;
+            margin-left: 50px;
+        }
+
+        .flex-wrapper{
+            min-height: 90vh;
+            justify-content: space-between;
+        }
+
+        .container{
+            padding: 20px;
+            min-height: 85vh;
+            margin: 0 auto -50px;
+        }
+
+        .push{
+            height:50px;
+        }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <ul>
         <div class="row">
             <div class="col-8" style="padding-left:5%">
@@ -429,8 +459,54 @@
                         class="navbar-right">MyPage</a></li>
                 <li style="padding-top:10px;"><a href="{% url 'accounts_logout' %}"
                         style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;" class="navbar-right">LogOut</a></li>
-            </div>
+=======
+    <div class="flex-wrapper">
+        <ul>
+            <div class="row">
+                <div class="col-8" style="padding-left:5%">
+                    <li><a href="{% url 'landing' %}" class = "logo" style = "float: left; margin-left: 0; text-decoration: none;">
+                        <p style="font-family: 'Noto Sans KR', sans-serif; margin : 5px 50px 0 0; font-size: 20px; color:black; ">
+                            CULTU<span style = "color : #ACCCC4;">R</span>E BOOK</p></a></li>
 
+                    <li><a href="{% url 'depth1' %}"><img src="{% static 'img/finding.png' %}" alt="..."></a>
+                        <div style="font-size: 3px">찾기</div>
+                    </li>
+                    <li><a href="{% url 'feed:feedList' %}"><img src="{% static 'img/just_looking.png' %}" alt="..."></a>
+                        <div style="font-size: 3px">둘러보기</div>
+                    </li>
+                </div>
+
+
+                {% if user.is_active %}
+                <div class="col-2">
+                    <li style="padding-top:15px;">{{user.name}} 님</li>
+                </div>
+                <div class="col-2" style="padding-right:10px;">
+                    <li style="padding-top:10px;"><a href="{% url 'profile' user.id %}" style="color: rgba(24, 24, 24, 0.2); text-decoration: none;"
+                            class="navbar-right">MyPage</a></li>
+                    <li style="padding-top:10px;"><a href="{% url 'accounts_logout' %}"
+                            style="color: rgba(24, 24, 24, 0.2); text-decoration: none;" class="navbar-right">LogOut</a></li>
+                </div>
+
+                {% else %}
+                <div class="col-2"></div>
+                <div class="col-2" style="padding-right:10px;">
+                    <li style="padding-top:10px;"><a href="{% url 'signup_main' %}"
+                            style="color: rgba(24, 24, 24, 0.2); text-decoration: none;" class="navbar-right">SignUp</a></li>
+                    <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(24, 24, 24, 0.2); text-decoration: none;"
+                            class="navbar-right" >LogIn</a></li>
+                </div>
+                {% endif %}
+>>>>>>> a9d22bff4ec2ea823fce246ed9dfaf1fc9669c20
+            </div>
+        </ul>
+    
+        <div class="container">
+            {% block contents %}
+            {% endblock %}
+        </div>
+
+<<<<<<< HEAD
             {% else %}
             <div class="col-2"></div>
             <div class="col-2" style="padding-right:10px;">
@@ -438,15 +514,37 @@
                         style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;" class="navbar-right">SignUp</a></li>
                 <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(14, 13, 13, 0.5); text-decoration: none; font-size: 15px;"
                         class="navbar-right" >LogIn</a></li>
+=======
+        <div class="push"></div>
+
+        <footer>
+            <div style="display:flex; flex-direction: row; margin: 0 20% 0 20%;height:40px;">
+                <div style="display:flex; flex-direction: column;">
+                    <p
+                        style="font-family: 'Noto Sans KR', sans-serif; margin : 0 70% 0 50px; padding-top: 10px; font-size: 25px; color: #fff; width: 100%;">
+                        CULTU<span style="color : #ACCCC4">R</span>E BOOK</p>
+                    <br>
+                    <p class=brandName> &copy;2021. Philocoders All right reserverd. </p>
+                </div>
+                <div style="float:right; margin : 10px 0 0 0; display: flex; flex-direction: row; ">
+                    <a href="https://github.com/LikeLion-CAU-9th/Philo-coders ">
+                        <img src="{% static 'img/githubIcon.png' %}"
+                            style="width: 40px; height: auto; filter: invert(100%);" alt="...">
+                    </a>
+                    <img src="{% static 'img/realLion.png' %}"
+                        style="width: auto; height: 33px; padding-top:7px; margin-left:1px;">
+                </div>
+        
+>>>>>>> a9d22bff4ec2ea823fce246ed9dfaf1fc9669c20
             </div>
-            {% endif %}
-        </div>
-    </ul>
-    <div class="container">
-        {% block contents %}
-        {% endblock %}
+        
+        </footer>
+    
     </div>
+    
 </body>
+
+
 <script src="{% static 'js/pinterest_effect.js' %}"></script>
 <script src="{% static 'js/carousel.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
