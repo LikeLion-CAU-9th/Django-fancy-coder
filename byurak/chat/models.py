@@ -54,7 +54,7 @@ class Message(ChattingModel):
 
 
 class Room(ChattingModel):
-    messages = GenericRelation('chat.Message')
+    messages = GenericRelation('chat.Message', "content_type")
 
     class Meta:
         abstract = True
