@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
+from accounts.models import Profile
 from .forms import *
 
 
@@ -81,4 +82,5 @@ def post_delete(request, pk):
 
 
 def feedhome(request):
-    return render(request, 'feedhome.html')
+    service_providers = Profile.objects.filter(user_type=Profile.SERVICE_PROVIDER)
+    return render(request, 'feedhome.html', {"service_providers": service_providers})
