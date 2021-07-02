@@ -10,8 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 
     <style>
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
         #leftShowinglist {
             background-color: #Fff;
             width: 350px;
@@ -29,18 +31,22 @@
             height: 83%;
         }
         .location_list li {
-            width : 100%;
+            width : 95%;
             height: 14%;
-            background-color: #EDECEA;
-            border: 1px solid #464645;
+            background-color: #E2DFD8
+;
+            border: none;
+            border-radius: 10px;
             margin-bottom: 15px;
             position: relative;
+            margin-right : 5px;
+            box-shadow: 2px 2px 3px 3px rgba(172, 169, 169,0.3);
             
         }
 
         .location_list img {
-            width: 40%;
-            height: 80%;
+            width: 35%;
+            height: 70%;
             display: inline;
             margin: 10px 20px 0 0;
             float: left;
@@ -48,8 +54,8 @@
         
         .location_list .titleSR{
             margin-top: 10px;
-            font-size: 20px;
-            font-family: Noto SansKR, 'sans-serif';
+            font-size: 18px;
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 600;
             padding-right: 5px;
         }
@@ -57,14 +63,14 @@
         .location_list .reviewSR{
             margin-top: 10px;
             font-size: 10px;
-            font-family: Noto SansKR, 'sans-serif';
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 600;
             padding-right: 5px;
         }
 
 
         #map {
-            width: 120%;
+            width: 140%;
             height: 150%; 
             position: relative;
         }
@@ -84,11 +90,11 @@
 <body>
     {% load static %}
 
-    <div class="row" style = "margin-top: 5%;">
+    <div class="row" style = "margin: 5% -20% 0 -30%;">
 
-        <div class="col-4" id="leftShowinglist">
-            <p id ="searchingResult"> 검색결과</p>
-            <hr>
+        <div class="col-3" id="leftShowinglist">
+            
+            <br>
             <ul class="location_list">
                 <li> <img src = "{% static 'img/talblack.png' %}">
                 <p class = "titleSR"> 안동 하회탈 체험</p>
@@ -96,24 +102,12 @@
             <li> <img src = "{% static 'img/talblack.png' %}">
                 <p class = "titleSR"> 안동 하회탈 체험</p>
             <p class = "reviewSR"> 후기 : 30개<br> 경상북도 안동시</p></li>
-            <li> <img src = "{% static 'img/talblack.png' %}">
-                <p class = "titleSR"> 안동 하회탈 체험</p>
-            <p class = "reviewSR"> 후기 : 30개<br> 경상북도 안동시</p></li>
-            <li> <img src = "{% static 'img/talblack.png' %}">
-                <p class = "titleSR"> 안동 하회탈 체험</p>
-            <p class = "reviewSR"> 후기 : 30개<br> 경상북도 안동시</p></li>
-            <li> <img src = "{% static 'img/talblack.png' %}">
-                <p class = "titleSR"> 안동 하회탈 체험</p>
-            <p class = "reviewSR"> 후기 : 30개<br> 경상북도 안동시</p></li>
-            <li> <img src = "{% static 'img/talblack.png' %}">
-                <p class = "titleSR"> 안동 하회탈 체험</p>
-            <p class = "reviewSR"> 후기 : 30개<br> 경상북도 안동시</p></li>
-
+            
                
             </ul>
         </div>
 
-        <div class=col-7 style = "margin-right: 20px;">
+        <div class=col-8 style = "margin-right: 20px;">
             <div class="map_wrap">
                 <div id="map"></div>
             </div>
