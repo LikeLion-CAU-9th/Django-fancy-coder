@@ -9,14 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <link rel="stylesheet" href="{% static 'css/signup_main.css' %}">
-    <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>]
+    <script type="text/JavaScript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <style>
-    
-    body {
-        background-color: #edecea;
-    }
-
+        body {
+            background-color: #edecea;
+        }
     </style>
 </head>
 
@@ -24,9 +22,10 @@
 
     <div class="signup_header">
         <img style=" width : 70%; height:6%; margin-bottom: 2%;" src="{% static 'image/stepperMint1.png' %}">
-    
 
-        <p style = "color: #ACCCC4;font-family: Noto SansKR, sans-serif; font-size: 30px; font-weight: 800;">Culture Book <span style = "color : #000000">회원가입</span></P>    
+
+        <p style="color: #ACCCC4;font-family: Noto SansKR, sans-serif; font-size: 30px; font-weight: 800;">Culture Book
+            <span style="color : #000000">회원가입</span></P>
     </div>
     <br>
     <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
@@ -356,8 +355,14 @@
             </li>
 
             <ul class="footBtwrap clearfix">
-                <li><button class="fpmgBt1">취소</button></li>
-                <li><button type="submit" class="fpmgBt2" style = "background-color: #ACCCC4;">동의</button></li>
+                <li style="margin-left:5%; width:40%; margin-right:5%;">
+                    <button type="button" class="fpmgBt1" onclick="location.href='{% url 'feed:feedList' %}'"
+                        style="background-color: #e9e6e0; border:none;">취소</button>
+                </li>
+                <li style="margin-left:5%; width:40%; margin-right:5%">
+                    <button type="submit" class="fpmgBt2" onclick="submitButtonEvent()"
+                        style="background-color: #ACCCC4; border:none;" id="agree">동의</button>
+                </li>
             </ul>
     </form>
     </h3>
@@ -377,23 +382,32 @@
                 }
             })
 
-        }) 
+        })
     </script>
     <script type="text/javascript">
-        $(function () {
+        function submitButtonEvent() {
+            let checkFlag = 1;
+            CheckForm(Join, checkFlag)
+            console.log("A")
+        }
 
-        })
-        function CheckForm(Join) {
+        function cancelButtonEvent() {
+        }
+
+        function CheckForm(Join, checkFlag) {
+            console.log("ab")
             var msg = "약관에 동의해주십시오"
-           
-            if (!document.Join.chk_2.checked) {
-                alert("약관에 동의해주세요");
-                return false;
+            if (checkFlag === 1) {
+                if (!document.Join.chk_2.checked) {
+                    alert("약관에 동의해주세요");
+                    return false;
+                }
+                if (!document.Join.chk_1.checked) {
+                    alert("약관에 동의해주세요");
+                    return false;
+                }
             }
-            if (!document.Join.chk_1.checked) {
-                alert("약관에 동의해주세요");
-                return false;
-            }
+
         }
     </script>
 </body>
