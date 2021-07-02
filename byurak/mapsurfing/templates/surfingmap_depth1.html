@@ -24,6 +24,7 @@
                     <div class="col-xs-6 col-sm-12 col-md-12">
                         <div class="carousel carousel-showmanymoveone slide" id="itemslider">
                             <div class="carousel-inner">
+                                
                                 <div class="item active">
                                     <div class="col-xs-6 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'image/profilePicture.jpg' %}"
@@ -33,7 +34,16 @@
                                         <h5 class="text-center">review 156</h5>
                                     </div>
                                 </div>
-
+                                {% for profile in service_providers %}
+                                <div class="item">
+                                        <div class="col-xs-6 col-sm-6 col-lg-3">
+                                            <a href="{% url 'profile' profile.user.id %}"><img src="{{profile.image.url }}"
+                                                    class="img-responsive center-block" style="width:150px;height:80px"></a>
+                                            <h4 class="text-center">{{profile.user.name}}</h4>
+                                            <h5 class="text-center">review 123</h5>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                                 <div class="item">
                                     <div class="col-xs-6 col-sm-6 col-lg-3">
                                         <a href="#"><img src="{% static 'img/byurakMain.png' %}"
@@ -193,7 +203,7 @@
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
-            center: new kakao.maps.LatLng(36.31765817178337, 127.96235165282474), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(36.3504, 127.3845), // 지도의 중심좌표
             level: 13 // 지도의 확대 레벨
         };
     var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -204,7 +214,7 @@
         minLevel: 8 // 클러스터 할 최소 지도 레벨 
     });
     var map_coordinate_data = [
-        [37.50417693439669, 126.95669427974502, '<div style="padding:5px">중앙대학교</div>'],
+        [33.4424829514566, 126.278667142664, '<div style="padding:5px">제주 범촌계 해녀체험</div>'],
         [37.49588032997288, 126.95693766986257, '<div style="padding:5px">숭실대학교</div>'],
         [37.45971000415799, 126.9492757952058, '<div style="padding:5px">서울대학교</div>'],
         [35.84648059644505, 127.12891076848453, '<div style="padding:5px">전북대학교</div>'],
@@ -244,7 +254,7 @@
             '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
             '           </div>' +
             '            <div class="desc">' +
-            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' +
+            '                <div class="ellipsis">제주시 한림읍 한림해안로621</div>' +
             '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' +
             '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' +
             '            </div>' +
@@ -284,9 +294,9 @@
             '                <img src="' + '{% static "image/profilePicture.jpg" %}' + '" height="70">' +
                 '           </div>' +
                 '            <div class="desc">' +
-                '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' +
+                '                <div class="ellipsis">제주시 한림읍 한림해안로621</div>' +
                 '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' +
-                '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">보러가기</a></div>' +
+                '                <div><a href=\"{% url 'profile' 13 %}\" target="_blank" class="link">보러가기</a></div>' +
                 '            </div>' +
                 '        </div>' +
                 '    </div>' +

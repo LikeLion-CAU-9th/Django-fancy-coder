@@ -14,16 +14,27 @@
     <input type="search" class="fa fa-2x fa-search" style placeholder="가고싶은 지역 또는 하고싶은 체험활동을 입력해주세요.">
 </form>
 <div class="images">
+    {% for service_provider in service_providers %}
+    <a href = "{% url 'profile' service_provider.user.id %}">
     <figure class="effect-sadie">
+        
         <div class="image">
-            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458202207500&width=380&height=526&ratioTy=A"
+            {% if service_provider.image %}
+            <img src="{{service_provider.image.url}}"
                 alt="">
+            {% else  %}
+            <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458201967481&width=380&height=526&ratioTy=A"
+                alt="">
+            {% endif %}
             <figcaption>
-                <h3>전라도 <span>윤도장전수관</span></h3>
-                <p style="font-family: 'Noto Sans KR', sans-serif">윤도를 직접 만들어 볼 수 있는 곳입니다.</p>
+                <h3>{{service_provider.user.name}}</h3>
+                <p style="font-family: 'Noto Sans KR', sans-serif">{{service_provider.short_introduce}}</p>
             </figcaption>
         </div>
+        
     </figure>
+</a>
+    {% endfor %}
     <figure class="effect-sadie">
         <div class="image">
             <img src="https://support.nihc.go.kr/iptl/muploader/imageViewThumbnailFile.do?fileUid=138214458201967481&width=380&height=526&ratioTy=A"
