@@ -19,9 +19,9 @@ def reservation_create(request, pk):
     # 호스트가 참가하는 것을 방지하기 위함
     if request.method == "POST":
         form = ReservationForm(request.POST)
-
         print(form.errors)
-
+        print(form)
+        
         if form.is_valid():
             reservation = form.save()
             
