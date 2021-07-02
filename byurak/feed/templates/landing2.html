@@ -41,6 +41,19 @@
         .btnLanding:hover {
             background-color: #ACCCC4;
         }
+
+        footer {
+            width: 100%;
+            height: 120px;
+            background-color: #333;
+        }
+
+        .brandName {
+            color : #818181;
+            font-size: 12px;
+            font-weight: 300;
+            margin-left: 50px;
+        }
     </style>
 </head>
 
@@ -136,11 +149,32 @@
           
             <form>
                 <input type="submit" value="Top">
-            </form>
+            </form>e
         </div>
         <br><br>
 
     </section>
+
+    <footer>
+        <div style="display:flex; flex-direction: row; margin: 0 20% 0 20%;height:40px;">
+            <div style="display:flex; flex-direction: column;">
+                <p style="font-family: 'Noto Sans KR', sans-serif; margin : 0 70% 0 50px; padding-top: 10px; font-size: 25px; color: #fff; width: 100%;">CULTU<span
+                    style="color : #ACCCC4">R</span>E BOOK</p>
+                    <br>
+                <p class = brandName > &copy;2021. Philocoders All right reserverd.   </p>
+            </div>
+            <div style = "float:right; margin : 10px 0 0 0; display: flex; flex-direction: row; ">
+                <a href = "https://github.com/LikeLion-CAU-9th/Philo-coders ">
+                    <img src = "{% static 'img/githubIcon.png' %}" style = "width: 40px; height: auto; filter: invert(100%);" alt = "..." >
+                </a>
+                <img src = "{% static 'img/realLion.png' %}" style = "width: auto; height: 33px; padding-top:7px; margin-left:1px;">
+            </div>
+                
+        </div>
+        
+      
+        
+    </footer>
 
 
 
