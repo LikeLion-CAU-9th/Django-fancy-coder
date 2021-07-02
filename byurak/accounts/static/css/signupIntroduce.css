@@ -1,0 +1,95 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+  label, input {
+    /* vertical-align: baseline; */
+    color: #737373;
+  }
+  label {
+    margin: 0.125em 0.125em 0 0;
+    /* float: right; */
+    
+  }
+
+.introduceImages {
+    width: 500%;
+    /* height: 1000px; */
+    padding:auto;
+    display: inline;
+}
+  
+.introduceImage {
+    display: inline-block;
+    position: relative;
+    max-width: 270px;
+    padding: 10px;
+}
+  
+.introduceImage > img {
+    width: 100%;
+}
+  
+.introduceImage > span {
+    position: absolute;
+    color: white;
+    bottom: 25px;
+    right: 25px;
+}
+
+figure.effect-sadie figcaption::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+    height: -webkit-calc(100% - 20px);
+    padding-bottom:10px;
+    margin: 10px;
+	background: rgba(16, 17, 22, 0.6);
+	content: '';
+	opacity: 0;
+    /* transform: translate3d(0,50%,0); */
+    
+}
+
+figure.effect-sadie h3 {
+	position: absolute;
+    top: -webkit-calc(50% + 10px);
+    margin:0;
+	text-align: center;
+    width: 100%;
+    padding:auto;
+    color: #ACCCC4;
+    opacity: 0;
+	transition: transform 0.35s, color 0.35s;
+	transform: translate3d(0,-50%,0);
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+figure.effect-sadie figcaption::before,
+figure.effect-sadie p,figure.effect-sadie a {
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-sadie p, figure.effect-sadie a {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 2em;
+	width: 100%;
+	opacity: 0;
+	transform: translate3d(0,10px,0);
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+figure.effect-sadie:hover h3, figure.effect-sadie:hover p {
+    color: #d3d3d3;
+    text-align: center;
+    opacity: 1;
+	transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+}
+
+figure.effect-sadie:hover figcaption::before ,
+figure.effect-sadie:hover p, figure.effect-sadie a {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+}

@@ -68,6 +68,7 @@
 </head>
 
 <body>
+    {% load static %}
     <div class="row">
         <div class = "col-4"></div>
         <div class="col-5">
@@ -82,18 +83,15 @@
                     {% csrf_token %}
                 <div>
                 <label for = "peopleInput" class="peopleInput"> 인원 : 
-                    <input type = "number" id = "peopleInput" value = "{{forms.customer_count|default_if_none:''}}" >
+                    <input type = "number" min="1" id = "peopleInput" name = "customer_count" value = "{{forms.customer_count.value|default_if_none:''}}" >
                 </label>
             </div>
         <div>
                 <label for ="activateDate" class = "activateDate"> 일시 : 
-                    <input type = "datetime" id = "activateDate" value = "{{forms.activate_date|default_if_none:''}}" >
+                    <input type = "datetime" id = "activateDate" name="activate_date" value = "{{forms.activate_date.value|default_if_none:''}}" >
                 </label>
             </div>   
-                    
-
-
-                    <button class="btnProduce" type="submit">생성하기</button>
+                    <button class="btnProduce" type="submit"> 생성하기</button>
                 </form>
             </div>
         </div>
