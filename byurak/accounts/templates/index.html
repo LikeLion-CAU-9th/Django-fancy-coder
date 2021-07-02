@@ -22,9 +22,15 @@
                         <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
                     </button>
                 </div>
+                {% if request.user != profile.user %}
                 <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
                     1:1 채팅
                 </button>
+                {% else %}
+                <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    프로필 편집
+                </button>
+                {% endif %}
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
                     안녕하세요! 저는 백엔드엔 잼병이고
                     <br>
@@ -179,7 +185,6 @@
 </div>
 
 
-
 <!-- SERVICE_PROVIDER -->
 {% elif profile.user_type == "service_provider" %}
 <div class="col-8 align-self-center mt-5" style="margin:auto;">
@@ -192,17 +197,25 @@
             <div class="col user-info" style="display:flex; flex-direction: column;">
                 <div class="user-info-inner" style="display:flex; flex-direction: row;">
                     <div class="username" style="font-size: 30px; margin-left:30px;">관악구물개</div>
-                    <button class="setting-button">
-                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
-                    </button>
                 </div>
                 <div style="display:flex; flex-direction: row;">
+                    {% if request.user != profile.user %}
                     <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
                         1:1 채팅
                     </button>
                     <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px; margin-left:10px">
                         예약하기
                     </button>
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px; margin-left:10px">
+                        북마크
+                    </button>
+                    
+                    {% else %}
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                        프로필 편집
+                    </button>
+
+                    {% endif %}
                 </div>
                 
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
@@ -364,6 +377,9 @@
         </section>
     </div>
 </div>
+
+
+
 {% endif %}
 
 

@@ -295,6 +295,12 @@ body{
 
     /* SERVICE_PROVIDER css */
 
+    button.bookmark-button{
+        border:none;
+        width:7%;
+        height:auto;
+    }
+
     .message-btn {
         width: 80px;
         background-color: #ACCCC4;
