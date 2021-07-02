@@ -5,6 +5,7 @@
 {% block contents %}
 
 <link rel='stylesheet' href="{% static 'css/accounts.css' %}">
+<link rel="stylesheet" href="{% static 'css/signupIntroduce.css' %}">
 
 <!-- DEFAULT_USER -->
 {% if profile.user_type == "default_user" %}
@@ -17,14 +18,20 @@
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
                 <div class="user-info-inner" style="display:flex; flex-direction: row;">
-                    <div class="username" style="font-size: 30px; margin-left:30px;">패션팀장</div>
+                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
                     <button class="setting-button">
                         <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
                     </button>
                 </div>
+                {% if request.user != profile.user %}
                 <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
                     1:1 채팅
                 </button>
+                {% else %}
+                <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    프로필 편집
+                </button>
+                {% endif %}
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
                     안녕하세요! 저는 백엔드엔 잼병이고
                     <br>
@@ -35,7 +42,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="main-content mt-3 border-top">
         <input id="tab1" type="radio" name="tabs" checked>
         <!--디폴트 메뉴-->
@@ -95,7 +102,7 @@
                         <inline class="exp-card-content">
                             요즘 대세인 줄타기를 직접 경험해봤는데 생각보다 어렵고 힘들었어요 ㅠㅠ
                             그래도 너무너무 재미있었고 경기도 전통음식도 많이 먹고 와서 행복한 문화체험이었습니다!!
-                            
+
                         </inline>
                     </inline>
                     <div class="visit-btn">
@@ -118,7 +125,7 @@
                     </div>
                 </div>
                 <div class="card item bookmark-card">
-                    <div class="bookmark-btn" style="background-image: url('/static/image/surfy-beach.jpg');" >
+                    <div class="bookmark-btn" style="background-image: url('/static/image/surfy-beach.jpg');">
                         <div class="cover">
                             <a class="program-name" href="#">양양 서핑체험</a>
                         </div>
@@ -131,9 +138,9 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </section>
 
         <!-- 예약현황 -->
@@ -179,7 +186,6 @@
 </div>
 
 
-
 <!-- SERVICE_PROVIDER -->
 {% elif profile.user_type == "service_provider" %}
 <div class="col-8 align-self-center mt-5" style="margin:auto;">
@@ -190,27 +196,38 @@
                     src="{% static 'image/god_yun_han.png' %}">
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
-                <div class="user-info-inner" style="display:flex; flex-direction: row;">
-                    <div class="username" style="font-size: 30px; margin-left:30px;">관악구물개</div>
-                    <button class="setting-button">
-                        <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
-                    </button>
+                <div class="user-info-inner" style="display:flex; flex-direction: row;">                
+                    {% if request.user != profile.user %}
+
+                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
                 </div>
                 <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                    <button type="button" class="message-btn" onclick = "location.href='{% url 'room' profile.id %}'" style="margin-top:10px; margin-bottom:10px;">
                         1:1 채팅
                     </button>
-                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px; margin-left:10px">
+                    <button type="button" class="message-btn" href="#"
+                        style="margin-top:10px; margin-bottom:10px; margin-left:10px">
                         예약하기
                     </button>
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px; margin-left:10px">
+                        북마크
+                    </button>
+                    
+                    {% else %}
+                    <button type="button" class="message-btn" href="#" style="margin-top:10px; margin-bottom:10px;">
+                        프로필 편집
+                    </button>
+
+                    {% endif %}
                 </div>
-                
+
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
-                    한국 붉은 악마 축구를 배우고 싶나요?!
-                    <br>
-                    이제는 동료들한테 그만 욕먹고 싶나요??!
-                    <br>
-                    축구 강의 문의 주세요!!
+                    {% if profile.short_introduce is null %}
+                    간단한 한줄소개를 적어주세요!
+                    {% else %}
+                    {{profile.short_introduce}}
+                    {% endif %}
+
                 </div>
             </div>
         </div>
@@ -231,25 +248,37 @@
         <section id="content1" class="experience">
             <div class="row">
                 <div class="intro-edit" style="margin:auto;">
-                    <button type="button" class="edit-btn" href="#">소개글 편집</a>
+                    <button type="button" class="edit-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" data-bs-whatever="@mdo">소개글 추가</a>
                 </div>
-                <div class="card intro-main">
-                    <img class="intro-image" src="{% static 'image/god_yun_han_soccer.jpg' %}">
-                    <div class="intro-text">
-                        <div class="intro-title">
-                            윤한과 함께 축구를
-                        </div>
-                        <div class="intro-content">
-                            필드 위의 빛나는 모습이 보이시나요?
+                <br>
+                <!-- <div class="card intro-main"> -->
+                        <div class="bookmark-container" style="padding-top:20px">
                             <br>
-                            눈이 부셔서 안보이신다구요?
-                            <br>
-                            이런 갓.윤.한이 되고 싶으시다면
-                            <br>함께 체험해보세요
-                        </div>    
-                    </div>
-                </div>
-            </div>
+                                <div class="card item bookmark-card">
+                                    <div class="bookmark-btn" style="background-image: url('/static/image/haenyu-exp.png');">
+                                        <div class="cover">
+                                            <a class="program-name" href="#">하귀 해녀체험</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card item bookmark-card">
+                                    <div class="bookmark-btn" style="background-image: url('/static/image/surfy-beach.jpg');">
+                                        <div class="cover">
+                                            <a class="program-name" href="#">양양 서핑체험</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card item bookmark-card">
+                                    <div class="bookmark-btn" style="background-image: url('/static/image/paragliding.jpeg');">
+                                        <div class="cover">
+                                            <a class="program-name" href="#">단양 패러글라이딩</a>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+            <!-- </div> -->
         </section>
 
         <!-- 후기 -->
@@ -262,7 +291,7 @@
                         <inline class="exp-card-date">2021년 4월 24일</inline>
                         <inline class="exp-card-content">
                             친구가 없지만 축구를 해보고 싶어서 밑져야 본전이라는 생각으로 신청해봤는데
-                            
+
                             친구 사귀는 법도 알려주시고 축구 스킬도 잘 알려주셔서 너무 유익했어요!!
                         </inline>
                     </inline>
@@ -364,7 +393,48 @@
         </section>
     </div>
 </div>
+
 {% endif %}
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">무슨 글을 써볼까요?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 실질적으로 데이터를 입력받아서 처리할 수 있도록 하는 부분입니다! -->
+                    <form method = "post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">제목</label>
+                            <input type="text" class="form-control" id="recipient-name" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">내용</label>
+                            <textarea class="form-control" id="message-text" name = "body"></textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="image">
+                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        </div>
+                        <div class="modal-footer">
+                                    <input class="btn btn-primary" style="background-color:pink; border: None;" type = "submit" value = "완료">
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            var myModal = document.getElementById('myModal')
+            var myInput = document.getElementById('myInput')
+    
+            myModal.addEventListener('shown.bs.modal', function () {
+                myInput.focus()
+            })
+        </script>
 
 {% endblock %}
