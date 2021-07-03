@@ -9,7 +9,7 @@
 
 
 # Philo coder
-**Fancy coder**`s cool Project
+CULTURE BOOK
 
 ## Contributor
 - Likelion in Chungang University
@@ -17,21 +17,20 @@
 |    Name    | Email                                        |
 | :-----------: | :------------------------------------------------- |
 |    최윤한(Leader)     |unusualc@likelion.org | 
-|    인세훈     | dlstpgns0406@gmail.com |
-|    민정호     |alswjdgh5095@gmail.com |
-|    박채연     | pcy9472@gmail.com|
-|    이성민     | seongmin221@naver.com |
+|    인세훈(Developer)     | dlstpgns0406@gmail.com |
+|    민정호(PM, Developer)     |alswjdgh5095@gmail.com |
+|    박채연(Developer)     | pcy9472@gmail.com|
+|    이성민(Developer)    | seongmin221@naver.com |
  
 ## Service
    
 ### Idea Description
-- Matching service to prepare for interviews, studies, and certifications in a short time
+- Our service provides information and booking system about Korean culture experiences. 
 ### Service Function
 - Account : Supports `social login`
-- feed : Provides relecant information
-- Gruop : `Mentors` and `Mentees` can share information through groups
-- Chatting : Can communicate with people in your group.
-- Coummity : Can freely communicate by posting and commenting
+- Feed : show picture and review for customer to check experiences
+- Finding : User can find experiences that they want using Kakao map API
+- Reservation : Customer can book experience with payment system
 ### How to
 ```console
 $ git clone https://github.com/LikeLion-CAU-9th/Philo-coders.git
