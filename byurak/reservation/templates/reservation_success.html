@@ -24,6 +24,18 @@
     a {
         margin-left: 166px;
     }
+
+    button {
+        width: 140px;
+        height: 60px;
+        margin-right: 3%;
+        background-color: #ACCCC4;
+        font-size: 20px;
+        font-weight: 700;
+        color : #ffffff;
+        border : none;
+        border-radius: 5px;
+    }
 </style>
 </head>
 
@@ -31,9 +43,9 @@
 <body>
     <div class = successBox>
     <p style="color: #000;font-family: Noto SansKR, sans-serif; font-size: 300%; font-weight: 800; text-align: center;">CULTU<span style = "color:#ACCCC4">R</span>E BOOK</p>
-    <p style = "font-size: 100px;">예약 성공!</p>
-    <a href = "{% url 'feed:feedList' %}" style = "color : #454546"> 확인하기 </a><br>
-    <a href = "{% url 'feed:feedList' %}" style = "color : #454546"> 홈으로 </a>
+    <p style = "font-size: 100px; margin-left: 10px;"> 예약 완료!</p>
+    <a href = "{% url 'feed:feedList' %}" style = "color : #454546"> <button>확인하기</button> </a><br><br>
+    <a href = "{% url 'feed:feedList' %}" style = "color : #454546"> <button>홈으로 </button></a>
     </div>
 
 </body>
