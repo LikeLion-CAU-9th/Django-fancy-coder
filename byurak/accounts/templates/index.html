@@ -18,7 +18,7 @@
             </div>
             <div class="col user-info" style="display:flex; flex-direction: column;">
                 <div class="user-info-inner" style="display:flex; flex-direction: row;">
-                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.name}}</div>
+                    <div class="username" style="font-size: 30px; margin-left:30px;">{{profile.user.nickname}}</div>
                     <button class="setting-button">
                         <img style="width:32px; height: 32px;" src="{% static 'image/settings.png' %}" class="button">
                     </button>
@@ -33,11 +33,9 @@
                 </button>
                 {% endif %}
                 <div class="description" style="font-size:18px; margin-left:30px;font-weight: 300;">
-                    안녕하세요! 저는 백엔드엔 잼병이고
+                    안녕하세요! 저는 백엔드는 잘못하지만
                     <br>
-                    그나마 프론트엔드만 끄적대는
-                    <br>
-                    패션팀장이라고 합니다!
+                    열심히 하려고 노력하는 멋쟁이 사자입니다!
                 </div>
             </div>
         </div>
@@ -147,13 +145,14 @@
         <section id="content3" class="reservation">
             <div class="card reservation-card">
                 <div class="reservation-card-body">
-                    <img class="reservation-card-image" src="{% static 'image/bowandarrow.jpg' %}">
+                    <img class="reservation-card-image" src="{% static 'image/haenyu.jpg' %}">
                     <inline class="reservation-card-text">
-                        <inline class="reservation-card-title">전통 양궁 체험</inline>
-                        <inline class="reservation-card-date">2021년 7월 24일</inline>
+                        <inline class="reservation-card-title">제주 범촌계해녀체험
+                            </inline>
+                        <inline class="reservation-card-date">2021년 7월 6일</inline>
                     </inline>
-                    <div class="reservation-status in-progress">
-                        진행중
+                    <div class="reservation-status complete">
+                        예약완료
                     </div>
                 </div>
             </div>
@@ -162,9 +161,9 @@
                     <img class="reservation-card-image" src="{% static 'image/mask.jpg' %}">
                     <inline class="reservation-card-text">
                         <inline class="reservation-card-title">탈춤 공연 관람</inline>
-                        <inline class="reservation-card-date">2021년 9월 1일</inline>
+                        <inline class="reservation-card-date">2021년 7월 3일</inline>
                     </inline>
-                    <div class="reservation-status complete">
+                    <div class="reservation-status in-progress">
                         예약완료
                     </div>
                 </div>

@@ -449,7 +449,7 @@
 
                 {% if user.is_active %}
                 <div class="col-2">
-                    <li style="padding-top:15px;">{{user.name}} 님</li>
+                    <li style="padding-top:15px;">{{user.nickname}} 님</li>
                 </div>
                 <div class="col-2" style="padding-right:10px;">
                     <li style="padding-top:10px;"><a href="{% url 'profile' user.id %}" style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;"
