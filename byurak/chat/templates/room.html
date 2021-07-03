@@ -39,7 +39,7 @@
                         </svg>
                 </div>
                 <img class="user-profile"
-                    src="{% static 'image/god_yun_han.png' %}" alt=""
+                    src="{% static 'image/profilePicture.jpg' %}" alt=""
                     class="account-profile" alt="">
             </div>
         </div>
@@ -198,7 +198,7 @@
                         <div class="chat-msg">
                             <div class="chat-msg-profile">
                                 <img class="chat-msg-img"
-                                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
+                                    src="{% static 'image/haenyu.jpg' %}"
                                     alt="" />
                                 <div class="chat-msg-date">{{message.created_at}}</div>
                             </div>
@@ -211,7 +211,7 @@
                 <div class="chat-msg owner">
                         <div class="chat-msg-profile">
                             <img class="chat-msg-img"
-                                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png"
+                                src="{% static 'image/profilePicture.jpg' %}"
                                 alt="" />
                             <div class="chat-msg-date">{{message.created_at}}</div>
                         </div>
@@ -497,12 +497,12 @@
             // console.log({{request_user}});
             var requestUser = "{{request_user}}";
             if( data.user === requestUser) {
-                chatLog.innerHTML += `<div class=\"chat-msg owner\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png\"alt=\"\" /><div class=\"chat-msg-date\">${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일 ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div>`
+                chatLog.innerHTML += `<div class=\"chat-msg owner\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"{% static 'image/profilePicture.jpg' %}\"alt=\"\" /><div class=\"chat-msg-date\">${today.getFullYear()}년 ${today.getMonth()+1}월 ${today.getDate()}일 ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div>`
                 document.querySelector('#chat-log').value += (data.user + '님 : ' + data.message + '\n');
             }
             
             else if(data.user !== requestUser){
-                chatLog.innerHTML += `<div class=\"chat-area-main\"><div class=\"chat-msg\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png\"alt=\"\" /><div class=\"chat-msg-date\">Message seen 1.22pm${data.user}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div></div>`
+                chatLog.innerHTML += `<div class=\"chat-area-main\"><div class=\"chat-msg\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"{% static 'image/haenyu.jpg' %}\"alt=\"\" /><div class=\"chat-msg-date\">${today.getFullYear()}년 ${today.getMonth()+1}월 ${today.getDate()}일 ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div></div>`
                 document.querySelector('#chat-log').value += (data.user + '님 : ' + data.message + '\n');
             }
             
