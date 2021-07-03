@@ -22,7 +22,7 @@
 
         .titleInput {
             margin: 100px 0 100px 100px;
-            width: 40%;
+            width: 100%;
             height: 20%;
             display: block;
             font-size: 40px;
@@ -34,19 +34,20 @@
             width: 32%;
             font-size: 20px;
         }
+
         .nameInput {
             margin: 15px 0 0 0;
             width: 32%;
             font-size: 20px;
         }
 
-        .peopleInput{
+        .peopleInput {
             margin: 15px 0 20px 0;
             width: 32%;
             font-size: 20px;
         }
 
-        #peopleInput{
+        #peopleInput {
             width: 37%;
         }
 
@@ -70,35 +71,39 @@
 <body>
     {% load static %}
     <div class="row">
-        <div class = "col-4"></div>
-        <div class="col-5">
+        <div class="col-3"></div>
+        <div class="col-6">
             <div class="inputForm">
                 <p class="titleInput">{{service_name}}</p>
-                <p class="priceInput">가격 : <span style = "margin-left:5px;">{{service_price}}</span></p>
-                <p class="nameInput"> 이름 : {{user.name}} </p>
-                
+                <div style="margin-left: 18%">
+                    <p class="priceInput">가격 : <span style="margin-left:5px;">{{service_price}}</span></p>
+                    <p class="nameInput"> 이름 : {{user.name}} </p>
 
-                <form method="POST" action="{% url 'reservation:reservation_create' profile.pk %}"
-                    enctype="multipart/form-data">
-                    {% csrf_token %}
-                <div>
-                <label for = "peopleInput" class="peopleInput"> 인원 : 
-                    <input type = "number" min="1" id = "peopleInput" name = "customer_count" value = "{{forms.customer_count.value|default_if_none:''}}" >
-                </label>
+
+                    <form method="POST" action="{% url 'reservation:reservation_create' profile.pk %}"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div>
+                            <label for="peopleInput" class="peopleInput"> 인원 :
+                                <input type="number" min="1" id="peopleInput" name="customer_count"
+                                    value="{{forms.customer_count.value|default_if_none:''}}">
+                            </label>
+                        </div>
+                        <div>
+                            <label for="activateDate" class="activateDate"> 일시 :
+                                <input type="datetime" id="activateDate" name="activate_date"
+                                    value="{{forms.activate_date.value|default_if_none:''}}">
+                            </label>
+                        </div>
+                    </div>
+                        <button class="btnProduce" type="submit"> 생성하기</button>
+                    </form>
+                </div>
             </div>
-        <div>
-                <label for ="activateDate" class = "activateDate"> 일시 : 
-                    <input type = "datetime" id = "activateDate" name="activate_date" value = "{{forms.activate_date.value|default_if_none:''}}" >
-                </label>
-            </div>   
-                    <button class="btnProduce" type="submit"> 생성하기</button>
-                </form>
-            </div>
+            <div class="col-3"></div>
+
+
         </div>
-        <div class = "col-3"></div>
-
-
-    </div>
 </body>
 
 </html>
