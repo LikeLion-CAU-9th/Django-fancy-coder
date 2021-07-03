@@ -455,18 +455,18 @@
                     <li style="padding-top:15px;">{{user.name}} 님</li>
                 </div>
                 <div class="col-2" style="padding-right:10px;">
-                    <li style="padding-top:10px;"><a href="{% url 'profile' user.id %}" style="color: rgba(24, 24, 24, 0.5); text-decoration: none;"
+                    <li style="padding-top:10px;"><a href="{% url 'profile' user.id %}" style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;"
                             class="navbar-right">MyPage</a></li>
                     <li style="padding-top:10px;"><a href="{% url 'accounts_logout' %}"
-                            style="color: rgba(24, 24, 24, 0.5); text-decoration: none;" class="navbar-right">LogOut</a></li>
+                            style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;" class="navbar-right">LogOut</a></li>
                 </div>
 
                 {% else %}
                 <div class="col-2"></div>
                 <div class="col-2" style="padding-right:10px;">
                     <li style="padding-top:10px;"><a href="{% url 'signup_main' %}"
-                            style="color: rgba(24, 24, 24, 0.5); text-decoration: none;" class="navbar-right">SignUp</a></li>
-                    <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(24, 24, 24, 0.5); text-decoration: none;"
+                            style="color: rgba(24, 24, 24, 0.5); text-decoration: none; " class="navbar-right">SignUp</a></li>
+                    <li style="padding-top:10px;"><a href="{% url 'accounts_login' %}" style="color: rgba(24, 24, 24, 0.5); text-decoration: none; font-size: 15px;"
                             class="navbar-right" >LogIn</a></li>
                 </div>
                 {% endif %}
@@ -480,7 +480,7 @@
 
         <div class="push"></div>
 
-        <footer style = "padding:0 40% 0 40%">
+        <footer style = "padding:0 40% 0 40%ls">
             <div style="display:flex; flex-direction: row;height:40px;">
                 <div style="display:flex; flex-direction: column; float:center">
                     <p
