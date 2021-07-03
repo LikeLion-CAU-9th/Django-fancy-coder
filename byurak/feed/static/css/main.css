@@ -712,15 +712,15 @@ hr {
     width: 90%;
 }
 #full-slide .banner li:nth-child(1) {
-    background-image: url("/static/img/Carousel_1.png");
+    background-image: url("/static/img/Carousel1.png");
     padding-right : 50px;
 }
 
 #full-slide .banner li:nth-child(2) {
-    background-image: url("/static/img/carouselNew2.png")
+    background-image: url("/static/img/Carousel2.png")
 }
 #full-slide .banner li:nth-child(3) {
-    background-image: url("/static/img/Carousel_3.png")
+    background-image: url("/static/img/Carousel3.png")
 }
 #full-slide i {
     position: absolute;
