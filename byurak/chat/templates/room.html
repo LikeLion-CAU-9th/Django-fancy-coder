@@ -491,12 +491,13 @@
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             let chatLog = document.querySelector('#chat-message-content')
+            let today = new Date();
             //console.log(chatLog)
             
             // console.log({{request_user}});
             var requestUser = "{{request_user}}";
             if( data.user === requestUser) {
-                chatLog.innerHTML += `<div class=\"chat-msg owner\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png\"alt=\"\" /><div class=\"chat-msg-date\">Message seen 1.22pm${data.user}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div>`
+                chatLog.innerHTML += `<div class=\"chat-msg owner\"><div class=\"chat-msg-profile\"><img class=\"chat-msg-img\"src=\"https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png\"alt=\"\" /><div class=\"chat-msg-date\">${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일 ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div></div><div class=\"chat-msg-content\"><div class=\"chat-msg-text\">${data.message}</div></div></div>`
                 document.querySelector('#chat-log').value += (data.user + '님 : ' + data.message + '\n');
             }
             
