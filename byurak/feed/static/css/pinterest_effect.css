@@ -81,6 +81,7 @@ figure.effect-sadie h3 {
 	transition: transform 0.35s, color 0.35s;
 	transform: translate3d(0,-50%,0);
     font-family: "Noto Sans KR", sans-serif;
+    width:350px;
 }
 
 figure.effect-sadie figcaption::before,

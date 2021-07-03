@@ -21,11 +21,11 @@
 <body>
 
     <div class="signup_header">
-        <img style=" width : 70%; height:6%; margin-bottom: 2%;" src="{% static 'image/stepperMint1.png' %}">
+        <img style=" width : 70%; height:6%; margin-bottom: 3%;" src="{% static 'image/stepperMint1.png' %}">
 
+        <p style="font-family: 'Noto Sans KR', sans-serif; margin : 0 auto 0 auto; font-size: 30px; color:black; font-weight: 600;">
+            CULTU<span style = "color : #ACCCC4;">R</span>E BOOK <span style="color : #000000">회원가입</span></p>
 
-        <p style="color: #ACCCC4;font-family: Noto SansKR, sans-serif; font-size: 30px; font-weight: 800;">Culture Book
-            <span style="color : #000000">회원가입</span></P>
     </div>
     <br>
     <form action="{% url 'signup_check' %}" id="joinForm" method="POST" name="Join" onSubmit="return CheckForm(this)">
@@ -355,11 +355,11 @@
             </li>
 
             <ul class="footBtwrap clearfix">
-                <li style="margin-left:5%; width:40%; margin-right:5%;">
+                <li style="margin-left:3%; width:45%; margin-right:2%;">
                     <button type="button" class="fpmgBt1" onclick="location.href='{% url 'feed:feedList' %}'"
                         style="background-color: #e9e6e0; border:none;">취소</button>
                 </li>
-                <li style="margin-left:5%; width:40%; margin-right:5%">
+                <li style="margin-left:2%; width:45%; margin-right:3%">
                     <button type="submit" class="fpmgBt2" onclick="submitButtonEvent()"
                         style="background-color: #ACCCC4; border:none;" id="agree">동의</button>
                 </li>

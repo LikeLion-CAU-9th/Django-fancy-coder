@@ -1,4 +1,6 @@
 /* 레이아웃 틀 */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 html {
     height: 100%;
 }
@@ -6,7 +8,7 @@ html {
 body {
     height: 100%;
     background: #f5f6f7;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
+    font-family: "Noto Sans KR", sans-serif !important;
 }
 
 #logo {
@@ -17,13 +19,12 @@ body {
 
 .signup_header {
     padding-top: 62px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     text-align: center;
     float:center;
 }
 #wrapper {
     position: relative;
-    height: 100%;
 }
 
 #content {
@@ -66,10 +67,6 @@ h3 {
     font-size: 15px;
     margin-bottom: 20px !important;
 } 
-
-input {
-    font-family: Noto SansKR,sans-serif;    
-}
 
 .box.int_id {
     padding-right: 110px;
@@ -139,6 +136,7 @@ select {
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
 
+
 /* 에러메세지 */
 
 .error_next_box {
@@ -156,6 +154,7 @@ select {
     color: red;
     display: none;
 }
+
 
 /* 버튼 */
 

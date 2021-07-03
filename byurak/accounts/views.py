@@ -51,7 +51,7 @@ def accounts_signup(request):
             user.save()
             auth_login(request, user)
             Profile.objects.create(user=user)
-            return redirect("signup_success.html")
+            return redirect("signup_success")
         else:
             ctx = {
                 "form": form,
