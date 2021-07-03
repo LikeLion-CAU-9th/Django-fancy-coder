@@ -1,8 +1,5 @@
+{% load static %}
 
-
-{% extends 'base.html' %}
-        
-{% block contents %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +9,10 @@
     
 <style>
     @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+    body {
+            background-color: #edecea;
+        }
+    
     .success {
         width: 50%;
         justify-content: center;
@@ -38,12 +39,11 @@
 </head>
 
 <body>
-    {% load static %}
-    <img src = "{% static 'image/stepperMint3.png' %}" style = "margin-top: 50px;">
-    <p class = "success">  CULTU<span style = "color :#ACCCC4">R</span>E BOOK  </p>
-    <p class = "success1">회원 가입 완료되었습니다.</p>
-
+    <div class="col signup-success" style="display:flex; flex-direction: column; width:70%; margin:0 auto; padding:0;">
+        <img src = "{% static 'image/stepperMint3.png' %}" style = "width:100%; margin-top: 50px;">
+        <p class = "success">  CULTU<span style = "color :#ACCCC4">R</span>E BOOK  </p>
+        <p class = "success1">회원 가입 완료되었습니다.</p>
+    </div>
 
 </body>
 </html>
-{% endblock %}

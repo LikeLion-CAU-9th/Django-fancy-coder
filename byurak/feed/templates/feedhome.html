@@ -17,7 +17,6 @@
     {% for service_provider in service_providers %}
     <a href = "{% url 'profile' service_provider.user.id %}">
     <figure class="effect-sadie">
-        
         <div class="image">
             {% if service_provider.image %}
             <img src="{{service_provider.image.url}}"
