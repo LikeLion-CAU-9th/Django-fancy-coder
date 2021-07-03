@@ -10,39 +10,79 @@
 <style>
     @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
     body {
-            background-color: #edecea;
-        }
+        background-color: #edecea;
+        margin:0;
+        width:100%;
+    }
+
+    .signup-success{
+        margin:15% auto; 
+    }
     
     .success {
-        width: 50%;
-        justify-content: center;
-        float: center;
         font-size: 70px;
-        position : absolute;
         display : inline;
-        margin : 13% 0 0 15% ;
         font-family: "Noto Sans KR", sans-serif;
     }
 
     .success1 {
-        width: 50%;
-        justify-content: center;
-        float: center;
+        width: 100%;
         font-size: 30px;
-        position : absolute;
-        display : inline;
-        margin : 18% 0 0 20% ;
         font-family: "Noto Sans KR" , sans-serif;
+        margin: 0 auto;
+        text-align: center;
     }
+
+    .to-feed{
+        width:25%;
+        height:50%;
+        background-color: #ACCCC4;
+        border: 2.5px solid #ACCCC4;
+        border-radius: 15px;
+        margin:20px 37.5%;
+        color:#edecea;
+        cursor:pointer;
+    }
+
+    .to-feed:hover{
+        background-color: transparent;
+        border:2.5px solid #ACCCC4;
+        color: #ACCCC4;
+    }
+
+    .to-feed::before,
+    .to-feed::after,
+    .to-feed{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all .4s;
+        transition: all .4s;
+    }
+
+    .start{
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0;
+    }
+
 </style>
 
 </head>
 
 <body>
-    <div class="col signup-success" style="display:flex; flex-direction: column; width:70%; margin:0 auto; padding:0;">
-        <img src = "{% static 'image/stepperMint3.png' %}" style = "width:100%; margin-top: 50px;">
-        <p class = "success">  CULTU<span style = "color :#ACCCC4">R</span>E BOOK  </p>
-        <p class = "success1">회원 가입 완료되었습니다.</p>
+    <div class="col " style="display:flex; flex-direction: column; width:70%; margin:0 auto; padding:0;">
+        <img src = "{% static 'image/stepperMint3.png' %}" style = "width:100%; padding-top: 62px; margin-bottom:3%;">
+        <div class="signup-success">
+            <p class = "success">CULTU<span style = "color :#ACCCC4">R</span>E BOOK</p>
+            <p class = "success1">회원 가입 완료되었습니다.</p>
+            <div style="height: 100px;">
+                <button class="to-feed" onclick="location.href='{% url 'feed:feedList' %}'">
+                    <p class="start">시작하기</p>
+                </button>
+            </div>
+            
+        </div>
     </div>
 
 </body>
