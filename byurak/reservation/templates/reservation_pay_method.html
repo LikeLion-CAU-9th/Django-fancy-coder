@@ -1,31 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+ td {
+     border: 1px solid black;
+     font-size: 30px;
+ }
+</style>
+</head>
+
+</html>
 {% extends 'base.html' %}
 
 {% load static %}
 
 {% block contents %}
+
+
 <body>
+    <h1 style = "margin: 100px 0 20px 0;"> 예약정보</h1>
+    <table class="table">
+      
+        <thead style = " background-color: #acccc4;">
+          <tr style = "width: 30px; font-size: 25px;" > 
+        <th> 내용 </th>
+          <th> 일시 </th>
+          <th> 인원 </th>
+          <th> 요금 </th>
+        </tr>
+        </thead>
 
-    <h5>{{reservation.service.user.name}}</h5>
+        <tbody>
+          <tr> 
+              <td> 제주도 해녀체험 </td>
+            <td> {{reservation.activate_date}} </td>
+        <td style = "text-align: center; margin-right: 10px;">{{reservation.customer_count}}</td>
+    <td style = "text-align: center; margin-right: 10px;">{{reservation.payment_fee}}</td>
+    </tr>
+        </tbody>
+      </table>
 
-    <h5>{{reservation.customer.name}}</h5>
+    <div class="container">
 
-    <h5>{{reservation.activate_date}}</h5>
+    <h4>{{reservation.service.user.name}}</h4> <br>
 
-    <h5>{{reservation.customer_count}}</h5>
-
-    <h5>{{reservation.payment_fee}}</h5>
+    <h4>{{reservation.customer.name}}</h4> <br>
 
 
     <form method="POST" action="{% url 'reservation:reservation_pay_method' reservation.pk %}" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <div>
-            {{ form.as_p }}
+            <p style = "font-size: 50px;">결제수단</p>
+
+            <div style = "font-size: 16px; width: 200px; display: inline;" >
+            <label style ="width: 80px;">신용카드</label>
+            <input type = "radio" value="ddds" style ="margin-left: -20px;">
+
+            <label style ="width: 80px; margin-right: 0 ">무통장 입금</label>
+            <input type = "radio" value="ddds">
+
+            <label style ="width: 80px; margin-right: 0;">카카오페이 </label>
+            <input type = "radio" value="ddds" style = "margin-right : 4px;" >
+    
         </div>
+
+        <br>
+        <br>
+        <br>
         
-        <button type="submit">생성하기</button>
+        <button type="submit" 
+        style = "background-color: #acccc4; margin: 0 30% 0 35%;
+         font-size: 25px; border :none; color : #fff; width: 20%; height: 10%;">생성하기</button>
     
     </form>
+</div>
+
 </body>
 </html>
+
 {% endblock %}
