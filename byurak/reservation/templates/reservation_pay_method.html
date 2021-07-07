@@ -22,7 +22,7 @@
 
 
 <body>
-    <h1 style = "margin: 100px 0 20px 0;"> 예약정보</h1>
+    <p style = "font-size: 50px; margin:100px 0 20px 0"> 예약정보</p>
     <table class="table">
       
         <thead style = " background-color: #acccc4;">
@@ -36,7 +36,7 @@
 
         <tbody>
           <tr> 
-              <td> 제주도 해녀체험 </td>
+              <td> {{reservation.service.user.name}} </td>
             <td> {{reservation.activate_date}} </td>
         <td style = "text-align: center; margin-right: 10px;">{{reservation.customer_count}}</td>
     <td style = "text-align: center; margin-right: 10px;">{{reservation.payment_fee}}</td>
@@ -44,27 +44,22 @@
         </tbody>
       </table>
 
-    <div class="container">
-
-    <h4>{{reservation.service.user.name}}</h4> <br>
-
-    <h4>{{reservation.customer.name}}</h4> <br>
-
+      <br><br>
 
     <form method="POST" action="{% url 'reservation:reservation_pay_method' reservation.pk %}" enctype="multipart/form-data">
         {% csrf_token %}
 
             <p style = "font-size: 50px;">결제수단</p>
 
-            <div style = "font-size: 16px; width: 200px; display: inline;" >
-            <label style ="width: 80px;">신용카드</label>
-            <input type = "radio" value="ddds" style ="margin-left: -20px;">
+            <div style = "font-size: 30px; width: 800px; " >
+            <label style ="width: 180px;">신용카드</label>
+            <input type = "radio" value="ddds" style ="margin-left: -60px;">
 
-            <label style ="width: 80px; margin-right: 0 ">무통장 입금</label>
-            <input type = "radio" value="ddds">
+            <label style ="width: 180px; margin-left: 60px; ">무통장 입금</label>
+            <input type = "radio" style="margin-left:-30px" value="ddds">
 
-            <label style ="width: 80px; margin-right: 0;">카카오페이 </label>
-            <input type = "radio" value="ddds" style = "margin-right : 4px;" >
+            <label style ="width: 180px; margin-left: 60px;">카카오페이 </label>
+            <input type = "radio" value="ddds" style = "margin-left : -30px;" >
     
         </div>
 
@@ -77,7 +72,7 @@
          font-size: 25px; border :none; color : #fff; width: 20%; height: 10%;">생성하기</button>
     
     </form>
-</div>
+
 
 </body>
 </html>
